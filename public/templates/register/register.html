@@ -1,0 +1,42 @@
+<form id="register" ng-hide="vm.message" name="register" ng-submit="vm.register()">
+  <h1>Register</h1>
+  <br>
+  <div ng-if="vm.message" class="alert alert-success" role="alert">
+    <p>{{ vm.message }}</p>
+  </div>
+  <div ng-if="vm.error" class="alert alert-danger" role="alert">
+    {{ vm.error }}
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="username" class="form-control" name="username" id="username" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+  </div>
+  <div class="form-group">
+    <label for="password">Repeat Password</label>
+    <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repeat Password" ng-model="vm.passwordRepeat" autocapitalize="none">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" name="email" id="email" placeholder="Email" ng-model="vm.email" autocapitalize="none" ng-pattern="/^[a-z]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$/">
+  </div>
+  <button type="submit" class="btn btn-success">Register</button>
+</form>
+<!--<div ng-show="register.username.$error.required && register.username.$dirty" ng-messages="register.username.$error">
+  <div ng-message="required" class="alert alert-danger">
+    To continue, fill in the username field.
+  </div>
+</div>
+<div ng-hide="vm.password == passwordRepeat" ng-messages="register.password.$error">
+  <div ng-message="required" class="alert alert-danger">
+    Passwords are not the same.
+  </div>
+</div>
+<div ng-show="register.email.$error.pattern && register.email.$dirty" ng-messages="register.email.$error.pattern">
+  <div ng-message="required" class="alert alert-danger">
+    Email invalid.
+  </div>
+</div>-->

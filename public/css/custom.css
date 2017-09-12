@@ -1,0 +1,34 @@
+  /* Sticky footer styles
+  -------------------------------------------------- */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  nav#menu{
+    /*background-color: #0d3300;*/
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 90px;
+    /*background: -webkit-linear-gradient(top, rgba(91,188,52,1) 0%,rgba(252,252,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  }
+  body > .container {
+    padding-top: 60px;
+  }
+  .padded {
+    padding-top: 30px
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 90px;
+    background-color: #bbafa9;
+    padding-top: 20px;
+  }
+form#register{
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
