@@ -11,6 +11,14 @@ function config($httpProvider, $routeProvider){
         restricted: false
       }
     })
+    .when('/topics', {
+      templateUrl: 'templates/topics/topics.html',
+      controller: TopicsController,
+      controllerAs: 'vm',
+      access: {
+        restricted: false
+      }
+    })
     .when('/register',{
       templateUrl: 'templates/register/register.html',
       controller: RegisterController,

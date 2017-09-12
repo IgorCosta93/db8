@@ -12,7 +12,7 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li ng-class="vm.isActiveTab('')"><a href="#!/">Home</a></li>
-        <li ng-class="vm.isActiveTab('')"><a href="#!/">Topics</a></li>
+        <li ng-class="vm.isActiveTab('')"><a href="#!/topics">Topics</a></li>
         <li ng-class="vm.isActiveTab('register')" ng-if="!vm.isLoggedIn()"><a href="#!/register">Register</a></li>
         <li ng-class="vm.isActiveTab('profile')" ng-if="vm.isLoggedIn()"><a href="#!/profile">Profile</a></li>
       </ul>
