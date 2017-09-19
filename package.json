@@ -1,8 +1,8 @@
 {
-  "name": "db8",
+  "name": "mean-stack-hero",
   "version": "1.0.0",
-  "description": "Information about the DB8 Aplication",
-  "main": "server.js",
+  "description": "This repo contains the MEAN stack application that is built through  Full Stack Training's MEAN Stack course.",
+  "main": "app.js",
   "dependencies": {
     "angular": "^1.5.6",
     "angular-jwt": "^0.0.9",
@@ -23,15 +23,15 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/fullstacktraining/mean-stack-hero.git"
   },
-  "author": "Igor Costa",
+  "author": "Full Stack Training",
   "keywords": [
-    "db8"
+    "mean"
   ],
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/fullstacktraining/mean-stack-hero/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/fullstacktraining/mean-stack-hero#readme"
 }

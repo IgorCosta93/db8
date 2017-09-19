@@ -6,7 +6,8 @@ function RegisterController($http,$scope){
   vm.register = function() {
     var user = {
       username: vm.username,
-      password: vm.password
+      password: vm.password,
+      email: vm.email
     };
 
       if (!vm.username || !vm.password){
@@ -15,10 +16,14 @@ function RegisterController($http,$scope){
         if (vm.password !== vm.passwordRepeat){
           vm.error = 'Please Make sure the passwords match.'
         }else{
-          vm.message = 'Successful registration, please login.';
-          vm.error = '';
+          $http.post('/api/register', user).then(function(result){
+            console.log(result);
+            vm.message = 'Successful registration, please login.';
+            vm.error = '';
+          }).catch(function(error){
+            console.log(error);
+          });
         }
       }
   }
-
 };

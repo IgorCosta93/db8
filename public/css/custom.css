@@ -32,3 +32,15 @@ form#register{
   margin-left: auto;
   margin-right: auto;
 }
+
+form#coments{
+  width: 500px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#post-stream{
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: : #00B7FF;
+}
