@@ -60,11 +60,17 @@ function politicsController($http, $scope, AuthFactory, debateFactory,$route, $r
     vm.debates = response.data;
   });
 
-  vm.getUser = function(){
+  //VERIFY IF USER IS ADM
+  debateFactory.getUser(username).then(function(response){
+    vm.adm = response.data.adm;
+    console.log(response.data);
+  });
+
+  /*vm.getUser = function(){
     debateFactory.getUser(username).then(function(response){
       vm.adm = response.data.adm;
       console.log(response.data);
     });
-  }
+  };*/
 
 };

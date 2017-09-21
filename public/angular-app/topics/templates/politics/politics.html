@@ -20,7 +20,7 @@
                 <div class="post" ng-repeat="debate in vm.debates | orderBy:'createdOn':true" ng-class-odd="'odd'" ng-class-even="'even'">
                   <p>{{debate.coment}}
                     <!--<input id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" ng-click="vm.delete(debate._id)" value="X" data-target="#myModal"/>-->
-                    <input id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" value="X" data-toggle="modal" data-target="#myModal" readonly="true"/>
+                    <input ng-show="vm.adm == 'SIM'" id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" value="X" data-toggle="modal" data-target="#myModal" readonly="true"/>
                     <div id="myModal" class="modal fade" role="dialog">
                       <div class="modal-dialog">
 
@@ -47,8 +47,7 @@
                 </div>
           </div>
         </div>
-        <button type="button" name="button" ng-click="vm.getUser()">ADM</button>
-        <p>{{vm.adm}}</p>
+        
         <div ng-if="!vm.isLoggedIn()">
           <h1>Você não está logado.</h1>
         </div>
