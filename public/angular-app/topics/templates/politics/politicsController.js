@@ -1,8 +1,10 @@
 angular.module('db8').controller('politicsController', politicsController);
 
 function politicsController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
-  var vm = this;
-  var id = $routeParams.id;
+  var vm      = this;
+  var id      = $routeParams.id;
+  var token   = jwtHelper.decodeToken($window.sessionStorage.token);
+  username = token.username;
 
   vm.post = function(){
     var token = jwtHelper.decodeToken($window.sessionStorage.token);
@@ -57,5 +59,12 @@ function politicsController($http, $scope, AuthFactory, debateFactory,$route, $r
   debateFactory.debateList().then(function(response){
     vm.debates = response.data;
   });
+
+  vm.getUser = function(){
+    debateFactory.getUser(username).then(function(response){
+      vm.adm = response.data.adm;
+      console.log(response.data);
+    });
+  }
 
 };

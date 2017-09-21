@@ -64,6 +64,36 @@ module.exports.login = function(req, res) {
   });
 };
 
+module.exports.getUser = function(req, res) {
+  console.log('User found ' + req.params.username);
+  var usuario  = req.params.username;
+
+  User.findOne({
+    username : usuario
+  }).exec(function(err, user){
+    var response = {
+      status  : 200,
+      message : user
+    };
+    if (err){
+      console.log("Error finding user");
+      response.status   = 500;
+      response.message  = err;
+    }else if (!user) {
+      console.log("User not found in the database");
+      response.status = 404;
+      response.message = {
+        "message" : "User not found " + usuario
+      };
+    }
+    res
+      .status(response.status)
+      .json(response.message);
+  });
+
+};
+
+
 module.exports.authenticate = function(req, res, next) {
   var headerExists = req.headers.authorization;
   if (headerExists) {

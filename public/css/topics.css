@@ -111,6 +111,11 @@ a {
   color: #00B7FF;
 }
 
+input#btnDeleteComent{
+  width: 30px;
+  height: 20px;
+}
+
 .submit-btn{
   background-color: #b1dbff;
   margin: 10px 0 10px 0;
