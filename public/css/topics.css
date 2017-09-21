@@ -116,6 +116,18 @@ input#btnDeleteComent{
   height: 20px;
 }
 
+form#options{
+  width: 700px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button#btnOptions{
+  width: 200px;
+  margin-right: 20px;
+}
+
 .submit-btn{
   background-color: #b1dbff;
   margin: 10px 0 10px 0;

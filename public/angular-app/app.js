@@ -5,39 +5,55 @@ function config($httpProvider, $routeProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl: 'angular-app/main/main.html',
-      access: {
+      templateUrl : 'angular-app/main/main.html',
+      access      : {
         restricted: false
       }
     })
     .when('/register', {
-      templateUrl: 'angular-app/register/register.html',
-      controller: RegisterController,
-      controllerAs: 'vm',
+      templateUrl   : 'angular-app/register/register.html',
+      controller    : RegisterController,
+      controllerAs  : 'vm',
       access: {
         restricted: false
       }
     })
     .when('/topics', {
-      templateUrl: 'angular-app/topics/topics.html',
-      controller: TopicsController,
-      controllerAs: 'vm',
+      templateUrl   : 'angular-app/topics/topics.html',
+      controller    : TopicsController,
+      controllerAs  : 'vm',
       access: {
         restricted: false
       }
     })
     .when('/topics/politics', {
-      templateUrl: 'angular-app/topics/templates/politics/politics.html',
-      controller: politicsController,
-      controllerAs: 'vm',
+      templateUrl   : 'angular-app/topics/templates/politics/politics.html',
+      controller    : politicsController,
+      controllerAs  : 'vm',
       access: {
         restricted: false
       }
     })
     .when('/profile', {
-      templateUrl: 'angular-app/profile/profile.html',
-      access: {
+      templateUrl : 'angular-app/profile/profile.html',
+      access      : {
         restricted: true
+      }
+    })
+    .when('/chat',{
+      templateUrl   : 'angular-app/topics/templates/chat/chat.html',
+      controller    : chatController,
+      controllerAs  : 'vm',
+      access        : {
+        restricted : false
+      }
+    })
+    .when('/topics/subjectsujestion',{
+      templateUrl   : 'angular-app/topics/templates/SujestSubject/sujestsubject.html',
+      controller    : sujestionController,
+      controllerAs  : 'vm',
+      access        : {
+        restricted : false
       }
     })
     .otherwise({
