@@ -2,6 +2,7 @@ angular.module('db8').controller('politicsController', politicsController);
 
 function politicsController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
   var vm = this;
+  var id = $routeParams.id;
 
   vm.post = function(){
     var token = jwtHelper.decodeToken($window.sessionStorage.token);
@@ -15,15 +16,34 @@ function politicsController($http, $scope, AuthFactory, debateFactory,$route, $r
     if (!vm.coment){
       vm.error = 'Please write your coment before.'
     } else {
-      $http.post('/api/topics/politics', post).then(function(result){
+      /*$http.post('/api/topics/politics', post).then(function(result){
         console.log(result);
         vm.message = 'Successful coment.';
         vm.error = '';
       }).catch(function(error){
         console.log(error);
+      });*/
+      debateFactory.debatePost(post).then(function(response){
+        vm.debates = response.data;
       });
     }
-    $window.location.reload();
+    debateFactory.debateList().then(function(response){
+      vm.debates = response.data;
+    });
+  };
+
+  vm.delete = function(_id){
+    console.log("ID = " + _id);
+    $http.delete('/api/topics/politics/' + _id).then(function(result){
+      console.log(result);
+      vm.message = 'Successful coment.';
+      vm.error = '';
+    }).catch(function(error){
+      console.log(error);
+    });
+    debateFactory.debateList().then(function(response){
+      vm.debates = response.data;
+    });
   };
 
   vm.isLoggedIn = function() {
@@ -34,20 +54,8 @@ function politicsController($http, $scope, AuthFactory, debateFactory,$route, $r
     }
   };
 
-  $scope.posts = [];
-	$scope.newPost = {created_by: '', text: '', created_at: ''};
-
-  $scope.post = function(){
-    $scope.newPost.created_at = Date.now();
-    //Push pass the information into the array
-    $scope.posts.push($scope.newPost);
-    //Here we reset the information fields on the screem
-    $scope.newPost = {created_by: '', text: '', created_at: ''};
-  }
-
   debateFactory.debateList().then(function(response){
     vm.debates = response.data;
   });
-
 
 };

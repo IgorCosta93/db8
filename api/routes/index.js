@@ -7,7 +7,12 @@ var ctrlUsers         = require('../controllers/users.controllers.js');
 router
   .route('/topics/politics')
   .get(ctrlConversation.conversationGetAll)
-  .post(ctrlConversation.addComent);
+  .post(ctrlConversation.addComent)
+  .delete(ctrlConversation.deleteComent);
+
+router
+  .route('/topics/politics/:politicsId')
+  .delete(ctrlConversation.deleteComent);
 
 // Authentication
 router

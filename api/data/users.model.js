@@ -6,11 +6,16 @@ var userSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  name: {
-    type: String
-  },
   password: {
     type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  adm : {
+    type : String,
     required: true
   }
 });

@@ -21,6 +21,7 @@
                   <p>{{debate.coment}}</p>
                   <small>Posted by @{{debate.user}}</small>
                   <small class="pull-right">{{debate.createdOn | date:"h:mma 'on' MMM d, y"}}</small>
+                    <input class="btn submit-btn pull-right" ng-click="vm.delete(debate._id)" value="Delete!" />
                 </div>
           </div>
         </div>

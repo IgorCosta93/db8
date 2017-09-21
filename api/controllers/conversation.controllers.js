@@ -79,3 +79,24 @@ module.exports.addComent = function(req,res){
         }
       });
 };
+
+module.exports.deleteComent = function(req,res){
+  id = req.params.politicsId;
+  console.log("ID from controller "+id);
+  coment
+    .findByIdAndRemove(id)
+    .exec(function(err, result){
+      console.log(err);
+      console.log(result);
+      if (err){
+        console.log("Error deleting coment");
+        res
+          .status(500)
+          .json(err);
+      } else {
+        console.log("Coment delete");
+        res
+          .json(result);
+      }
+    });
+};

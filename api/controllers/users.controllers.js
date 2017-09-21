@@ -7,13 +7,15 @@ module.exports.register = function(req, res) {
   console.log('registering user');
 
   var username = req.body.username;
-  var name = req.body.name || null;
   var password = req.body.password;
+  var email = req.body.email;
+  var adm = req.body.adm || "NAO";
 
   User.create({
-    username: username,
-    name: name,
-    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+    username  : username,
+    password  : bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
+    email     : email,
+    adm       : adm
   }, function(err, user) {
     if (err) {
       console.log(err);
