@@ -4,7 +4,9 @@ function debateFactory($http){
   return {
     debateList  : debateList,
     debatePost  : debatePost,
-    getUser     : getUser
+    getUsers    : getUsers,
+    getUser     : getUser,
+    topicPost   : topicPost
   };
 
   function debateList() {
@@ -13,6 +15,14 @@ function debateFactory($http){
 
   function debatePost(post){
     return $http.post('/api/topics/politics', post).then(complete).catch(failed);
+  }
+
+  function topicPost(post){
+    return $http.post('/api/topics', post).then(complete).catch(failed);
+  }
+
+  function getUsers(){
+    return $http.get('/api/users').then(complete).catch(failed);
   }
 
   function getUser(username){

@@ -23,7 +23,7 @@
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 90px;
+    height: 60px;
     background-color: #bbafa9;
     padding-top: 20px;
   }
@@ -43,4 +43,10 @@ form#coments{
 div#post-stream{
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: : #00B7FF;
+}
+
+button#btnMessage {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 32px;
 }

@@ -47,3 +47,4 @@ process.on('SIGTERM', function() {
 // BRING IN YOUR SCHEMAS & MODELS
 require('./debate.model');
 require('./users.model');
+require('./debateTopics.model');

@@ -47,6 +47,7 @@ ul#topics li#topic-01{
     background-size: 400px 400px;
     background-color: white;
 }
+
 ul#topics li#topic-01:hover {
     background-position: 0px 0px;
     background-size: 200px 200px;
@@ -114,6 +115,10 @@ a {
 input#btnDeleteComent{
   width: 30px;
   height: 20px;
+}
+
+input#topic{
+  margin-bottom: 10px;
 }
 
 form#options{

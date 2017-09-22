@@ -6,6 +6,11 @@ function chatController($http, $scope, AuthFactory, debateFactory,$route, $route
   var token   = jwtHelper.decodeToken($window.sessionStorage.token);
   username = token.username;
 
+  vm.getTopic = function(){
+    console.log('RAIO');
+    vm.topic = 'Bolsonaro';
+  };
+
   vm.post = function(){
     var token = jwtHelper.decodeToken($window.sessionStorage.token);
     var post = {
@@ -32,6 +37,7 @@ function chatController($http, $scope, AuthFactory, debateFactory,$route, $route
     debateFactory.debateList().then(function(response){
       vm.debates = response.data;
     });
+    document.getElementById("coment").value = '';
   };
 
   vm.delete = function(_id){
@@ -65,6 +71,7 @@ function chatController($http, $scope, AuthFactory, debateFactory,$route, $route
     vm.adm = response.data.adm;
     console.log(response.data);
   });
+
 
   /*vm.getUser = function(){
     debateFactory.getUser(username).then(function(response){

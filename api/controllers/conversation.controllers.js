@@ -3,9 +3,9 @@ var conversation  = mongoose.model('User');
 var coment        = mongoose.model('Conversation');
 
 module.exports.conversationGetAll = function(req, res){
-    console.log('Request by: ' + req.user);
-    console.log('GET the hotels');
-    console.log('req.query');
+    //console.log('Request by: ' + req.user);
+    //console.log('GET the hotels');
+    //console.log('req.query');
 
     var offset    = 0;
     var count     = 5;
@@ -40,8 +40,8 @@ module.exports.conversationGetAll = function(req, res){
     coment
       .find()
       .exec(function(err, debates){
-        console.log(err);
-        console.log(debates);
+        //console.log(err);
+        //console.log(debates);
         if (err){
           console.log("Error finding debates");
           res

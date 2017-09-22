@@ -1,7 +1,9 @@
 angular.module('db8').controller('LoginController', LoginController);
 
-function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
+function LoginController($http, $location, $window, AuthFactory,debateFactory, jwtHelper) {
   var vm = this;
+  vm.adm = "NAO";
+
 
   vm.isLoggedIn = function() {
     if (AuthFactory.isLoggedIn) {
@@ -26,6 +28,10 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
           var decodedToken = jwtHelper.decodeToken(token);
           vm.loggedInUser = decodedToken.username;
           vm.erro = '';
+
+          debateFactory.getUser(vm.loggedInUser).then(function(response){
+            vm.adm = response.data.adm;
+          });
         }
       }).catch(function(error) {
         console.log(error);
@@ -39,6 +45,7 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
     AuthFactory.isLoggedIn = false;
     delete $window.sessionStorage.token;
     $location.path('/');
+    vm.adm = "NAO";
   }
 
   vm.isActiveTab = function(url) {

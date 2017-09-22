@@ -64,6 +64,23 @@ module.exports.login = function(req, res) {
   });
 };
 
+module.exports.getUsers = function(req,res){
+    User
+      .find()
+      .exec(function(err, users){
+          if(err){
+            console.log("Error finding users");
+            res
+              .status(500)
+              .json(err);
+          }else {
+            console.log("Found users ", users.length);
+            res
+              .json(users);
+          }
+      });
+};
+
 module.exports.getUser = function(req, res) {
   console.log('User found ' + req.params.username);
   var usuario  = req.params.username;

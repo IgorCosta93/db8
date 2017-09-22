@@ -26,9 +26,17 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/topics/politics', {
-      templateUrl   : 'angular-app/topics/templates/politics/politics.html',
-      controller    : politicsController,
+    .when('/topics/subjectoptions', {
+      templateUrl   : 'angular-app/topics/templates/subjectOptions/subjectoptions.html',
+      //controller    : politicsController,
+      //controllerAs  : 'vm',
+      access: {
+        restricted: false
+      }
+    })
+    .when('/topics/availableSubjects', {
+      templateUrl   : 'angular-app/topics/templates/AvailableSubjects/availablesubjects.html',
+      controller    : chatController,
       controllerAs  : 'vm',
       access: {
         restricted: false
@@ -54,6 +62,14 @@ function config($httpProvider, $routeProvider) {
       controllerAs  : 'vm',
       access        : {
         restricted : false
+      }
+    })
+    .when('/controlPanel', {
+      templateUrl   : 'angular-app/topics/templates/controlPanel/controlpanel.html',
+      controller    : controlpanelcontroller,
+      controllerAs  : 'vm',
+      access        : {
+        restricted  : false
       }
     })
     .otherwise({

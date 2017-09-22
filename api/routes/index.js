@@ -3,6 +3,7 @@ var router = express.Router();
 
 var ctrlConversation  = require('../controllers/conversation.controllers.js');
 var ctrlUsers         = require('../controllers/users.controllers.js');
+var ctrlTopic         = require('../controllers/topics.controllers.js');
 
 router
   .route('/topics/politics')
@@ -24,7 +25,16 @@ router
   .post(ctrlUsers.login);
 
 router
+  .route('/users')
+  .get(ctrlUsers.getUsers);
+
+router
   .route('/user/:username')
   .get(ctrlUsers.getUser);
+
+router
+  .route('/topics')
+  .get(ctrlTopic.getAllTopic)
+  .post(ctrlTopic.addTopic);
 
 module.exports = router;

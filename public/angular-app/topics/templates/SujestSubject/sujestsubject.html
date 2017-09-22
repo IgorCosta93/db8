@@ -1,11 +1,20 @@
 <div class="container">
+
+  <div ng-if="vm.message" class="alert alert-success" role="alert">
+    <p>{{ vm.message }}</p>
+  </div>
+  <div ng-if="vm.error" class="alert alert-danger" role="alert">
+    {{ vm.error }}
+  </div>
+
   <div class="col-md-offset-2 col-md-8">
     <div class="clearfix">
-      <form id = "coments">
+      <form id = "coments" ng-hide="vm.message" ng-Submit="vm.postSujestion()">
 
           <h1>Subject</h1>
 
-          <input type="text" class="form-control input-sm" placeholder="Tipe here your Sujestion."ng-model="vm.sujestion" autocapitalize="none">
+          <input id="topic" type="text" class="form-control input-sm" placeholder="Tipe here your Topic sujestion." ng-model="vm.topic" autocapitalize="none">
+          <input type="text" class="form-control input-sm" placeholder="Tipe here your subject sujestion." ng-model="vm.subject" autocapitalize="none">
           <input class="btn submit-btn pull-right btn-block" type="submit" value="GO!" />
 
       </form>

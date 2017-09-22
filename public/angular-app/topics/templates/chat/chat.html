@@ -5,10 +5,11 @@
       <!--<form id = "coments" ng-Submit="post()">-->
       <form id = "coments" ng-Submit="vm.post()">
         <div ng-if="vm.isLoggedIn()">
+          <h1>{{vm.topic}}</h1>
           <!--<input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.created_by" />
           <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>-->
-          <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="vm.coment"></textarea>
-          <input class="btn submit-btn pull-right" type="submit" value="GO!" />
+          <textarea id="coment" required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="vm.coment"></textarea>
+          <input class="btn submit-btn pull-right" type="submit" value="GO!" onclick="resetForm('coment');"/>
             <br/><br/><br/>
           <div id="post-stream">
             <!--<h4>Chirp Feed</h4>

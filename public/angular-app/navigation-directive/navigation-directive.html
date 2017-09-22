@@ -15,6 +15,7 @@
        <li ng-class="vm.isActiveTab('topics')"><a href="#!/topics">Topics</a></li>
        <li ng-class="vm.isActiveTab('register')" ng-if="!vm.isLoggedIn()"><a href="#!/register">Register</a></li>
        <li ng-class="vm.isActiveTab('profile')" ng-if="vm.isLoggedIn()"><a href="#!/profile">Profile</a></li>
+       <li ng-show="vm.adm == 'SIM'" ng-class="vm.isActiveTab('controlPanel')"><a href="#!/controlPanel">Control Panel</a></li>
      </ul>
      <form ng-if="!vm.isLoggedIn()" class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
 
@@ -29,9 +30,15 @@
         User or password incorret.
       </div>
     </form>
-    <ul ng-if="vm.isLoggedIn()" class="nav navbar-nav navbar-right">
+    <ul id="Menu" ng-if="vm.isLoggedIn()" class="nav navbar-nav navbar-right">
       <li><p class="navbar-text">Welcome back {{ vm.loggedInUser }}</p></li>
       <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
+      <li>
+        <button id="btnMessage" type="submit" class="btn btn-success" value="Salvar">
+          <span class="glyphicon glyphicon-comment"></span>
+          <span class="badge"></span>
+        </button>
+    </li>
     </ul>
    </div>
  </div>

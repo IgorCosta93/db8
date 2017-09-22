@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Usuarios</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Username</td>
+        <td>Password</td>
+        <td>Email</td>
+        <td>Tipo</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="username" class="form-control" name="username" placeholder="Username" ng-model="vm.username" autocapitalize="none"></td>
+        <td><input type="text" class="form-control" name="password" placeholder="Password" ng-model="vm.password" autocapitalize="none"></td>
+        <td><input type="email" class="form-control" name="email" placeholder="Email" ng-model="vm.email" autocapitalize="none"></td>
+        <td><input type="text" class="form-control" name="tipo" placeholder="Tipo" ng-model="vm.tipo" autocapitalize="none"></td>
+        <td><button type="submit" class="btn btn-success" ng-click="vm.post()">ADD</button></td>
+      </tr>
+      <tr class="post" ng-repeat="user in vm.users | orderBy:'createdOn':true">
+        <td>{{user.username}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.adm}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
