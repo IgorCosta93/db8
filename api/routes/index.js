@@ -29,6 +29,14 @@ router
   .get(ctrlUsers.getUsers);
 
 router
+  .route('/user')
+  .post(ctrlUsers.updateUser);
+
+router
+  .route('/user/:userId')
+  .delete(ctrlUsers.deleteUser);
+
+router
   .route('/user/:username')
   .get(ctrlUsers.getUser);
 
