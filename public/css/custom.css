@@ -8,8 +8,8 @@
     /*background-color: #0d3300;*/
   }
   body {
-    /* Margin bottom by footer height */
-    margin-bottom: 90px;
+    /* Margin bottom by footer height
+    margin-bottom: 90px;*/
     /*background: -webkit-linear-gradient(top, rgba(91,188,52,1) 0%,rgba(252,252,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
   }
   body > .container {
@@ -32,7 +32,25 @@
     height: 80px;
     background-color: #bbafa9;
     padding-top: 20px;*/
-  }
+}
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #bbafa9;
+}
+
+.fa{
+  padding-right: 5px;
+  font-size: 15px;
+  color: #FFF;
+}
+.fa:hover{
+  color: #D5D5D5;
+  text-decoration: none;
+}
+
 form#register{
   width: 500px;
   margin-left: auto;
@@ -58,10 +76,7 @@ button#btnMessage {
 }
 
 div#myCarousel{
-  margin-top: -10px;
-  margin-bottom: -100px;
   width: 100%;
-  height: 100%;
 }
 
 .carousel-caption{
