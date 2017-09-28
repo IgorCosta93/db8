@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var dburl = 'mongodb://localhost:27017/db8';
+//var dburl = 'mongodb://localhost:27017/db8';
+var dburl = 'mongodb://igorcosta93:159753456Igor@ds040027.mlab.com:40027/db8';
 var retry = null;
 mongoose.connect(dburl,{
     useMongoClient: true
