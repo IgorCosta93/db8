@@ -99,6 +99,51 @@ div#myCarousel{
   margin-bottom: -40px;
 }
 
+.submit-btn{
+  background-color: #b1dbff;
+  margin: 10px 0 10px 0;
+}
+
+.post{
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.odd {
+  background-color: #f2f9ff;
+}
+
+.even {
+  background-color: #eceff3;
+}
+
+.form-auth {
+  max-width: 500px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+/*SUJESTION PAGE*/
+input#topic{
+  margin-bottom: 10px;
+}
+/*-------------------*/
+
+/* CHAT */
+form#coments{
+  width: 500px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input#btnDeleteComent{
+  width: 30px;
+  height: 20px;
+}
+/*--------------------------*/
+
 /*NAVIGATION BAR*/
 button#btnMessage {
     margin-top: 10px;
