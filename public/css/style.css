@@ -9,6 +9,15 @@ body {
   padding-top: 60px;
   /*background: -webkit-linear-gradient(top, rgba(91,188,52,1) 0%,rgba(252,252,252,1) 100%); /* Chrome10-25,Safari5.1-6 */
 }
+header{
+  height: 100%;
+}
+
+/* This set the value of % that the div ocupade in the screen  */
+.height-80 {
+    height: 75vh;
+}
+
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -45,7 +54,7 @@ body {
   border: 2px solid #FFF;*/
 }
 .container{
-
+  min-height: 100%;
 }
 
 img#icon{

@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+ul#topics {
+    width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    overflow: hidden;
+    list-style: none;
+}
+
+ul#topics li {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 5px solid white;
+    background-color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    -webkit-transition: all .5s ease-in;
+}
+
+ul#topics li span{
+    opacity: 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 9pt;
+    line-height: 370px;
+    padding: 5px;
+}
+
+ul#topics li:hover{
+    -webkit-transform: scale(1.5);
+}
+
+ul#topics li:hover span{
+    opacity: 1;
+}
+
+ul#topics li: a{
+  color: white;
+}
+
+ul#topics li#topic-01{
+    background: url('../_imagens/politic.jpg') no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+
+ul#topics li#topic-01:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+ul#topics li#topic-02{
+    background: url("../_imagens/copa-do-mundo.jpg") no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+ul#topics li#topic-02:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+ul#topics li#topic-03{
+    background: url("../_imagens/lakers.jpg") no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+ul#topics li#topic-03:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+ul#topics li#topic-04{
+    background: url("../_imagens/lava-jato.jpg") no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+ul#topics li#topic-04:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+ul#topics li#topic-05{
+    background: url("../_imagens/youtube.jpg") no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+ul#topics li#topic-05:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+ul#topics li#topic-06{
+    background: url("../_imagens/news.jpg") no-repeat;
+    background-position: 50% 50%;
+    background-size: 400px 400px;
+    background-color: white;
+}
+ul#topics li#topic-06:hover {
+    background-position: 0px 0px;
+    background-size: 200px 200px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input#btnDeleteComent{
+  width: 30px;
+  height: 20px;
+}
+
+input#topic{
+  margin-bottom: 10px;
+}
+
+form#options{
+  width: 700px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button#btnOptions{
+  width: 200px;
+  margin-right: 20px;
+}
+
+button#btnControl{
+  width: 70px;
+  text-align: center;
+}
+
+ul#portfolio-grid li{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+  opacity: 1;
+}
+
+.submit-btn{
+  background-color: #b1dbff;
+  margin: 10px 0 10px 0;
+}
+
+.post{
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.odd {
+  background-color: #f2f9ff;
+}
+
+.even {
+  background-color: #eceff3;
+}
+
+.form-auth {
+  max-width: 500px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+
+-----------------------------
+
+.conteudo {
+	width:350px;
+	height:275px;
+	border:4px solid #999;
+	background: url("../_imagens/copa-do-mundo.jpg") no-repeat;
+	}
