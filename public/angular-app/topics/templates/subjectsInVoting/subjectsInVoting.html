@@ -6,8 +6,8 @@
   <div ng-if="vm.message" class="alert alert-success" role="alert">
     <p>{{ vm.message }}</p>
   </div>
+  <h1>Vote in the topics below </h1>
   <div class="" ng-repeat="subject in vm.subjects">
-    <h1>Vote in the topics below </h1>
     <p>{{subject.subject}}</p>
     <label class="radio-inline"><input id="SIM" type="radio" name="optradio">Sim</label>
     <label class="radio-inline"><input id="NAO" type="radio" name="optradio">Não</label>
