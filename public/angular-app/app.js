@@ -60,14 +60,14 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/topics/subjectsujestion',{
       templateUrl   : 'angular-app/topics/templates/SujestSubject/sujestsubject.html',
-      controller    : sujestionController,
-      controllerAs  : 'vm',
+      //controller    : sujestionController,
+      //controllerAs  : 'vm',
       access        : {
         restricted : false
       }
     })
     .when('/controlPanel', {
-      templateUrl   : 'angular-app/topics/templates/controlPanel/controlpanel.html',
+      templateUrl   : 'angular-app/topics/templates/controlPanel/controlPanel.html',
       controller    : controlpanelcontroller,
       controllerAs  : 'vm',
       access        : {

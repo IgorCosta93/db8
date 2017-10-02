@@ -1,40 +1,39 @@
-# MEAN stack app
+# node-js-getting-started
 
-This repo contains the MEAN stack application that is built through  Full Stack Training's MEAN Stack course.
+A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-Don't forget to run `npm install` to install the dependencies!
+This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
-# MEAN stack hero: Branch section-05
+## Running Locally
 
-This repo contains the source code for section 5 of our course: [The complete JavaScript developer: MEAN stack zero-to-hero](http://www.fullstacktraining.com/courses/learn-the-mean-stack)
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
-## Section 5: Adding authentication to the MEAN stack
-
-By the end of this section of our course you will be able to:
-
-* Understand how to secure the backend (API) of your application
-* Work with JSON Web Tokens (JWT)
-* Understand how to controller authentication based access using AngularJS
-... and more!
-
-This branch contains the source code of the application as it stands at the *end* of Section 5.
-
-## Get the code
-
-To get the code for this specific branch:
-
-```bash
-$ git clone -b section-05 https://github.com/fullstacktraining/mean-stack-hero.git
+```sh
+$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
+$ cd node-js-getting-started
+$ npm install
+$ npm start
 ```
 
-Then change into the folder the git clone command will create:
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-```bash
-$ cd mean-stack-hero
+## Deploying to Heroku
+
 ```
-
-And finally install the dependencies:
-
-```bash
-npm install
+$ heroku create
+$ git push heroku master
+$ heroku open
 ```
+or
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using Node.js on Heroku, see these Dev Center articles:
+
+- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
+- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
+- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
+- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
