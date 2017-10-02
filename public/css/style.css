@@ -1,9 +1,9 @@
 html {
   position: relative;
+  height: 100%;
   min-height: 100%;
 }
 body {
-  height: 100%;
   width: 100%;
   margin-bottom: 150px;
   /* Margin bottom by footer height*
@@ -147,6 +147,22 @@ form#coments{
 input#btnDeleteComent{
   width: 30px;
   height: 20px;
+}
+
+.messageLogin {
+  height: 100%;
+  min-height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.messageLogin div {
+  padding: 40px;
+  border: 1px solid rgba(0, 0, 0, .3)
 }
 /*--------------------------*/
 

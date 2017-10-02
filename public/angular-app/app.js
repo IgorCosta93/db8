@@ -58,10 +58,10 @@ function config($httpProvider, $routeProvider) {
         restricted : false
       }
     })
-    .when('/topics/subjectsujestion',{
+    .when('/topics/sujestsubject',{
       templateUrl   : 'angular-app/topics/templates/SujestSubject/sujestsubject.html',
-      //controller    : sujestionController,
-      //controllerAs  : 'vm',
+      controller    : sujestionController,
+      controllerAs  : 'vm',
       access        : {
         restricted : false
       }

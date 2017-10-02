@@ -30,4 +30,5 @@ function sujestionController($http, $scope, AuthFactory, debateFactory,$route, $
         return false;
       }
     };
+
 }
