@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var routes = require('./api/routes');
 
 // Define the port to run on
-app.set('port', 3001);
+app.set('port', 3003);
 
 // Add middleware to console log every request
 app.use(function(req, res, next) {
@@ -23,6 +23,11 @@ app.use('/fonts', express.static(__dirname + '/fonts'));
 // Enable parsing of posted forms
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//TESTE
+app.get('/', function(request, response) {
+  response.render('public/index');
+});
 
 // Add some routing
 app.use('/api', routes);
