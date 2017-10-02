@@ -66,6 +66,14 @@ function config($httpProvider, $routeProvider) {
         restricted : false
       }
     })
+    .when('/topics/subjectsinvoting', {
+      templateUrl   : 'angular-app/topics/templates/subjectsInVoting/subjectsInVoting.html',
+      controller    : subVotingController,
+      controllerAs  : 'vm',
+      access        : {
+        restricted  : false
+      }
+    })
     .when('/controlPanel', {
       templateUrl   : 'angular-app/topics/templates/controlPanel/controlPanel.html',
       controller    : controlpanelcontroller,

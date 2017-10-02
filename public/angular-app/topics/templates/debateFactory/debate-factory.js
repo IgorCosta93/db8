@@ -8,7 +8,9 @@ function debateFactory($http){
     getUser     : getUser,
     topicPost   : topicPost,
     updateUser  : updateUser,
-    deleteUser  : deleteUser
+    deleteUser  : deleteUser,
+    getSubjects : getSubjects,
+    updateTopic : updateTopic
   };
 
   function debateList() {
@@ -37,6 +39,15 @@ function debateFactory($http){
 
   function deleteUser(_id){
     return $http.delete('/api/user/' + _id).then(complete).catch(failed);
+  }
+
+  //------subjects
+  function getSubjects(){
+    return $http.get('/api/topics').then(complete).catch(failed);
+  }
+
+  function updateTopic(topic){
+    return $http.post('/api/topics/id', topic).then(complete).catch(failed);
   }
 
   function complete(response){

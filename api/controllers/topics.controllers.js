@@ -15,7 +15,7 @@ module.exports.getAllTopic = function(req,res){
         }else {
           console.log("Found the topics", topics.length);
           res
-            .json(topicss);
+            .json(topics);
         }
       });
 };
@@ -25,6 +25,7 @@ module.exports.addTopic = function(req,res){
       .create({
         topic     : req.body.topic,
         subject   : req.body.subject,
+        votes     : 0,
         createdOn : req.body.createdOn,
         active    : "NAO"
       }, function(err, topic){
@@ -40,4 +41,22 @@ module.exports.addTopic = function(req,res){
               .json(topic);
           }
       });
+};
+
+module.exports.updateTopic = function(req,res){
+  topics.findById(req.body._id, (err, topics) => {
+    if (err){
+      res.status(500).send(err);
+    }else{
+      topics.votes  = topics.votes + 1;
+      topics.save((err, topics) => {
+        if(err){
+          res.status(500).send(err)
+          console.log(err);
+        }else {
+          res.status(200).send(topics)
+        }
+      });
+    }
+  });
 };

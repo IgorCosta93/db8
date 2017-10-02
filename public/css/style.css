@@ -134,6 +134,10 @@ div#myCarousel{
 input#topic{
   margin-bottom: 10px;
 }
+button#btnVote{
+  margin-top: 5px;
+  width: 110px;
+}
 /*-------------------*/
 
 /* CHAT */

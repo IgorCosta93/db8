@@ -45,4 +45,8 @@ router
   .get(ctrlTopic.getAllTopic)
   .post(ctrlTopic.addTopic);
 
+  router
+    .route('/topics/id')
+    .post(ctrlTopic.updateTopic);
+
 module.exports = router;

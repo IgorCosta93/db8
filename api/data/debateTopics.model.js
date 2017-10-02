@@ -9,9 +9,17 @@ var topicsSchema = new mongoose.Schema({
     type : String,
     required : true
   },
+  votes: {
+    type : Number,
+    required : false
+  },
   createdOn : {
     type : Date,
     "default" : Date.now
+  },
+  active: {
+    type : String,
+    required : false
   }
 });
 
