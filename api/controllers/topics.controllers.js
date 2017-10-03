@@ -44,6 +44,7 @@ module.exports.addTopic = function(req,res){
 };
 
 module.exports.updateTopic = function(req,res){
+  console.log(req.body._id);
   topics.findById(req.body._id, (err, topics) => {
     if (err){
       res.status(500).send(err);
@@ -55,6 +56,7 @@ module.exports.updateTopic = function(req,res){
           console.log(err);
         }else {
           res.status(200).send(topics)
+          console.log(topics);
         }
       });
     }

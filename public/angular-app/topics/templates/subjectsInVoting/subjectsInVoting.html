@@ -2,15 +2,29 @@
   <h1>To vote you need to login.</h1>
 </div>
 
+<!--
 <div id="container" class="container" ng-if="vm.isLoggedIn()" ng-submit="vm.vote(subject)">
   <div ng-if="vm.message" class="alert alert-success" role="alert">
     <p>{{ vm.message }}</p>
   </div>
   <h1>Vote in the topics below </h1>
-  <div class="" ng-repeat="subject in vm.subjects">
+  <div class="post" ng-repeat="subject in vm.subjects">
     <p>{{subject.subject}}</p>
     <label class="radio-inline"><input id="SIM" type="radio" name="optradio">Sim</label>
     <label class="radio-inline"><input id="NAO" type="radio" name="optradio">Não</label>
     <p><button id="btnVote" type="button" class="btn btn-success" ng-click="vm.vote(subject)">Success</button></p>
+  </div>
+</div>
+-->
+
+<div id="container" class="container" ng-if="vm.isLoggedIn()">
+  <div id="message" ng-if="vm.message" class="alert alert-success" role="alert" ng-hide="vm.hideLoader">
+    <p>{{ vm.message }}</p>
+  </div>
+  <h1>Vote in the topics below </h1>
+  <div class="post" ng-repeat="subject in vm.subjects">
+    <p>{{subject.subject}}</p>
+    <button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button>
+    <button type="button" class="btn btn-danger" ng-click="vm.voteN()">NÃO</button>
   </div>
 </div>

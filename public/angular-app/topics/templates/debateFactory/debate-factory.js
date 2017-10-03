@@ -46,8 +46,8 @@ function debateFactory($http){
     return $http.get('/api/topics').then(complete).catch(failed);
   }
 
-  function updateTopic(topic){
-    return $http.post('/api/topics/id', topic).then(complete).catch(failed);
+  function updateTopic(id){
+    return $http.post('/api/topics/id', id).then(complete).catch(failed);
   }
 
   function complete(response){

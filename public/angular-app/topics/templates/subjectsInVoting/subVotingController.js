@@ -1,6 +1,6 @@
 angular.module('db8').controller('subVotingController', subVotingController);
 
-function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
+function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper,$timeout){
   var vm = this;
 
   vm.reload = function(){
@@ -12,21 +12,32 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
   vm.reload();
 
   vm.vote = function(subject){
-    var selecionado = document.getElementById("SIM").checked;
-    if (selecionado) {
-      //window.alert("Você selecionou o checkbox SIM.");
-      var topic = {
-          _id   : subject._id,
-          vote  : 1
-        };
 
-      debateFactory.updateTopic(topic).then(function(response){
-        //vm.adm = response.data.adm;
-        vm.message = 'Your vote has been successfully registered.';
-      });
-    }else {
+    var topic = {
+        _id   : subject._id,
+        vote  : 1
+      };
+
+    debateFactory.updateTopic(topic).then(function(response){
+      //vm.adm = response.data.adm;
       vm.message = 'Your vote has been successfully registered.';
-    }
+    });
+    vm.hideLoader = false;
+
+    $timeout(function(){
+        vm.hideLoader = true;
+    }, 3000);
+  };
+
+  vm.voteN = function(){
+    vm.message = 'Your vote has been successfully registered. NAO';
+
+    vm.hideLoader = false;
+
+    $timeout(function(){
+        vm.hideLoader = true;
+    }, 3000);
+
   };
 
   vm.isLoggedIn = function() {
