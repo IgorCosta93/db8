@@ -1,9 +1,8 @@
 angular.module('db8').controller('LoginController', LoginController);
 
-function LoginController($http, $location, $window, AuthFactory,debateFactory, jwtHelper) {
+function LoginController($http, $location, $window, AuthFactory,debateFactory, jwtHelper,$timeout) {
   var vm = this;
   vm.adm = "NAO";
-
 
   vm.isLoggedIn = function() {
     if (AuthFactory.isLoggedIn) {
@@ -36,8 +35,12 @@ function LoginController($http, $location, $window, AuthFactory,debateFactory, j
       }).catch(function(error) {
         console.log(error);
         vm.erro = error;
-      })
+        vm.hideLoader = false;
 
+        $timeout(function(){
+            vm.hideLoader = true;
+        }, 2000);
+      })
     }
   }
 

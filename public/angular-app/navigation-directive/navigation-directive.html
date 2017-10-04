@@ -26,7 +26,8 @@
         <input type="password" class="form-control input-sm" placeholder="Password" ng-model="vm.password" autocapitalize="none">
       </div>
       <button id="login" type="submit" class="btn btn-sm btn-success">Login</button>
-      <div  ng-show="vm.erro.data=='Unauthorized'" class="alert alert-danger">
+      <!--<div  ng-show="vm.erro.data=='Unauthorized'" class="alert alert-danger" ng-hide="vm.hideLoader">-->
+      <div class="alert alert-danger" ng-if="vm.erro" ng-hide="vm.hideLoader">
         User or password incorret.
       </div>
     </form>
