@@ -243,10 +243,23 @@ button#btnMessage {
 
 div#register{
   padding-top: 60px;
-  width: 600px;
+  width: 100%;
+  font-family: tahoma;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/register.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+div#registerBox{
+  width: 500px;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2%;
+  background-color: #FFF;
+  padding: 20px;
+  box-shadow: 5px 5px 5px black;
 }
 /*-----------------------*/
 
