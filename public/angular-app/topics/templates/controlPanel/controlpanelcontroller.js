@@ -10,6 +10,16 @@ function controlpanelcontroller(debateFactory){
       });
     };
 
+    //GET THE CONVERSATIONS
+    debateFactory.debateList().then(function(response){
+      vm.debates = response.data;
+    });
+
+    //GET THE SUJESTIONS
+    debateFactory.getSubjects().then(function(response){
+      vm.subjects = response.data;
+    });
+
     vm.reload();
 
     vm.edit = function(user){
