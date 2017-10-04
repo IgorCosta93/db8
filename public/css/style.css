@@ -311,6 +311,9 @@ div#registerBox{
   button#carousel:hover{
     background-color: #006600;
   }
+  div#registerBox{
+    width: 90%;
+  }
 }
 
 @media (max-width: 900px){
