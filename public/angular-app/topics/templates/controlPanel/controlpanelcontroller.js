@@ -1,8 +1,48 @@
 angular.module('db8').controller('controlpanelcontroller', controlpanelcontroller);
 
-function controlpanelcontroller(debateFactory){
+function controlpanelcontroller(debateFactory,$scope){
     var vm = this;
     var idUser;
+
+    document.getElementById('Overview').style.display = 'inherit';
+    document.getElementById('latestUsers').style.display = 'inherit';
+    document.getElementById('users').style.display = 'none';
+    document.getElementById('sujestion').style.display = 'none';
+    document.getElementById('posts').style.display = 'none';
+
+    vm.controlVisible = function(){
+      document.getElementById('Overview').style.display = 'inherit';
+      document.getElementById('latestUsers').style.display = 'inherit';
+      document.getElementById('users').style.display = 'none';
+      document.getElementById('sujestion').style.display = 'none';
+      document.getElementById('posts').style.display = 'none';
+    };
+
+    vm.usersVisible = function(){
+      document.getElementById('Overview').style.display = 'none';
+      document.getElementById('latestUsers').style.display = 'none';
+      document.getElementById('users').style.display = 'inherit';
+      document.getElementById('sujestion').style.display = 'none';
+      document.getElementById('posts').style.display = 'none';
+    };
+
+    vm.sujestionVisible = function(){
+      document.getElementById('Overview').style.display = 'none';
+      document.getElementById('latestUsers').style.display = 'none';
+      document.getElementById('users').style.display = 'none';
+      document.getElementById('sujestion').style.display = 'inherit';
+      document.getElementById('posts').style.display = 'none';
+    };
+
+    vm.postsVisible = function(){
+      document.getElementById('Overview').style.display = 'none';
+      document.getElementById('latestUsers').style.display = 'none';
+      document.getElementById('users').style.display = 'none';
+      document.getElementById('sujestion').style.display = 'none';
+      document.getElementById('posts').style.display = 'inherit';
+    };
+
+
 
     vm.reload = function(){
       debateFactory.getUsers().then(function(response){
@@ -25,7 +65,7 @@ function controlpanelcontroller(debateFactory){
     vm.edit = function(user){
 
       document.getElementById("username").value = user.username;
-      document.getElementById("password").value = user.password;
+      //document.getElementById("password").value = user.password;
       document.getElementById("email").value = user.email;
       document.getElementById("tipo").value = user.adm;
       idUser = user._id;
@@ -34,13 +74,13 @@ function controlpanelcontroller(debateFactory){
 
     vm.update = function(id){
 
-      if (document.getElementById("username").value == "" || document.getElementById("password").value == "" || document.getElementById("email").value == "" || document.getElementById("tipo").value == ""){
+      if (document.getElementById("username").value == "" || document.getElementById("email").value == "" || document.getElementById("tipo").value == ""){
         vm.message = "SIM";
       }else {
         var usuario = {
             _id       : idUser,
             username  : document.getElementById("username").value,
-            password  : document.getElementById("password").value,
+            //password  : document.getElementById("password").value,
             email     : document.getElementById("email").value,
             adm       : document.getElementById("tipo").value
           };
@@ -49,14 +89,13 @@ function controlpanelcontroller(debateFactory){
           });
 
           document.getElementById("username").value = "";
-          document.getElementById("password").value = "";
           document.getElementById("email").value = "";
           document.getElementById("tipo").value = "";
 
           vm.reload();
           vm.message = "NAO";
       }
-
+      vm.reload();
     };
 
     vm.delete = function(_id){

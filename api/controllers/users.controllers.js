@@ -116,7 +116,7 @@ module.exports.updateUser = function(req,res){
         res.status(500).send(err);
       }else {
         user.username = req.body.username || user.username;
-        user.password = req.body.password || user.password;
+        user.password = user.password;
         user.email    = req.body.email || user.email;
         user.adm      = req.body.adm || user.adm;
         user.save((err, user) =>{
