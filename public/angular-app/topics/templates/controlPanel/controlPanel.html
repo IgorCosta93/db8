@@ -181,34 +181,25 @@
                 <br>
                 <table class="table table-striped table-hover">
                       <tr>
-                        <th>Title</th>
-                        <th>Published</th>
+                        <th>Topic</th>
+                        <th>Sujestion</th>
                         <th>Created</th>
+                        <th></th>
                         <th></th>
                       </tr>
                       <tr>
-                        <td>Home</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
+                        <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                        <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
+                        <td></td>
                       </tr>
-                      <tr>
-                        <td>About</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Services</td>
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Contact</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 14, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                      <tr class="post" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+                        <td>{{subject.topic}}</td>
+                        <td>{{subject.subject}}</td>
+                        <td>{{subject.createdOn}}</td>
+                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.edit(user)">Edit</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.delete(user._id)">Delete</button></td>
                       </tr>
                     </table>
               </div>
@@ -231,36 +222,30 @@
                 </div>
                 <br>
                 <table class="table table-striped table-hover">
-                      <tr>
-                        <th>Title</th>
-                        <th>Published</th>
-                        <th>Created</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 1</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 12, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 2</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 3</td>
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        <td>Dec 13, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
-                      <tr>
-                        <td>Blog Post 4</td>
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        <td>Dec 14, 2016</td>
-                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                      </tr>
+                  <tr>
+                    <th>Subject</th>
+                    <th>User</th>
+                    <th>Coment</th>
+                    <th>Created</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
+                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                    <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
+                    <td></td>
+                  </tr>
+                  <tr class="post" ng-repeat="debate in vm.debates | orderBy:'createdOn':true">
+                    <td>{{debate.subject}}</td>
+                    <td>{{debate.user}}</td>
+                    <td>{{debate.coment}}</td>
+                    <td>{{debate.createdOn}}</td>
+                    <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.edit(user)">Edit</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.delete(user._id)">Delete</button></td>
+                  </tr>
                     </table>
               </div>
             </div>
