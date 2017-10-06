@@ -287,7 +287,7 @@ div#registerBox{
   header{
     font-family: tahoma;
     font-size: 10px;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/mountains1.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/nature.png);
     background-size:50% 50%;
     height: 100vh;
     background-position: center;
