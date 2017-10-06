@@ -276,6 +276,46 @@ div#registerBox{
   text-decoration: none;*/
 }
 /*767*/
+@media screen and (max-width: 300px){
+  .hero{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  header{
+    font-family: tahoma;
+    font-size: 10px;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/mountains3.png);
+    background-size:50% 50%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  header h1{
+    color: white;
+    margin-left: 5%;
+  }
+  button#carousel{
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #FFF;
+    padding: 10px 10px;
+    background-color: #003300;
+    border: 2px solid #FFF;
+    border-radius: 12px;
+  }
+
+  button#carousel:hover{
+    background-color: #006600;
+  }
+  div#registerBox{
+    width: 90%;
+  }
+}
 
 @media (max-width: 900px){
   .fa{
