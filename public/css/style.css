@@ -83,6 +83,11 @@ footer{
   color: #FFF;*/
 }
 
+img#logoFooter{
+  width: 200px;
+  height: 120px;
+}
+
 div#container{
   padding-top: 60px;
   height: 85vh;
@@ -279,7 +284,7 @@ div#registerBox{
 @media screen and (max-width: 767px){
   .hero{
     position: absolute;
-    width: 640px;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
