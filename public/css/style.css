@@ -276,7 +276,7 @@ div#registerBox{
   text-decoration: none;*/
 }
 /*767*/
-@media screen and (max-width: 300px){
+@media screen and (max-width: 767px){
   .hero{
     position: absolute;
     width: 100%;
