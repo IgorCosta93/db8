@@ -5,6 +5,8 @@ var ctrlConversation  = require('../controllers/conversation.controllers.js');
 var ctrlUsers         = require('../controllers/users.controllers.js');
 var ctrlTopic         = require('../controllers/topics.controllers.js');
 
+//-------------------CONVERSATIONS----------------------------
+
 router
   .route('/topics/politics')
   .get(ctrlConversation.conversationGetAll)
@@ -14,6 +16,12 @@ router
 router
   .route('/topics/politics/:politicsId')
   .delete(ctrlConversation.deleteComent);
+
+router
+  .route('/topics/politics/update')
+  .post(ctrlConversation.updateComent);
+
+//----------------------------------------------------
 
 // Authentication
 router

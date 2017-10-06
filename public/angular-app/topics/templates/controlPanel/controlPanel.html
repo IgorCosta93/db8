@@ -235,11 +235,11 @@
                     <th></th>
                   </tr>
                   <tr>
-                    <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
-                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
-                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>l
-                    <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
-                    <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
+                    <td><input id="topicDebate" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topicDebate" autocapitalize="none"></td>
+                    <td><input id="userDebate" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.userDebate" autocapitalize="none"></td>
+                    <td><input id="coment" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.coment" autocapitalize="none"></td>l
+                    <td><input id="createdOnDebate" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOnDebate" autocapitalize="none"></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateConversations()">Save</button></td>
                     <td></td>
                   </tr>
                   <tr class="post" ng-repeat="debate in vm.debates | orderBy:'createdOn':true">
@@ -247,8 +247,8 @@
                     <td>{{debate.user}}</td>
                     <td>{{debate.coment}}</td>
                     <td>{{debate.createdOn}}</td>
-                    <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.edit(user)">Edit</button></td>
-                    <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.delete(user._id)">Delete</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversations(debate)">Edit</button></td>
+                    <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteConversations(debate._id)">Delete</button></td>
                   </tr>
                     </table>
               </div>
