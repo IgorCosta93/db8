@@ -2,15 +2,17 @@ angular.module('db8').factory('debateFactory', debateFactory);
 
 function debateFactory($http){
   return {
-    debateList  : debateList,
-    debatePost  : debatePost,
-    getUsers    : getUsers,
-    getUser     : getUser,
-    topicPost   : topicPost,
-    updateUser  : updateUser,
-    deleteUser  : deleteUser,
-    getSubjects : getSubjects,
-    updateTopic : updateTopic
+    debateList      : debateList,
+    debatePost      : debatePost,
+    getUsers        : getUsers,
+    getUser         : getUser,
+    topicPost       : topicPost,
+    updateUser      : updateUser,
+    deleteUser      : deleteUser,
+    getSubjects     : getSubjects,
+    updateTopic     : updateTopic,
+    updateSujestion : updateSujestion,
+    deleteTopic     : deleteTopic
   };
 
   function debateList() {
@@ -41,7 +43,8 @@ function debateFactory($http){
     return $http.delete('/api/user/' + _id).then(complete).catch(failed);
   }
 
-  //------subjects
+  //------SUJESTIONS---------------------------------------------------------------------------
+
   function getSubjects(){
     return $http.get('/api/topics').then(complete).catch(failed);
   }
@@ -49,6 +52,16 @@ function debateFactory($http){
   function updateTopic(id){
     return $http.post('/api/topics/id', id).then(complete).catch(failed);
   }
+
+  function updateSujestion(topic){
+    return $http.post('/api/topics/topic', topic).then(complete).catch(failed);
+  }
+
+  function deleteTopic(_id){
+    return $http.delete('/api/topics/' + _id).then(complete).catch(failed);
+  }
+
+    //----------------------------------------------------------------------------------------
 
   function complete(response){
     return response;

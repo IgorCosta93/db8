@@ -75,7 +75,7 @@
             <div class="col-md-3">
               <div class="well dash-box">
                 <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{vm.users.length}}</h2>
-                <h4>Users</h4>
+                <h4>Users {{vm.adm}}</h4>
               </div>
             </div>
             <div class="col-md-3">
@@ -183,23 +183,27 @@
                       <tr>
                         <th>Topic</th>
                         <th>Sujestion</th>
+                        <th>Votes</th>
                         <th>Created</th>
-                        <th></th>
+                        <th>Status</th>
                         <th></th>
                       </tr>
                       <tr>
                         <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
-                        <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                      <td><input id="sujestio" required type="text" name="sujestion" class="form-control" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                        <td><input id="votes" required type="text" name="votes" class="form-control" placeholder="Votes" ng-model="vm.votes" autocapitalize="none"></td>
                         <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
-                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
-                        <td></td>
+                        <td><input id="active" required type="text" class="form-control" name="active" placeholder="Status" ng-model="vm.active" autocapitalize="none"></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
                       </tr>
                       <tr class="post" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
                         <td>{{subject.topic}}</td>
                         <td>{{subject.subject}}</td>
+                        <td>{{subject.votes}}</td>
                         <td>{{subject.createdOn}}</td>
-                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.edit(user)">Edit</button></td>
-                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.delete(user._id)">Delete</button></td>
+                        <td>{{subject.active}}</td>
+                        <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editSujestion(subject)">Edit</button></td>
+                        <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteSujestion(subject._id)">Delete</button></td>
                       </tr>
                     </table>
               </div>
@@ -233,7 +237,7 @@
                   <tr>
                     <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
                     <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
-                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                    <td><input id="sujestion" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>l
                     <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
                     <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
                     <td></td>

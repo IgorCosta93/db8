@@ -3,6 +3,9 @@ angular.module('db8').controller('controlpanelcontroller', controlpanelcontrolle
 function controlpanelcontroller(debateFactory,$scope){
     var vm = this;
     var idUser;
+    var idSubject;
+
+    //------------------------------VISIBILITY
 
     document.getElementById('Overview').style.display = 'inherit';
     document.getElementById('latestUsers').style.display = 'inherit';
@@ -42,23 +45,19 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('posts').style.display = 'inherit';
     };
 
-
+    //---------------------USERS------------------------------------------------
 
     vm.reload = function(){
+      // GET USERS
       debateFactory.getUsers().then(function(response){
         vm.users = response.data;
       });
+
+      //GET THE SUJESTIONS
+      debateFactory.getSubjects().then(function(response){
+        vm.subjects = response.data;
+      });
     };
-
-    //GET THE CONVERSATIONS
-    debateFactory.debateList().then(function(response){
-      vm.debates = response.data;
-    });
-
-    //GET THE SUJESTIONS
-    debateFactory.getSubjects().then(function(response){
-      vm.subjects = response.data;
-    });
 
     vm.reload();
 
@@ -103,6 +102,104 @@ function controlpanelcontroller(debateFactory,$scope){
       console.log(_id);
       debateFactory.deleteUser(_id).then(function(response){
         //
+      });
+      vm.reload();
+    };
+
+    //-------------------------------------CONVERSATIONS---------------------------------------------
+
+    //GET THE CONVERSATIONS
+    debateFactory.debateList().then(function(response){
+      vm.debates = response.data;
+    });
+
+    vm.editConversations = function(subject){
+      document.getElementById("topic").value      = subject.topic;
+      document.getElementById("sujestio").value   = subject.subject;
+      document.getElementById("votes").value      = subject.votes;
+      document.getElementById("createdOn").value  = subject.createdOn;
+      document.getElementById("active").value     = subject.active;
+      idSubject = subject._id;
+      vm.message = "NAO";
+    };
+
+    vm.updateSujestion = function(id){
+
+      if (document.getElementById("topic").value == "" || document.getElementById("sujestion").value == "" || document.getElementById("createdOn").value == ""){
+        vm.message = "SIM";
+      }else {
+        var sujestion = {
+            _id       : idSubject,
+            topic     : document.getElementById("topic").value,
+            sujestion : document.getElementById("sujestio").value,
+            votes     : document.getElementById("votes").value,
+            createdOn : document.getElementById("createdOn").value,
+            active    : document.getElementById("active").value
+          };
+          debateFactory.updateSujestion(sujestion).then(function(response){
+            //vm.adm = response.data.adm;
+          });
+
+          document.getElementById("topic").value = "";
+          document.getElementById("sujestio").value = "";
+          document.getElementById("votes").value = "";
+          document.getElementById("createdOn").value = "";
+          document.getElementById("active").value = "";
+
+          vm.reload();
+          vm.message = "NAO";
+      }
+      vm.reload();
+    };
+
+    //-------------------------------------SUJESTIONS------------------------------------------------
+
+    //GET THE SUJESTIONS
+    debateFactory.getSubjects().then(function(response){
+      vm.subjects = response.data;
+    });
+
+    vm.editSujestion = function(subject){
+      document.getElementById("topic").value      = subject.topic;
+      document.getElementById("sujestio").value   = subject.subject;
+      document.getElementById("votes").value      = subject.votes;
+      document.getElementById("createdOn").value  = subject.createdOn;
+      document.getElementById("active").value     = subject.active;
+      idSubject = subject._id;
+      vm.message = "NAO";
+    };
+
+    vm.updateSujestion = function(id){
+
+      if (document.getElementById("topic").value == "" || document.getElementById("sujestion").value == "" || document.getElementById("createdOn").value == ""){
+        vm.message = "SIM";
+      }else {
+        var sujestion = {
+            _id       : idSubject,
+            topic     : document.getElementById("topic").value,
+            sujestion : document.getElementById("sujestio").value,
+            votes     : document.getElementById("votes").value,
+            createdOn : document.getElementById("createdOn").value,
+            active    : document.getElementById("active").value
+          };
+          debateFactory.updateSujestion(sujestion).then(function(response){
+            //vm.adm = response.data.adm;
+          });
+
+          document.getElementById("topic").value = "";
+          document.getElementById("sujestio").value = "";
+          document.getElementById("votes").value = "";
+          document.getElementById("createdOn").value = "";
+          document.getElementById("active").value = "";
+
+          vm.reload();
+          vm.message = "NAO";
+      }
+      vm.reload();
+    };
+
+    vm.deleteSujestion = function(_id){
+      debateFactory.deleteTopic(_id).then(function(response){
       });
       vm.reload();
     };

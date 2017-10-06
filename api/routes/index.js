@@ -40,13 +40,22 @@ router
   .route('/user/:username')
   .get(ctrlUsers.getUser);
 
+//---------------TOPICS----------------------
 router
   .route('/topics')
   .get(ctrlTopic.getAllTopic)
   .post(ctrlTopic.addTopic);
 
-  router
-    .route('/topics/id')
-    .post(ctrlTopic.updateTopic);
+router
+  .route('/topics/id')
+  .post(ctrlTopic.updateTopic);
+
+router
+  .route('/topics/topic')
+  .post(ctrlTopic.updateTopicSujestion);
+
+router
+  .route('/topics/:topicId')
+  .delete(ctrlTopic.deleteTopic);
 
 module.exports = router;
