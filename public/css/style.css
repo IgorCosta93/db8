@@ -135,27 +135,48 @@ div#myCarousel{
 }
 header{
   font-family: tahoma;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/mountains3.png);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(../_imagens/wood2.jpg);
   height: 100vh;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
+
 header h1{
   color: white;
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 button#carousel{
-  margin-top: 20px;
+  margin-left: 35%;
   font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 12px
+
+  /*
+  margin-top: 10px;
   color: #FFF;
-  padding: 12px 22px;
   background-color: #003300;
   border: 2px solid #FFF;
-  border-radius: 12px;
+  ;*/
 }
 
 button#carousel:hover{
   background-color: #006600;
+}
+
+div#main{
+  max-width: 500px;
+  background: rgba(255,255,255,0.2);
+  padding: 2rem;
+  color: white;
+}
+
+div#main p{
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
 /* SECTION */
