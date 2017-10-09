@@ -316,7 +316,6 @@ div#registerBox{
     background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/wood2.jpg);
     height: 100vh;
     background-position: center;
-    background-size: cover;
     background-attachment: fixed;
   }
   header h1{
