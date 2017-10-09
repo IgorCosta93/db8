@@ -44,12 +44,16 @@ module.exports.addTopic = function(req,res){
 };
 
 module.exports.updateTopic = function(req,res){
-  console.log(req.body._id);
+  //console.log(req.body._id);
   topics.findById(req.body._id, (err, topics) => {
     if (err){
       res.status(500).send(err);
     }else{
       topics.votes  = topics.votes + 1;
+      topics.users.push({
+        user : req.body.user,
+        createdOn : req.body.createdOn
+      });
       topics.save((err, topics) => {
         if(err){
           res.status(500).send(err)

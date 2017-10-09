@@ -6,7 +6,16 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
   vm.reload = function(){
     debateFactory.getSubjects().then(function(response){
       vm.subjects = response.data;
+      vm.teste = vm.subjects.users;
     });
+  };
+
+  vm.UserName = function(){
+    //$window.sessionStorage.token = response.data.token;
+    //AuthFactory.isLoggedIn = true;
+    var token = $window.sessionStorage.token;
+    var decodedToken = jwtHelper.decodeToken(token);
+    vm.loggedInUser = decodedToken.username;
   };
 
   vm.reload();
@@ -15,7 +24,8 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
 
     var topic = {
         _id   : subject._id,
-        vote  : 1
+        vote  : 1,
+        user  : vm.loggedInUser
       };
 
     debateFactory.updateTopic(topic).then(function(response){
