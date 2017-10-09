@@ -313,7 +313,7 @@ div#registerBox{
   header{
     font-family: tahoma;
     font-size: 10px;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/nature.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/wood2.jpg);
     height: 100vh;
     background-position: center;
     background-size: cover;
@@ -326,7 +326,7 @@ div#registerBox{
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
   button#carousel{
-    margin-left: 35%;
+    margin-left: 30%;
     font-size: 12px;
     padding: 8px 20px;
     border-radius: 12px
