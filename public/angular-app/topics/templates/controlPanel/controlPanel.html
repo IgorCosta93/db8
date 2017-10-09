@@ -133,7 +133,7 @@
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Users...">
+                          <input class="form-control" type="text" placeholder="Filter Users..." ng-model="searchUsers" />
                       </div>
                 </div>
                 <br>
@@ -152,7 +152,7 @@
                         <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.update()">Save</button></td>
                         <td></td>
                       </tr>
-                      <tr class="post" ng-repeat="user in vm.users | orderBy:'createdOn':true">
+                      <tr class="post" ng-repeat="user in vm.users | filter:searchUsers | orderBy:'createdOn':true ">
                         <td>{{user.username}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.adm}}</td>
@@ -175,7 +175,7 @@
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Pages...">
+                          <input class="form-control" type="text" placeholder="Filter Pages..." ng-model="searchSujestion"/>
                       </div>
                 </div>
                 <br>
@@ -196,11 +196,11 @@
                         <td><input id="active" required type="text" class="form-control" name="active" placeholder="Status" ng-model="vm.active" autocapitalize="none"></td>
                         <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
                       </tr>
-                      <tr class="post" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+                      <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'createdOn':true ">
                         <td>{{subject.topic}}</td>
                         <td>{{subject.subject}}</td>
                         <td>{{subject.votes}}</td>
-                        <td>{{subject.createdOn}}</td>
+                        <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
                         <td>{{subject.active}}</td>
                         <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editSujestion(subject)">Edit</button></td>
                         <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteSujestion(subject._id)">Delete</button></td>
@@ -221,7 +221,7 @@
               <div class="panel-body">
                 <div class="row">
                       <div class="col-md-12">
-                          <input class="form-control" type="text" placeholder="Filter Posts...">
+                          <input class="form-control" type="text" placeholder="Filter Posts..." ng-model="searchPost" />
                       </div>
                 </div>
                 <br>
@@ -242,11 +242,11 @@
                     <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateConversations()">Save</button></td>
                     <td></td>
                   </tr>
-                  <tr class="post" ng-repeat="debate in vm.debates | orderBy:'createdOn':true">
+                  <tr class="post" ng-repeat="debate in vm.debates | filter:searchPost | orderBy:'createdOn':true ">
                     <td>{{debate.subject}}</td>
                     <td>{{debate.user}}</td>
                     <td>{{debate.coment}}</td>
-                    <td>{{debate.createdOn}}</td>
+                    <td>{{debate.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
                     <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversations(debate)">Edit</button></td>
                     <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteConversations(debate._id)">Delete</button></td>
                   </tr>
