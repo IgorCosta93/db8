@@ -24,6 +24,8 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
     });
     vm.hideLoader = false;
 
+    vm.reload();
+
     $timeout(function(){
         vm.hideLoader = true;
     }, 3000);
@@ -33,6 +35,8 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
     vm.message = 'Your vote has been successfully registered. NAO';
 
     vm.hideLoader = false;
+
+    vm.reload();
 
     $timeout(function(){
         vm.hideLoader = true;

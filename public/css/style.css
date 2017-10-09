@@ -89,9 +89,32 @@ img#logoFooter{
 }
 
 div#container{
-  padding-top: 60px;
+  padding-top: 40px;
   height: 85vh;
 }
+
+/*----------SubjectOptions*/
+
+div#options{
+  padding-top: 60px;
+  height: 70vh;
+}
+
+div#options .row{
+  margin-top: 8%;
+}
+
+img#options{
+  border-radius: 500px;
+}
+
+div#options i{
+  font-size: 100px;
+  text-decoration: none;
+  color: #3c3d41;
+}
+
+/*------------------------------------*/
 
 div#myCarousel{
   height: 100%;
@@ -217,7 +240,13 @@ div#main p{
 
 /*----------------------------------*/
 
-/*SUJESTION PAGE*/
+/*SUJESTION PAGE VOTE*/
+
+div#vote{
+  padding-top: 80px;
+  height: 85vh;
+}
+
 input#topic{
   margin-bottom: 10px;
 }
@@ -301,7 +330,10 @@ div#registerBox{
   /*color: #D5D5D5;
   text-decoration: none;*/
 }
-/*767*/
+
+
+/*IPAD http://stephen.io/mediaqueries/*/
+
 @media screen and (max-width: 767px){
   .hero{
     position: absolute;
