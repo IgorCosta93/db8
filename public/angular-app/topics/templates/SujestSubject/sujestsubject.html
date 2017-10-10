@@ -2,8 +2,8 @@
   <h1>Para sugerir um tema eh necessario estar logado.</h1>
 </div>
 
-<div ng-if="vm.isLoggedIn()">
-  <div id="container" class="container">
+<div id="container" class="container" ng-if="vm.isLoggedIn()">
+  <div id="sujestBox">
 
     <div ng-if="vm.message" class="alert alert-success" role="alert">
       <p>{{ vm.message }}</p>
@@ -14,7 +14,7 @@
 
     <div class="col-md-offset-2 col-md-8">
       <div class="clearfix">
-        <form id = "coments" ng-hide="vm.message" ng-Submit="vm.postSujestion()">
+        <form id = "sujestion" ng-hide="vm.message" ng-Submit="vm.postSujestion()">
 
             <h1>Subject</h1>
 
