@@ -361,7 +361,9 @@ div#registerBox{
 
 /*IPAD http://stephen.io/mediaqueries/*/
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px)
+and (max-width: : 1024px)
+and (orientation : landscape) {
   .hero{
     position: absolute;
     width: 100%;
