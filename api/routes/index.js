@@ -55,6 +55,10 @@ router
   .post(ctrlTopic.addTopic);
 
 router
+  .route('/topics/:topicId/user/:user')
+  .get(ctrlTopic.getUserVote);
+
+router
   .route('/topics/id')
   .post(ctrlTopic.updateTopic);
 

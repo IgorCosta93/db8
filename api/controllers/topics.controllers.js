@@ -20,6 +20,42 @@ module.exports.getAllTopic = function(req,res){
       });
 };
 
+module.exports.getUserVote = function(req,res){
+  var topicId = req.params.topicId;
+  var userName = req.params.user;
+    topics
+      .findById(topicId)
+      .select('users')
+      .exec(function(err, topic){
+        var response = {
+          status  : 200,
+          message : {}
+        };
+        if (err){
+          console.log("Error finding Topic");
+          response.status   = 500;
+          response.message  = err;
+        }else if (!topic) {
+          console.log("Topic id not found in database ", id);
+          response.status   = 404;
+          response.message  = {"message" : "Topic ID not found " + id}
+        }else {
+          //Get User
+          response.message = topic.users ? topic.users : [];
+          //If the user doens`t exist Mongoose returns null
+          if (!response.message){
+            response.status   = 404;
+            response.message  = {
+              "message" : "User not found " + username
+            };
+          }
+        }
+        res
+        .status(response.status)
+        .json(response.message);
+      });
+};
+
 module.exports.addTopic = function(req,res){
     topics
       .create({
@@ -49,7 +85,7 @@ module.exports.updateTopic = function(req,res){
     if (err){
       res.status(500).send(err);
     }else{
-      topics.votes  = topics.votes + 1;
+      topics.votes  = topics.votes + req.body.vote;
       topics.users.push({
         user : req.body.user,
         createdOn : req.body.createdOn

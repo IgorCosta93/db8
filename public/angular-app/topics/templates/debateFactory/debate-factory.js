@@ -14,7 +14,8 @@ function debateFactory($http){
     updateSujestion : updateSujestion,
     deleteTopic     : deleteTopic,
     updateDebate    : updateDebate,
-    deleteDebate    : deleteDebate
+    deleteDebate    : deleteDebate,
+    getUserVote     : getUserVote
   };
 
 //------------CONVERSATIONS---------------------------------------------
@@ -62,8 +63,12 @@ function debateFactory($http){
     return $http.get('/api/topics').then(complete).catch(failed);
   }
 
-  function updateTopic(id){
-    return $http.post('/api/topics/id', id).then(complete).catch(failed);
+  function getUserVote(id, user){
+    return $http.get('/api/topics/' + id + '/user/' + user).then(complete).catch(failed);
+  }
+
+  function updateTopic(topic){
+    return $http.post('/api/topics/id', topic).then(complete).catch(failed);
   }
 
   function updateSujestion(topic){

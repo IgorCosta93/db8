@@ -247,6 +247,11 @@ div#vote{
   height: 85vh;
 }
 
+div#vote i{
+  color : green;
+  font-size: 25px;
+}
+
 input#topic{
   margin-bottom: 10px;
 }
@@ -254,6 +259,7 @@ button#btnVote{
   margin-top: 5px;
   width: 110px;
 }
+
 /*-------------------*/
 
 /* CHAT */

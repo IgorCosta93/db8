@@ -109,14 +109,14 @@
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    <!--<th>Password</th>-->
                     <th>ADM</th>
                   </tr>
                   <tr>
                   <tr class="post" ng-repeat="user in vm.users | orderBy:'createdOn':true">
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.password}}</td>
+                    <!--<td>{{user.password}}</td>-->
                     <td>{{user.adm}}</td>
                   </tr>
                 </table>
@@ -187,14 +187,16 @@
                         <th>Created</th>
                         <th>Status</th>
                         <th></th>
+                        <th></th>
                       </tr>
                       <tr>
                         <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topic" autocapitalize="none"></td>
-                      <td><input id="sujestio" required type="text" name="sujestion" class="form-control" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
+                        <td><input id="sujestio" required type="text" name="sujestion" class="form-control" placeholder="Sujestion" ng-model="vm.sujestion" autocapitalize="none"></td>
                         <td><input id="votes" required type="text" name="votes" class="form-control" placeholder="Votes" ng-model="vm.votes" autocapitalize="none"></td>
                         <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
                         <td><input id="active" required type="text" class="form-control" name="active" placeholder="Status" ng-model="vm.active" autocapitalize="none"></td>
                         <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
+                        <td></td>
                       </tr>
                       <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'createdOn':true ">
                         <td>{{subject.topic}}</td>
