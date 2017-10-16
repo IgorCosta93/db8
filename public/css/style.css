@@ -258,7 +258,6 @@ form#sujestion{
   margin-left: -5%;
 }
 
-
 /*------------------------------------*/
 
 /*SUJESTION PAGE VOTE*/
@@ -347,6 +346,47 @@ div#registerBox{
   box-shadow: 5px 5px 5px black;
 }
 /*-----------------------*/
+
+/*AVAILEBLE SUBJECTS*/
+
+div#availeble{
+  padding-top: 60px;
+  width: 100%;
+  font-family: tahoma;
+  height: 85vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-left: 10%;
+}
+
+div#availeble i {
+  font-size: 100px;
+  margin-bottom: 15%;
+}
+
+div#availeble a {
+  margin-bottom: 5%;
+}
+
+div#availeble .btn{
+  background-color: white;
+  border: 0px solid;
+  padding: 25px 30px;
+  color: #449d44;
+  text-decoration: none;
+  border-radius: 12px;
+
+  box-shadow: 1px 1px 1px black;
+  margin-right: 40px;
+}
+
+div#availeble  .btn-full:hover{
+  background-color: #449d44;
+  color:white;
+  transition: all 0.5s ease-in;
+}
+/*--------------------*/
 
 .fa{
   /*padding: 10px;
