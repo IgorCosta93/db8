@@ -15,7 +15,7 @@
       </form>
     </div>
   </div>
-</div>-->
+</div>
 
 <div id="container" class="container">
 
@@ -54,4 +54,63 @@
       </div>
     </div>
   </div>
-</div>-
+</div>-->
+
+
+<div id="container" class="container">
+
+  <div class="col-md-offset-2 col-md-8">
+    <div class="clearfix">
+      <div id="availeble" >
+        <a href="" class="btn btn-full" ng-repeat="subject in vm.subjects">
+          <i class="fa fa-user-circle" aria-hidden="true" data-toggle="modal" data-target="#myModal" readonly="true"></i><br>
+          {{subject.subject}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>How is your position in relation of this subject.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=2" data-toggle="modal" data-target="#myModal2">Two</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=4" data-toggle="modal" data-target="#myModal2">Four</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>Which how many people would you like to talk?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.position='Favor'">Favor</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position='Against'">Against</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position='Neutral'">Neutral</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

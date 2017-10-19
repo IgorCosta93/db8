@@ -38,7 +38,7 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/topics/availableSubjects', {
       templateUrl   : 'angular-app/topics/templates/AvailableSubjects/availablesubjects.html',
-      controller    : chatController,
+      controller    : availablesubjectsController,
       controllerAs  : 'vm',
       access: {
         restricted: false
