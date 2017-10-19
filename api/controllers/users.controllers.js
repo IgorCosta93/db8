@@ -32,16 +32,6 @@ module.exports.login = function(req, res) {
   var usuario  = req.body.username;
   var password  = req.body.password;
   var sta = '';
-  /*User
-    .findOne({username:usuario})
-    .exec(function(err, doc){
-      if (err){
-        console.log(err);
-      }else {
-        console.log(doc.username);
-        console.log(doc.password);
-      }
-    });*/
 
   User.findOne({
     username: usuario

@@ -14,6 +14,14 @@ router
   .delete(ctrlConversation.deleteComent);
 
 router
+  .route('/topics/:people/position/:position')
+  .get(ctrlConversation.getSearch);
+
+router
+  .route('/topics/chat')
+  .post(ctrlConversation.addConversation);
+
+router
   .route('/topics/politics/:politicsId')
   .delete(ctrlConversation.deleteComent);
 

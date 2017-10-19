@@ -121,3 +121,57 @@ module.exports.deleteComent = function(req,res){
       }
     });
 };
+
+module.exports.getSearch = function(req,res){
+  //console.log("People "+ req.params.people);
+  //console.log("Position "+ req.params.position);
+
+  coment
+    .find({
+      //RETURNS A VALUE SMALL THAN PASS  $gt is for Gratter than
+      userLimit       : req.params.people,
+      userListN : { $lt: req.params.people}
+    })
+    .exec(function(err, debates){
+      if (err){
+        console.log("Error finding debates");
+        res
+          .status(500)
+          .json(err);
+      } else {
+        console.log("Found a debate ", debates.length);
+        res
+          .json(debates);
+      }
+    });
+};
+
+module.exports.addConversation = function(req,res){
+    console.log("Post new coment.");
+
+    coment
+      .create({
+        topic     : req.body.topic,
+        subject   : req.body.subject,
+        userLimit : req.body.userLimit,
+        userList : {
+          user      : req.body.user,
+          position  : req.body.position,
+          createdOn : req.body.createdOn
+        },
+        userListN : 1,
+        createdOn : req.body.createdOn
+      }, function(err, conversation){
+        if (err) {
+          console.log("Error creating coment");
+          res
+            .status(400)
+            .json(err);
+        } else {
+          console.log("Coment Add.", conversation);
+          res
+            .status(201)
+            .json(conversation);
+        }
+      });
+};

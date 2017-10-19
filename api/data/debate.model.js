@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 
-var userLimitSchema = new mongoose.Schema({
+var userListSchema = new mongoose.Schema({
   user : {
     type : String,
     required : true
+  },
+  position: {
+    type : String,
+    required: false
   },
   createdOn : {
     type : Date,
@@ -11,12 +15,8 @@ var userLimitSchema = new mongoose.Schema({
   }
 });
 
-var conversationSchema = new mongoose.Schema({
-  subject: {
-    type : String,
-    required: true
-  },
-  user: {
+var comentsSchema = new mongoose.Schema({
+  user : {
     type : String,
     required : true
   },
@@ -27,20 +27,32 @@ var conversationSchema = new mongoose.Schema({
   createdOn : {
     type : Date,
     "default" : Date.now
-  },
+  }
+});
+
+var conversationSchema = new mongoose.Schema({
   topic: {
     type : String,
     required: false
   },
-  position: {
+  subject: {
     type : String,
-    required: false
+    required: true
   },
+  coments : [comentsSchema],
   userLimit: {
     type: Number,
     required: false
   },
-  userList: [userLimitSchema]
+  userList: [userListSchema],
+  userListN : {
+    type : Number,
+    required : false
+  },
+  createdOn : {
+    type : Date,
+    "default" : Date.now
+  },
 });
 
 mongoose.model('Conversation', conversationSchema);

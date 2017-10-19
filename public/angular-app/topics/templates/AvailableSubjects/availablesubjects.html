@@ -62,7 +62,7 @@
   <div class="col-md-offset-2 col-md-8">
     <div class="clearfix">
       <div id="availeble" >
-        <a href="" class="btn btn-full" ng-repeat="subject in vm.subjects">
+        <a href="" class="btn btn-full" ng-repeat="subject in vm.subjects" ng-click="vm.subject=subject.subject">
           <i class="fa fa-user-circle" aria-hidden="true" data-toggle="modal" data-target="#myModal" readonly="true"></i><br>
           {{subject.subject}}
         </a>
