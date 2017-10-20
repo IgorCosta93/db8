@@ -51,8 +51,8 @@ module.exports.getUserVote = function(req,res){
           }
         }
         res
-        .status(response.status)
-        .json(response.message);
+          .status(response.status)
+          .json(response.message);
       });
 };
 

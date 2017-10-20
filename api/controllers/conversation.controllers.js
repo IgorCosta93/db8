@@ -128,9 +128,11 @@ module.exports.getSearch = function(req,res){
 
   coment
     .find({
+      topic     : req.params.topic,
+      subject   : req.params.subject,
       //RETURNS A VALUE SMALL THAN PASS  $gt is for Gratter than
-      userLimit       : req.params.people,
-      userListN : { $lt: req.params.people}
+      userLimit : req.params.people,
+      userListN : {$lt: req.params.people+1}
     })
     .exec(function(err, debates){
       if (err){
@@ -143,6 +145,42 @@ module.exports.getSearch = function(req,res){
         res
           .json(debates);
       }
+    });
+};
+
+module.exports.getSearchUser = function(req,res){
+  //console.log("People "+ req.params.people);
+  //console.log("Position "+ req.params.position);
+  var debateId = req.params.id;
+
+  coment
+    .findById(debateId)
+    .select("userList")
+    .exec(function(err, debates){
+      var response = {
+        status  : 200,
+        message : {}
+      };
+      if (err){
+        console.log("Error finding Debate");
+        response.status   = 500;
+        response.message  = err;
+      }else if (!debates) {
+        console.log("Debate not found in database ");
+        response.status   = 404;
+        response.message  = {"message" : "Debate ID not found "}
+      }else {
+        response.message = debates.userList ? debates.userList : [];
+        if(!response.message){
+          response.status   = 404;
+          response.message  = {
+            "message" : "User not found "
+          };
+        }
+      }
+      res
+        .status(response.status)
+        .json(response.message);
     });
 };
 
@@ -174,4 +212,29 @@ module.exports.addConversation = function(req,res){
             .json(conversation);
         }
       });
+};
+
+module.exports.addUserInDebate = function(req,res){
+
+  coment.findById(req.body._id, (err, coments) => {
+      if(err){
+        res.status(500).send(err);
+      }else {
+        coments.userListN = coments.userListN + 1;
+        coments.userList.push({
+          user      : req.body.user,
+          position  : req.body.position,
+          createdOn : req.body.createdOn
+        });
+        coments.save((err, coments) => {
+          if(err){
+            res.status(500).send(err)
+            console.log(err);
+          }else {
+            res.status(200).send(coments)
+            console.log(coments);
+          }
+        });
+      }
+    });
 };

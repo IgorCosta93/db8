@@ -2,22 +2,24 @@ angular.module('db8').factory('debateFactory', debateFactory);
 
 function debateFactory($http){
   return {
-    debateList      : debateList,
-    debatePost      : debatePost,
-    getUsers        : getUsers,
-    getUser         : getUser,
-    topicPost       : topicPost,
-    updateUser      : updateUser,
-    deleteUser      : deleteUser,
-    getSubjects     : getSubjects,
-    updateTopic     : updateTopic,
-    updateSujestion : updateSujestion,
-    deleteTopic     : deleteTopic,
-    updateDebate    : updateDebate,
-    deleteDebate    : deleteDebate,
-    getUserVote     : getUserVote,
-    debateSearch    : debateSearch,
-    debateInsert    : debateInsert
+    debateList        : debateList,
+    debatePost        : debatePost,
+    getUsers          : getUsers,
+    getUser           : getUser,
+    topicPost         : topicPost,
+    updateUser        : updateUser,
+    deleteUser        : deleteUser,
+    getSubjects       : getSubjects,
+    updateTopic       : updateTopic,
+    updateSujestion   : updateSujestion,
+    deleteTopic       : deleteTopic,
+    updateDebate      : updateDebate,
+    deleteDebate      : deleteDebate,
+    getUserVote       : getUserVote,
+    debateSearch      : debateSearch,
+    debateInsert      : debateInsert,
+    debateSearchUser  : debateSearchUser,
+    debateAddinDebate : debateAddinDebate
   };
 
 //------------CONVERSATIONS---------------------------------------------
@@ -26,8 +28,12 @@ function debateFactory($http){
     return $http.get('/api/topics/politics/').then(complete).catch(failed);
   }
 
-  function debateSearch(people, position){
-    return $http.get('/api/topics/'+ people + '/position/' + position).then(complete).catch(failed);
+  function debateSearch(people, position, topic, subject){
+    return $http.get('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject).then(complete).catch(failed);
+  }
+
+  function debateSearchUser(id){
+    return $http.get('/api/topics/user/' + id).then(complete).catch(failed);
   }
 
   function debatePost(post){// NEED TO BE DELETE AFTER FINISH THE OTHER
@@ -36,6 +42,10 @@ function debateFactory($http){
 
   function debateInsert(conversation){
     return $http.post('/api/topics/chat', conversation).then(complete).catch(failed);
+  }
+
+  function debateAddinDebate(user){
+    return $http.post('/api/topics/user/', user).then(complete).catch(failed);
   }
 
   function updateDebate(conversation){
