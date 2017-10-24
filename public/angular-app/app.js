@@ -82,6 +82,14 @@ function config($httpProvider, $routeProvider) {
         restricted  : false
       }
     })
+    .when('/debates',{
+      templateUrl   : 'angular-app/topics/templates/debates/debates.html',
+      controller    : debatesController,
+      controllerAs  : 'vm',
+      access        : {
+        restricted  : false
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });

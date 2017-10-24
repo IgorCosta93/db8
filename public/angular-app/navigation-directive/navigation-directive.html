@@ -35,9 +35,9 @@
       <li><p class="navbar-text">Welcome back {{ vm.loggedInUser }}</p></li>
       <li><button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">Logout</button></li>
       <li>
-        <button id="btnMessage" type="submit" class="btn btn-success" value="Salvar">
+        <button id="btnMessage" type="submit" class="btn btn-success" value="Salvar" onclick="window.location.href='#!/debates'">
           <span class="glyphicon glyphicon-comment"></span>
-          <span class="badge"></span>
+          <span class="badge">{{vm.debates.length}}</span>
         </button>
     </li>
     </ul>

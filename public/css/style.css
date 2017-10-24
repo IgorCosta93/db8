@@ -282,6 +282,29 @@ button#btnVote{
 
 /*-------------------*/
 
+/*DEBATES PAGE */
+
+div#debate{
+  padding-top: 80px;
+  width: 75vh;
+  height: 85vh;
+}
+
+div#debate i{
+  color : green;
+  font-size: 25px;
+}
+
+input#debate{
+  margin-bottom: 10px;
+}
+button#btndebate{
+  margin-top: 5px;
+  width: 110px;
+}
+
+/*-------------------*/
+
 /* CHAT */
 form#coments{
   width: 500px;

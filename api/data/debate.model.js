@@ -15,6 +15,13 @@ var userListSchema = new mongoose.Schema({
   }
 });
 
+var positionSchema = new mongoose.Schema({
+  position: {
+    type : String,
+    required: false
+  }
+});
+
 var comentsSchema = new mongoose.Schema({
   user : {
     type : String,
@@ -49,6 +56,7 @@ var conversationSchema = new mongoose.Schema({
     type : Number,
     required : false
   },
+  positionL: [positionSchema],
   createdOn : {
     type : Date,
     "default" : Date.now

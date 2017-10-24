@@ -22,6 +22,14 @@ router
   .get(ctrlConversation.getSearchUser);
 
 router
+  .route('/topics/position/:position')
+  .get(ctrlConversation.getSearchPosition);
+
+router
+  .route('/topics/debates/')
+  .get(ctrlConversation.getDebates);
+
+router
   .route('/topics/user/')
   .post(ctrlConversation.addUserInDebate);
 

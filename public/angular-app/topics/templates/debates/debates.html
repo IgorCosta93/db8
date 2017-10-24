@@ -1,0 +1,55 @@
+<div id="debate" class="container" ng-if="vm.isLoggedIn()" ng-init="vm.UserName()">
+  <!-- SUJESTIONS -->
+  <div id="message" ng-if="vm.message" class="alert alert-success" role="alert" ng-hide="vm.hideLoader">
+    <p>{{ vm.message }}</p>
+  </div>
+  <div id="sujestion" class="">
+    <!-- Website Overview -->
+    <div class="panel panel-default">
+      <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">Debates</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+              <div class="col-md-12">
+                  <input class="form-control" type="text" placeholder="Filter Pages..." ng-model="searchSujestion"/>
+              </div>
+        </div>
+        <br>
+        <table class="table table-striped table-hover">
+              <tr>
+                <th>Debates</th>
+                <th></th>
+                <!--<th>Votes</th>-->
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr id="UserL" class="post" ng-repeat="debate in vm.debates | filter:searchSujestion | orderBy:'createdOn':true ">
+                <td><i class="fa fa-university" aria-hidden="true"></i></td>
+                <td>
+                  <b>Topic</b>: {{debate.topic}}<br>
+                  <b>Subject</b>: {{debate.subject}}
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  {{debate.createdOn | date:'dd/MM/yyyy'}}<br>
+                  <i class="fa fa-comments" aria-hidden="true"></i>&nbsp;<span class="badge">2</span>
+                </td>
+                <!--<td ng-repeat="user in subject.users" ng-show="false">{{user.user}}</td>
+                <!--<td><button type="button" class="btn btn-success" ng-click="vm.verifyVote(subject._id)">TESTE</button></td>
+                <td><button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button></td>
+
+                <td><button type="button" class="btn btn-primary" ng-click="vm.verifyVote(subject._id)">SIM</button></td>
+                <td><button type="button" class="btn btn-danger" ng-click="vm.voteN(subject._id)">NÃO</button></td>-->
+                <td ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+              </tr>
+            </table>
+      </div>
+      </div>
+
+  </div>
+</div>

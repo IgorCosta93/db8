@@ -12,6 +12,10 @@ function LoginController($http, $location, $window, AuthFactory,debateFactory, j
     }
   };
 
+  debateFactory.debateGetDebates().then(function(response){
+    vm.debates = response.data;
+  });
+
   vm.login = function() {
     if (vm.username && vm.password) {
       var user = {

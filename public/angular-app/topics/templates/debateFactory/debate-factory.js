@@ -19,7 +19,9 @@ function debateFactory($http){
     debateSearch      : debateSearch,
     debateInsert      : debateInsert,
     debateSearchUser  : debateSearchUser,
-    debateAddinDebate : debateAddinDebate
+    debateAddinDebate : debateAddinDebate,
+    debateSearchP     : debateSearchP,
+    debateGetDebates  : debateGetDebates
   };
 
 //------------CONVERSATIONS---------------------------------------------
@@ -34,6 +36,14 @@ function debateFactory($http){
 
   function debateSearchUser(id){
     return $http.get('/api/topics/user/' + id).then(complete).catch(failed);
+  }
+
+  function debateGetDebates(){
+    return $http.get('/api/topics/debates/').then(complete).catch(failed);
+  }
+
+  function debateSearchP(id){
+    return $http.get('/api/topics/position/' + id).then(complete).catch(failed);
   }
 
   function debatePost(post){// NEED TO BE DELETE AFTER FINISH THE OTHER

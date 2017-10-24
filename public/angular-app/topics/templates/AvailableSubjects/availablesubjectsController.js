@@ -24,6 +24,7 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
 
     debateFactory.debateSearch(vm.people, vm.position,vm.topics,vm.subject).then(function(response){
       vm.teste = response.data;
+      vm.positionU = vm.position;
 
       if (response.data.length <= 0){
         var conversation = {
@@ -40,7 +41,7 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
           //CRIAR ACTION
         });
       }else {
-        alert(String(vm.teste[0]["_id"]));
+        //alert(String(vm.teste[0]["_id"]));
         vm._id = String(vm.teste[0]["_id"]);
         //alert("TESTE 1");
         debateFactory.debateSearchUser(vm._id).then(function(response){
@@ -53,25 +54,98 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
             };
           };
           if(user=="TRUE"){
-            vm.message = 'You are already in this conversation';
-          }else {
-            vm.message = 'Welcome to the Debate';
+            vm.message = 'You are already in this conversation ';
 
-            var user = {
-              _id        : vm._id,
-              user      : vm.loggedInUser,
-              position  : vm.position,
-              createdOn : Date.now()
+          }else {
+
+            if (vm.people == 2){
+              //alert(vm.position);
+              //POSITION--------------------------------------------------------
+              debateFactory.debateSearchP(vm._id).then(function(response){
+                vm.position = response.data;
+                vm.one = 0;
+                vm.two = 0;
+                vm.three = 0;
+                for (i = 0; i < vm.position.length; i++){
+                  if (vm.position[i]["position"] == 1){
+                    //alert(vm.position[i]["position"]);
+                    vm.one = vm.one + 1;
+                  }else if (vm.position[i]["position"] == 2) {
+                    //alert(vm.position[i]["position"]);
+                    vm.two = vm.two + 1;
+                  }else if (vm.position[i]["position"] == 3) {
+                    vm.three = vm.three + 1;
+                  }
+                };
+
+                alert("Position Two " + vm.two);
+                if (vm.one >= 2 || vm.two >= 2 || vm.three >= 2){
+                  console.log("BIGGER THAN Size");
+                  alert("Sorry we couldn`t find a debate for you.");
+                }else {
+                  vm.message = 'Welcome to the Debate';
+
+                  var user = {
+                    _id        : vm._id,
+                    user      : vm.loggedInUser,
+                    position  : vm.positionU,
+                    createdOn : Date.now()
+                  };
+
+                  debateFactory.debateAddinDebate(user).then(function(response){
+
+                  });
+                }
+                //alert("Position One: " + vm.one + " - Positon Two: " + vm.two + " - Position Three: " + vm.three);
+
+              });
+            }else if (vm.people == 4) {
+              //POSITION--------------------------------------------------------
+              debateFactory.debateSearchP(vm._id).then(function(response){
+                vm.position = response.data;
+                vm.one = 0;
+                vm.two = 0;
+                vm.three = 0;
+                for (i = 0; i < vm.position.length; i++){
+                  if (vm.position[i]["position"] == 1){
+                    //alert(vm.position[i]["position"]);
+                    vm.one = vm.one + 1;
+                  }else if (vm.position[i]["position"] == 2) {
+                    //alert(vm.position[i]["position"]);
+                    vm.two = vm.two + 1;
+                  }else if (vm.position[i]["position"] == 3) {
+                    vm.three = vm.three + 1;
+                  }
+                };
+
+                alert("Position Two " + vm.two);
+                if (vm.one >= 3 || vm.two >= 3 || vm.three >= 3){
+                  console.log("BIGGER THAN Size");
+                  alert("Sorry we couldn`t find a debate for you.");
+                }else {
+                  vm.message = 'Welcome to the Debate';
+
+                  var user = {
+                    _id        : vm._id,
+                    user      : vm.loggedInUser,
+                    position  : vm.positionU,
+                    createdOn : Date.now()
+                  };
+
+                  debateFactory.debateAddinDebate(user).then(function(response){
+
+                  });
+                }
+                //alert("Position One: " + vm.one + " - Positon Two: " + vm.two + " - Position Three: " + vm.three);
+
+              });
             };
 
-            debateFactory.debateAddinDebate(user).then(function(response){
-
-            });
-          }
+          }//END ELSE --------------------------------
           alert(vm.message);
-        });
-      }
-    });
+        });//END SEARCHUSER -----------------------------------------------
+      }//END ELSE
+    });//END DEBATE SEARCH
   });
 
 };

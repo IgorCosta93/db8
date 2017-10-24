@@ -132,7 +132,7 @@ module.exports.getSearch = function(req,res){
       subject   : req.params.subject,
       //RETURNS A VALUE SMALL THAN PASS  $gt is for Gratter than
       userLimit : req.params.people,
-      userListN : {$lt: req.params.people+1}
+      userListN : {$lt: req.params.people}
     })
     .exec(function(err, debates){
       if (err){
@@ -146,6 +146,24 @@ module.exports.getSearch = function(req,res){
           .json(debates);
       }
     });
+};
+
+module.exports.getDebates = function(req,res){
+  coment
+    .find()
+    .exec(function(err, debates){
+      if(err){
+        console.log("Error finding debates");
+        res
+          .status(500)
+          .json(err)
+      }else {
+        console.log("Found a debate: ", debates.length);
+        res
+          .status(200)
+          .json(debates);
+      }
+    })
 };
 
 module.exports.getSearchUser = function(req,res){
@@ -184,6 +202,41 @@ module.exports.getSearchUser = function(req,res){
     });
 };
 
+module.exports.getSearchPosition = function(req,res){
+  //console.log("People "+ req.params.people);
+  //console.log("Position "+ req.params.position);
+  var debateId = req.params.position;
+  coment
+    .findById(debateId)
+    .select("positionL")
+    .exec(function(err, debates){
+      var response = {
+        status  : 200,
+        message : {}
+      };
+      if (err){
+        console.log("Error finding Debate");
+        response.status   = 500;
+        response.message  = err;
+      }else if (!debates) {
+        console.log("Debate not found in database ");
+        response.status   = 404;
+        response.message  = {"message" : "Debate ID not found "}
+      }else {
+        response.message = debates.positionL ? debates.positionL : [];
+        if(!response.message){
+          response.status   = 404;
+          response.message  = {
+            "message" : "User not found "
+          };
+        }
+      }
+      res
+        .status(response.status)
+        .json(response.message);
+    });
+};
+
 module.exports.addConversation = function(req,res){
     console.log("Post new coment.");
 
@@ -194,8 +247,11 @@ module.exports.addConversation = function(req,res){
         userLimit : req.body.userLimit,
         userList : {
           user      : req.body.user,
-          position  : req.body.position,
+          //position  : req.body.position,
           createdOn : req.body.createdOn
+        },
+        positionL : {
+          position  : req.body.position
         },
         userListN : 1,
         createdOn : req.body.createdOn
@@ -215,7 +271,7 @@ module.exports.addConversation = function(req,res){
 };
 
 module.exports.addUserInDebate = function(req,res){
-
+  console.log("POSITION : " + req.body.position);
   coment.findById(req.body._id, (err, coments) => {
       if(err){
         res.status(500).send(err);
@@ -223,8 +279,10 @@ module.exports.addUserInDebate = function(req,res){
         coments.userListN = coments.userListN + 1;
         coments.userList.push({
           user      : req.body.user,
-          position  : req.body.position,
           createdOn : req.body.createdOn
+        }),
+        coments.positionL.push({
+          position  : req.body.position
         });
         coments.save((err, coments) => {
           if(err){
