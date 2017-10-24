@@ -150,7 +150,9 @@ module.exports.getSearch = function(req,res){
 
 module.exports.getDebates = function(req,res){
   coment
-    .find()
+    .find({
+      userList : {$elemMatch: {user:"igorcosta93"}}
+    })
     .exec(function(err, debates){
       if(err){
         console.log("Error finding debates");

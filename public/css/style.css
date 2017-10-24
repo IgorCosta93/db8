@@ -295,6 +295,14 @@ div#debate i{
   font-size: 25px;
 }
 
+div#debate a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
 input#debate{
   margin-bottom: 10px;
 }

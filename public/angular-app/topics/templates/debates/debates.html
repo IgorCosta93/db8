@@ -28,9 +28,9 @@
               </tr>
               <tr id="UserL" class="post" ng-repeat="debate in vm.debates | filter:searchSujestion | orderBy:'createdOn':true ">
                 <td><i class="fa fa-university" aria-hidden="true"></i></td>
-                <td>
+                <td><a href="#!/chat" class="fill-div">
                   <b>Topic</b>: {{debate.topic}}<br>
-                  <b>Subject</b>: {{debate.subject}}
+                  <b>Subject</b>: {{debate.subject}}</a>
                 </td>
                 <td></td>
                 <td></td>
