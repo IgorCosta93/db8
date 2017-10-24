@@ -12,7 +12,11 @@ function LoginController($http, $location, $window, AuthFactory,debateFactory, j
     }
   };
 
-  debateFactory.debateGetDebates().then(function(response){
+  var token = $window.sessionStorage.token;
+  var decodedToken = jwtHelper.decodeToken(token);
+  vm.loggedInUser = decodedToken.username;
+
+  debateFactory.debateGetDebates(vm.loggedInUser).then(function(response){
     vm.debates = response.data;
   });
 

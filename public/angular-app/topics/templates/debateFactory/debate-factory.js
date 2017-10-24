@@ -38,8 +38,8 @@ function debateFactory($http){
     return $http.get('/api/topics/user/' + id).then(complete).catch(failed);
   }
 
-  function debateGetDebates(){
-    return $http.get('/api/topics/debates/').then(complete).catch(failed);
+  function debateGetDebates(user){
+    return $http.get('/api/topics/debates/'+user).then(complete).catch(failed);
   }
 
   function debateSearchP(id){

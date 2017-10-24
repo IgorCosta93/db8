@@ -151,7 +151,8 @@ module.exports.getSearch = function(req,res){
 module.exports.getDebates = function(req,res){
   coment
     .find({
-      userList : {$elemMatch: {user:"igorcosta93"}}
+      //Search for a element in a array
+      userList : {$elemMatch: {user:req.params.user}}
     })
     .exec(function(err, debates){
       if(err){

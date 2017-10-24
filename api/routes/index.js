@@ -26,7 +26,7 @@ router
   .get(ctrlConversation.getSearchPosition);
 
 router
-  .route('/topics/debates/')
+  .route('/topics/debates/:user')
   .get(ctrlConversation.getDebates);
 
 router
