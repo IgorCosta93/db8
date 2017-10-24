@@ -12,14 +12,6 @@ function LoginController($http, $location, $window, AuthFactory,debateFactory, j
     }
   };
 
-  var token = $window.sessionStorage.token;
-  var decodedToken = jwtHelper.decodeToken(token);
-  vm.loggedInUser = decodedToken.username;
-
-  debateFactory.debateGetDebates(vm.loggedInUser).then(function(response){
-    vm.debates = response.data;
-  });
-
   vm.login = function() {
     if (vm.username && vm.password) {
       var user = {
@@ -38,6 +30,9 @@ function LoginController($http, $location, $window, AuthFactory,debateFactory, j
 
           debateFactory.getUser(vm.loggedInUser).then(function(response){
             vm.adm = response.data.adm;
+          });
+          debateFactory.debateGetDebates(vm.loggedInUser).then(function(response){
+            vm.debates = response.data;
           });
         }
       }).catch(function(error) {
