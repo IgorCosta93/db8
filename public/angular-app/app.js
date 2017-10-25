@@ -50,7 +50,7 @@ function config($httpProvider, $routeProvider) {
         restricted: true
       }
     })
-    .when('/chat',{
+    .when('/chat/:id',{
       templateUrl   : 'angular-app/topics/templates/chat/chat.html',
       controller    : chatController,
       controllerAs  : 'vm',

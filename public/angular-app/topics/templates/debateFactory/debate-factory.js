@@ -26,12 +26,12 @@ function debateFactory($http){
 
 //------------CONVERSATIONS---------------------------------------------
 
-  function debateList() {
-    return $http.get('/api/topics/politics/').then(complete).catch(failed);
+  function debateList(id) {
+    return $http.get('/api/topics/politics/'+id).then(complete).catch(failed);
   }
 
   function debateSearch(people, position, topic, subject){
-    return $http.get('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject).then(complete).catch(failed);
+    return $http.get('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject, subject).then(complete).catch(failed);
   }
 
   function debateSearchUser(id){
@@ -47,7 +47,7 @@ function debateFactory($http){
   }
 
   function debatePost(post){// NEED TO BE DELETE AFTER FINISH THE OTHER
-    return $http.post('/api/topics/politics', post).then(complete).catch(failed);
+    return $http.post('/api/topics/politics/', post).then(complete).catch(failed);
   }
 
   function debateInsert(conversation){
@@ -62,8 +62,8 @@ function debateFactory($http){
     return $http.post('/api/topics/politics/update', conversation).then(complete).catch(failed);
   }
 
-  function deleteDebate(_id){
-    return $http.delete('/api/topics/politics/' + _id).then(complete).catch(failed);
+  function deleteDebate(idDebate,_id){
+    return $http.delete('/api/topics/politics/' + idDebate + '/idComent/' + _id).then(complete).catch(failed);
   }
 //----------------------------------------------------------------------
 

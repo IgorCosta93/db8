@@ -12,7 +12,7 @@
           <!--<input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.created_by" />
           <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>-->
           <textarea id="coment" required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="vm.coment"></textarea>
-          <input class="btn submit-btn pull-right" type="submit" value="GO!" onclick="resetForm('coment');"/>
+          <input class="btn submit-btn pull-right" type="submit" value="GO!" />
             <br/><br/><br/>
           <div id="post-stream">
             <!--<h4>Chirp Feed</h4>
@@ -24,8 +24,8 @@
                 <div class="post" ng-repeat="debate in vm.debates | orderBy:'createdOn':true" ng-class-odd="'odd'" ng-class-even="'even'">
                   <p>{{debate.coment}}
                     <!--<input id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" ng-click="vm.delete(debate._id)" value="X" data-target="#myModal"/>-->
-                    <input ng-show="vm.adm == 'SIM'" id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" value="X" data-toggle="modal" data-target="#myModal" readonly="true"/>
-
+                    <!--<input ng-show="vm.adm == 'SIM'" id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" value="X" data-toggle="modal" data-target="#myModal" readonly="true"/>-->
+                    <input ng-show="vm.adm == 'SIM'" id = "btnDeleteComent" class="btn btn-danger btn-sm | pull-right" ng-click="vm.delete(debate._id)" value="X" readonly="true"/>
                     <div id="myModal" class="modal fade" role="dialog">
                       <div class="modal-dialog">
 

@@ -8,9 +8,17 @@ var ctrlTopic         = require('../controllers/topics.controllers.js');
 //-------------------CONVERSATIONS----------------------------
 
 router
-  .route('/topics/politics')
+  .route('/topics/politics/:id')
   .get(ctrlConversation.conversationGetAll)
   .post(ctrlConversation.addComent)
+  .delete(ctrlConversation.deleteComent);
+
+router
+  .route('/topics/politics/')
+  .post(ctrlConversation.addComent);
+
+router
+  .route('/topics/politics/:idDebate/idComent/:idComent')
   .delete(ctrlConversation.deleteComent);
 
 router

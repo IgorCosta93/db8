@@ -7,7 +7,7 @@ module.exports.conversationGetAll = function(req, res){
     //console.log('GET the hotels');
     //console.log('req.query');
 
-    var offset    = 0;
+    /*var offset    = 0;
     var count     = 5;
     var maxCount  = 50;
 
@@ -52,14 +52,46 @@ module.exports.conversationGetAll = function(req, res){
           res
             .json(debates);
         }
-      });
+      });*/
+      //console.log("ID HERE " + req.params.id);
+      var debateId = req.params.id;
+
+      coment
+        .findById(debateId)
+        .select("coments")
+        .exec(function(err, debates){
+          var response = {
+            status  : 200,
+            message : {}
+          };
+          if (err){
+            console.log("Error finding Debate");
+            response.status   = 500;
+            response.message  = err;
+          }else if (!debates) {
+            console.log("Debate not found in database ");
+            response.status   = 404;
+            response.message  = {"message" : "Debate ID not found "}
+          }else {
+            response.message = debates.coments ? debates.coments : [];
+            if(!response.message){
+              response.status   = 404;
+              response.message  = {
+                "message" : "User not found "
+              };
+            }
+          }
+          res
+            .status(response.status)
+            .json(response.message);
+        });
 
 };
 
 module.exports.addComent = function(req,res){
-    console.log("Post new coment.");
+    //console.log("Post new coment.");
 
-    coment
+    /*coment
       .create({
         subject   : req.body.subject,
         user      : req.body.user,
@@ -77,6 +109,27 @@ module.exports.addComent = function(req,res){
             .status(201)
             .json(coment);
         }
+      });*/
+
+      coment.findById(req.body._id, (err, coment) => {
+          if(err){
+            res.status(500).send(err);
+          }else {
+            coment.coments.push({
+              user      : req.body.user,
+              coment    : req.body.coment,
+              createdOn : req.body.createdOn
+            });
+            coment.save((err, coment) => {
+              if(err){
+                res.status(500).send(err)
+                console.log(err);
+              }else {
+                res.status(200).send(coment)
+                console.log(coment);
+              }
+            });
+          }
       });
 };
 
@@ -102,29 +155,35 @@ module.exports.updateComent = function(req,res){
 };
 
 module.exports.deleteComent = function(req,res){
-  id = req.params.politicsId;
-  console.log("ID from controller "+id);
-  coment
-    .findByIdAndRemove(id)
-    .exec(function(err, result){
-      console.log(err);
-      console.log(result);
-      if (err){
-        console.log("Error deleting coment");
-        res
-          .status(500)
-          .json(err);
-      } else {
-        console.log("Coment delete");
-        res
-          .json(result);
+  idDebate = req.params.idDebate;
+  idComent = req.params.idComent;
+  //console.log("Debate ID: " + idDebate);
+  //console.log("coment ID " + idComent);
+  coment.findById(idDebate, (err, coments) => {
+      if(err){
+        res.status(500).send(err);
+      }else {
+        coments.coments.pull({
+          _id      : idComent
+        });
+        coments.save((err, coments) => {
+          if(err){
+            res.status(500).send(err)
+            console.log(err);
+          }else {
+            res.status(200).send(coments)
+            console.log(coments);
+          }
+        });
       }
     });
 };
 
 module.exports.getSearch = function(req,res){
-  //console.log("People "+ req.params.people);
-  //console.log("Position "+ req.params.position);
+  console.log("People "+ req.params.topic);
+  console.log("People "+ req.body.subject);
+  console.log("People "+ req.params.people);
+  console.log("Position "+ req.params.position);
 
   coment
     .find({
