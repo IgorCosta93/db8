@@ -180,18 +180,18 @@ module.exports.deleteComent = function(req,res){
 };
 
 module.exports.getSearch = function(req,res){
-  console.log("People "+ req.params.topic);
-  console.log("People "+ req.body.subject);
-  console.log("People "+ req.params.people);
-  console.log("Position "+ req.params.position);
+  console.log("People "+ req.body.topics);
+  console.log("Subject "+ req.body.subject);
+  console.log("People "+ req.body.people);
+  console.log("Position "+ req.body.position);
 
   coment
     .find({
-      topic     : req.params.topic,
-      subject   : req.params.subject,
+      topic     : req.body.topics,
+      subject   : req.body.subject,
       //RETURNS A VALUE SMALL THAN PASS  $gt is for Gratter than
-      userLimit : req.params.people,
-      userListN : {$lt: req.params.people}
+      userLimit : req.body.people,
+      userListN : {$lt: req.body.people}
     })
     .exec(function(err, debates){
       if (err){

@@ -9,7 +9,7 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
   var user = "";
 
   vm.reload = function(){
-    debateFactory.getSubjects().then(function(response){
+    debateFactory.getSubjectsA().then(function(response){
       vm.subjects = response.data;
     });
   };
@@ -22,7 +22,14 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
     var decodedToken = jwtHelper.decodeToken(token);
     vm.loggedInUser = decodedToken.username;
 
-    debateFactory.debateSearch(vm.people, vm.position,vm.topics,vm.subject).then(function(response){
+    var debate = {
+      people    : vm.people,
+      position  : vm.position,
+      topics    : vm.topics,
+      subject   : vm.subject
+    };
+
+    debateFactory.debateSearch(debate).then(function(response){
       vm.teste = response.data;
       vm.positionU = vm.position;
 

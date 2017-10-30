@@ -21,7 +21,8 @@ function debateFactory($http){
     debateSearchUser  : debateSearchUser,
     debateAddinDebate : debateAddinDebate,
     debateSearchP     : debateSearchP,
-    debateGetDebates  : debateGetDebates
+    debateGetDebates  : debateGetDebates,
+    getSubjectsA      : getSubjectsA
   };
 
 //------------CONVERSATIONS---------------------------------------------
@@ -30,8 +31,10 @@ function debateFactory($http){
     return $http.get('/api/topics/politics/'+id).then(complete).catch(failed);
   }
 
-  function debateSearch(people, position, topic, subject){
-    return $http.get('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject, subject).then(complete).catch(failed);
+  function debateSearch(debate){
+    //console.log("SUBJECT HERE: "+subject);
+    //return $http.post('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject, subject).then(complete).catch(failed);
+    return $http.post('/api/topics/search/', debate).then(complete).catch(failed);
   }
 
   function debateSearchUser(id){
@@ -91,6 +94,10 @@ function debateFactory($http){
 
   function getSubjects(){
     return $http.get('/api/topics').then(complete).catch(failed);
+  }
+
+  function getSubjectsA(){
+    return $http.get('/api/topics/availeble').then(complete).catch(failed);
   }
 
   function getUserVote(id, user){

@@ -22,8 +22,9 @@ router
   .delete(ctrlConversation.deleteComent);
 
 router
-  .route('/topics/:people/position/:position/topic/:topic/subject/:subject')
-  .get(ctrlConversation.getSearch);
+  //.route('/topics/:people/position/:position/topic/:topic/subject/:subject')
+  .route('/topics/search/')
+  .post(ctrlConversation.getSearch);
 
 router
   .route('/topics/user/:id')
@@ -85,6 +86,10 @@ router
   .route('/topics')
   .get(ctrlTopic.getAllTopic)
   .post(ctrlTopic.addTopic);
+
+router
+  .route('/topics/availeble')
+  .get(ctrlTopic.getAllTopicA);
 
 router
   .route('/topics/:topicId/user/:user')

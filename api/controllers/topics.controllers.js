@@ -20,6 +20,27 @@ module.exports.getAllTopic = function(req,res){
       });
 };
 
+module.exports.getAllTopicA = function(req,res){
+    topics
+      .find({
+        active     : "SIM",
+      })
+      .exec(function(err, topics){
+        console.log(err);
+        console.log(topics);
+        if(err){
+          console.log("Error finding Topics");
+          res
+            .status(500)
+            .json(err);
+        }else {
+          console.log("Found the topics", topics.length);
+          res
+            .json(topics);
+        }
+      });
+};
+
 module.exports.getUserVote = function(req,res){
   var topicId = req.params.topicId;
   var userName = req.params.user;
