@@ -14,6 +14,10 @@ router
   .delete(ctrlConversation.deleteComent);
 
 router
+  .route('/topics/politics/debate/:id')
+  .delete(ctrlConversation.deleteConversation);
+
+router
   .route('/topics/politics/')
   .post(ctrlConversation.addComent);
 
@@ -33,6 +37,10 @@ router
 router
   .route('/topics/position/:position')
   .get(ctrlConversation.getSearchPosition);
+
+router
+  .route('/topics/debates/')
+  .get(ctrlConversation.getDebate);
 
 router
   .route('/topics/debates/:user')

@@ -154,6 +154,26 @@ module.exports.updateComent = function(req,res){
     });
 };
 
+module.exports.deleteConversation = function(req,res){
+  id = req.params.id;
+  coment
+    .findByIdAndRemove(id)
+    .exec(function(err, result){
+      console.log(err);
+      console.log(result);
+      if(err){
+        console.log("Erros deleting conversation");
+        res
+          .status(500)
+          .json(err);
+      }else {
+        console.log("Conversation deleted.");
+        res
+          .json(result);
+      }
+    });
+};
+
 module.exports.deleteComent = function(req,res){
   idDebate = req.params.idDebate;
   idComent = req.params.idComent;
@@ -205,6 +225,24 @@ module.exports.getSearch = function(req,res){
           .json(debates);
       }
     });
+};
+
+module.exports.getDebate = function(req,res){
+  coment
+    .find()
+    .exec(function(err, debate){
+      if(err){
+        console.log("Error finding debates");
+        res
+          .status(500)
+          .json(err)
+      }else {
+        console.log("Found debate: ", debate.length);
+        res
+          .status(200)
+          .json(debate);
+      }
+    })
 };
 
 module.exports.getDebates = function(req,res){

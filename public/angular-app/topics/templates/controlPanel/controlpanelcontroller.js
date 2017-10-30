@@ -61,8 +61,21 @@ function controlpanelcontroller(debateFactory,$scope){
 
       //GET THE CONVERSATIONS
       debateFactory.debateList().then(function(response){
+        //vm.debates = response.data;
+      });
+
+      //GET debates
+      debateFactory.debateGetDebate().then(function(response){
         vm.debates = response.data;
       });
+
+      //GET Conversations
+      vm.getConversation = function(idDebate){
+        vm.debateId = idDebate;
+        debateFactory.debateList(idDebate).then(function(response){
+          vm.conversations = response.data;
+        });
+      };
     };
 
     vm.reload();
@@ -155,10 +168,18 @@ function controlpanelcontroller(debateFactory,$scope){
       vm.reload();
     };
 
-    vm.deleteConversations = function(_id){
-      debateFactory.deleteDebate(_id).then(function(response){
+    vm.deleteDebate = function(_id){
+      debateFactory.deleteConversation(_id).then(function(response){
       });
       vm.reload();
+    };
+
+    vm.deleteConversation = function(_id){
+      debateFactory.deleteDebate(vm.debateId,_id).then(function(response){
+          debateFactory.debateList(vm.debateId).then(function(response){
+            vm.conversations = response.data;
+          });
+      });
     };
 
     //-------------------------------------SUJESTIONS------------------------------------------------

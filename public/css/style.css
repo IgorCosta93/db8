@@ -419,6 +419,15 @@ div#availeble  .btn-full:hover{
 }
 /*--------------------*/
 
+/*--------DIV post---------*/
+
+a#posts{
+  text-decoration: none;
+  color: black;
+}
+
+/*--------------------*/
+
 .fa{
   /*padding: 10px;
   font-size: 20px;
