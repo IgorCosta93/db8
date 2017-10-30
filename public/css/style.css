@@ -18,6 +18,11 @@ header{
     height: 75vh;
 }
 
+div#navbar button#login{
+  background-color: #5075c6;
+  border: none;
+}
+
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -231,7 +236,7 @@ div#main p{
 }
 .feactures i{
   font-size: 40px;
-  color: #e67e22;
+  color: #3d5f81;
   margin-left: 45%;
 }
 .feactures h4{
