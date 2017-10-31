@@ -25,11 +25,11 @@ var positionSchema = new mongoose.Schema({
 var comentsSchema = new mongoose.Schema({
   user : {
     type : String,
-    required : true
+    required : false
   },
   coment: {
     type : String,
-    required : true
+    required : false
   },
   createdOn : {
     type : Date,

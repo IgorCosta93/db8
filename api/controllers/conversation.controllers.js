@@ -135,19 +135,19 @@ module.exports.addComent = function(req,res){
 
 module.exports.updateComent = function(req,res){
     console.log("COMENT ID "+req.body._id);
-    coment.findById(req.body._id, (err, coment) =>{
+    coment.findById(req.body._id, (err, conversation) =>{
       if (err){
-        res.status(500).send(err);
+        res.status(505).send(err);
       }else {
-        coment.subject    = req.body.subject    || coment.subject;
-        coment.user       = req.body.user       || coment.user;
-        coment.coment     = req.body.coment     || coment.coment;
-        coment.createdOn  = req.body.createdOn  || coment.createdOn;
-        coment.save((err, coment) =>{
+        conversation.topic      = req.body.topic      || conversation.topic;
+        conversation.subject    = req.body.subject    || conversation.subject;
+        conversation.userLimit  = req.body.userlimit  || conversation.userLimit;
+        conversation.createdOn  = req.body.createdOn  || conversation.createdOn;
+        conversation.save((err, conversation) =>{
             if(err){
               res.status(500).send(err)
             }else {
-              res.status(200).send(coment)
+              res.status(200).send(conversation)
             }
         });
       }

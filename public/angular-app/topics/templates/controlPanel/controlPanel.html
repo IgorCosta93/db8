@@ -192,17 +192,17 @@
               </br>
                 <table class="table table-striped table-hover">
                   <tr>
+                    <th>Topic</th>
                     <th>Subject</th>
-                    <th>User</th>
-                    <th>Coment</th>
+                    <th>Userlimit</th>
                     <th>Created</th>
                     <th></th>
                     <th></th>
                   </tr>
                   <tr>
                     <td><input id="topicDebate" required type="username" class="form-control" name="topic" placeholder="Topic" ng-model="vm.topicDebate" autocapitalize="none"></td>
-                    <td><input id="userDebate" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.userDebate" autocapitalize="none"></td>
-                    <td><input id="coment" required type="text" class="form-control" name="sujestion" placeholder="Sujestion" ng-model="vm.coment" autocapitalize="none"></td>l
+                    <td><input id="subjectDebate" required type="text" class="form-control" name="sujestion" placeholder="Subject" ng-model="vm.subjectDebate" autocapitalize="none"></td>
+                    <td><input id="userlimit" required type="text" class="form-control" name="sujestion" placeholder="Userlimit" ng-model="vm.userLimit" autocapitalize="none"></td>l
                     <td><input id="createdOnDebate" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOnDebate" autocapitalize="none"></td>
                     <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateConversations()">Save</button></td>
                     <td></td>
@@ -237,20 +237,20 @@
                           <th>Coment</th>
                           <th>Created</th>
                           <th></th>
-                          <th></th>
                         </tr>
                         <tr>
-                          <td><input id="topic" required type="username" class="form-control" name="topic" placeholder="User" ng-model="vm.topic" autocapitalize="none"></td>
-                          <td><input id="sujestio" required type="text" name="sujestion" class="form-control" placeholder="Coment" ng-model="vm.sujestion" autocapitalize="none"></td>
-                          <td><input id="createdOn" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
+                          <!--<td><input id="userC" required type="username" class="form-control" name="topic" placeholder="User" ng-model="vm.topic" autocapitalize="none"></td>
+                          <td><input id="comentC" required type="text" name="sujestion" class="form-control" placeholder="Coment" ng-model="vm.sujestion" autocapitalize="none"></td>
+                          <td><input id="createdOnC" required type="text" class="form-control" name="createdOn" placeholder="CreatedOn" ng-model="vm.createdOn" autocapitalize="none"></td>
                           <td><button id="btnControl" type="submit" class="btn btn-info" ng-click="vm.updateSujestion()">Save</button></td>
-                          <td></td>
+                          <td></td>-->
                         </tr>
+                        <tr></tr>
                         <tr class="post" ng-repeat="conversation in vm.conversations | filter:searchSujestion | orderBy:'createdOn':true ">
                           <td>{{conversation.user}}</td>
                           <td>{{conversation.coment}}</td>
                           <td>{{conversation.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
-                          <td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="">Edit</button></td>
+                          <!--<td><button id="btnControl" type="submit" class="btn btn-primary" ng-click="vm.editConversation">Edit</button></td>-->
                           <td><button id="btnControl" type="submit" class="btn btn-danger" ng-click="vm.deleteConversation(conversation._id)">Delete</button></td>
                         </tr>
                   </table>

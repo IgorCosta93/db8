@@ -1,5 +1,5 @@
-var mongoose      = require('mongoose');
-var topics  = mongoose.model('Topics');
+var mongoose  = require('mongoose');
+var topics    = mongoose.model('Topics');
 
 module.exports.getAllTopic = function(req,res){
     topics

@@ -132,41 +132,86 @@ function controlpanelcontroller(debateFactory,$scope){
       vm.debates = response.data;
     });
 
+    //EDIT PRINCIPAL
     vm.editConversations = function(debate){
-      document.getElementById("topicDebate").value      = debate.subject;
-      document.getElementById("userDebate").value       = debate.user;
-      document.getElementById("coment").value           = debate.coment;
+      document.getElementById("topicDebate").value      = debate.topic;
+      document.getElementById("subjectDebate").value    = debate.subject;
+      document.getElementById("userlimit").value        = debate.userLimit;
       document.getElementById("createdOnDebate").value  = debate.createdOn;
-      idConversation = debate._id;
+      idConversation                                    = debate._id;
       vm.message = "NAO";
     };
 
+    //EDIT PRINCIPAL
     vm.updateConversations = function(id){
-      if (document.getElementById("topicDebate").value == "" || document.getElementById("userDebate").value == "" || document.getElementById("coment").value == "" || document.getElementById("createdOnDebate").value == ""){
+      if (document.getElementById("topicDebate").value == "" || document.getElementById("subjectDebate").value == "" || document.getElementById("userlimit").value == "" || document.getElementById("createdOnDebate").value == ""){
         vm.message = "SIM";
       }else {
-        console.log("UPDATE");
+        //console.log("UPDATE");
+        //alert(idConversation);
         var conversation = {
             _id       : idConversation,
-            subject   : document.getElementById("topicDebate").value,
-            user      : document.getElementById("userDebate").value,
-            coment    : document.getElementById("coment").value,
+            topic     : document.getElementById("topicDebate").value,
+            subject   : document.getElementById("subjectDebate").value,
+            userlimit : document.getElementById("userlimit").value,
             createdOn : document.getElementById("createdOnDebate").value
           };
-          debateFactory.updateDebate(conversation).then(function(response){
+
+          //debateFactory.updateDebate(conversation).then(function(response){
             //vm.adm = response.data.adm;
+          //});
+
+          debateFactory.updateConversation(conversation).then(function(response){
+
           });
 
           document.getElementById("topicDebate").value = "";
-          document.getElementById("userDebate").value = "";
-          document.getElementById("coment").value = "";
+          document.getElementById("subjectDebate").value = "";
+          document.getElementById("userlimit").value = "";
           document.getElementById("createdOnDebate").value = "";
 
           //vm.reload();
           vm.message = "NAO";
       }
       vm.reload();
+      vm.reload();
     };
+
+    /*EDIT CONVERSATIONS
+    vm.editConversation = function(debate){
+      document.getElementById("userC").value       = conversation.user;
+      document.getElementById("comentC").value     = conversation.coment;
+      document.getElementById("createdOnC").value  = conversation.createdOn;
+      idC                                          = conversation._id;
+      vm.message = "NAO";
+    };*/
+
+    /*EDIT CONVERSATIONS
+    vm.updateConversation = function(id){
+      if (document.getElementById("userC").value == "" || document.getElementById("comentC").value == "" || document.getElementById("createdOnC").value == ""){
+        vm.message = "SIM";
+      }else {
+        //console.log("UPDATE");
+        //alert(idConversation);
+        var conversations = {
+            _id       : idC,
+            user      : document.getElementById("userC").value,
+            coment    : document.getElementById("comentC").value,
+            createdOn : document.getElementById("createdOnC").value
+        };
+
+          debateFactory.updateC(conversations).then(function(response){});
+
+          document.getElementById("userC").value = "";
+          document.getElementById("comentC").value = "";
+          document.getElementById("createdOnC").value = "";
+
+          //vm.reload();
+          vm.message = "NAO";
+      }
+      vm.reload();
+      vm.reload();
+    };*/
 
     vm.deleteDebate = function(_id){
       debateFactory.deleteConversation(_id).then(function(response){

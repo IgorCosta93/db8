@@ -58,9 +58,17 @@ router
   .route('/topics/politics/:politicsId')
   .delete(ctrlConversation.deleteComent);
 
-router
+/*router
   .route('/topics/politics/update')
+  .post(ctrlConversation.updateComent);*/
+
+router
+  .route('/topics/conversation/')
   .post(ctrlConversation.updateComent);
+/*
+router
+  .route('/topics/conversations/')
+  .post(ctrlConversation.updateComents);*/
 
 //----------------------------------------------------
 

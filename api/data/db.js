@@ -49,3 +49,4 @@ process.on('SIGTERM', function() {
 require('./debate.model');
 require('./users.model');
 require('./debateTopics.model');
+require('./debateTopic.model');

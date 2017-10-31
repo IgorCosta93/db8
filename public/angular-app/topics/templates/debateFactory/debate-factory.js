@@ -13,7 +13,7 @@ function debateFactory($http){
     updateTopic         : updateTopic,
     updateSujestion     : updateSujestion,
     deleteTopic         : deleteTopic,
-    updateDebate        : updateDebate,
+    //updateDebate        : updateDebate,
     deleteDebate        : deleteDebate,
     getUserVote         : getUserVote,
     debateSearch        : debateSearch,
@@ -24,7 +24,9 @@ function debateFactory($http){
     debateGetDebates    : debateGetDebates,
     getSubjectsA        : getSubjectsA,
     debateGetDebate     : debateGetDebate,
-    deleteConversation  : deleteConversation
+    deleteConversation  : deleteConversation,
+    updateConversation  : updateConversation
+    //updateC             : updateC
   };
 
 //------------CONVERSATIONS---------------------------------------------
@@ -67,9 +69,17 @@ function debateFactory($http){
     return $http.post('/api/topics/user/', user).then(complete).catch(failed);
   }
 
-  function updateDebate(conversation){
-    return $http.post('/api/topics/politics/update', conversation).then(complete).catch(failed);
+  //function updateDebate(conversation){
+    //return $http.post('/api/topics/politics/updateDebate', conversation).then(complete).catch(failed);
+  //}
+
+  function updateConversation(conversation){
+    return $http.post('/api/topics/conversation/', conversation).then(complete).catch(failed);
   }
+
+  /*function updateC(conversations){
+    return $http.post('/api/topics/conversations/', conversations).then(complete).catch(failed);
+  }*/
 
   function deleteConversation(idDebate){
     return $http.delete('/api/topics/politics/debate/' + idDebate).then(complete).catch(failed);
