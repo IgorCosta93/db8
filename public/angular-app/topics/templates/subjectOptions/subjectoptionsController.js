@@ -1,9 +1,11 @@
-angular.module('db8').controller('TopicsController', TopicsController);
+angular.module('db8').controller('subjectoptionsController', subjectoptionsController);
 
-function TopicsController($http,debateFactory){
+function subjectoptionsController($http,debateFactory,$routeParams){
   var vm = this;
+  vm.topic = $routeParams.topic;
 
-  //GET TOPIC
+  //alert(vm.topic);
+  /*/GET TOPIC
   debateFactory.getTopic().then(function(response){
     vm.topics = response.data;
 
@@ -13,6 +15,6 @@ function TopicsController($http,debateFactory){
         //alert(vm.topics[i]["topic"]);
         vm.topicsT[i] = vm.topics[i]["topic"];
     };
-  });
+  });*/
 
 };

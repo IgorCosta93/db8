@@ -4,6 +4,7 @@ var router = express.Router();
 var ctrlConversation  = require('../controllers/conversation.controllers.js');
 var ctrlUsers         = require('../controllers/users.controllers.js');
 var ctrlTopic         = require('../controllers/topics.controllers.js');
+var ctrlTopics        = require('../controllers/topic.controllers.js');
 
 //-------------------CONVERSATIONS----------------------------
 
@@ -97,11 +98,15 @@ router
   .route('/user/:username')
   .get(ctrlUsers.getUser);
 
-//---------------TOPICS----------------------
+//---------------TOPICS - SUBJECT----------------------
 router
   .route('/topics')
-  .get(ctrlTopic.getAllTopic)
+  .get(ctrlTopic.getAllSubject)
   .post(ctrlTopic.addTopic);
+
+router
+  .route('/topics/vote/:topic')
+  .get(ctrlTopic.getSubject);
 
 router
   .route('/topics/availeble')
@@ -122,5 +127,11 @@ router
 router
   .route('/topics/:topicId')
   .delete(ctrlTopic.deleteTopic);
+
+//---------------TOPIC----------------------
+router
+  .route('/topics/menu')
+  .get(ctrlTopics.getAll)
+  .post(ctrlTopics.addTopic);
 
 module.exports = router;

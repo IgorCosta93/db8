@@ -28,10 +28,10 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/topics/subjectoptions', {
+    .when('/topics/subjectoptions/:topic', {
       templateUrl   : 'angular-app/topics/templates/subjectOptions/subjectoptions.html',
-      //controller    : politicsController,
-      //controllerAs  : 'vm',
+      controller    : subjectoptionsController,
+      controllerAs  : 'vm',
       access: {
         restricted: false
       }
@@ -66,7 +66,7 @@ function config($httpProvider, $routeProvider) {
         restricted : false
       }
     })
-    .when('/topics/subjectsinvoting', {
+    .when('/topics/subjectsinvoting/:topic', {
       templateUrl   : 'angular-app/topics/templates/subjectsInVoting/subjectsInVoting.html',
       controller    : subVotingController,
       controllerAs  : 'vm',

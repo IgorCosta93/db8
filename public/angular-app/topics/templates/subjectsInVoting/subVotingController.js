@@ -2,6 +2,7 @@ angular.module('db8').controller('subVotingController', subVotingController);
 
 function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper,$timeout){
   var vm = this;
+  vm.topic = $routeParams.topic;
 
   vm.verifyVote = function(id){
 
@@ -36,9 +37,13 @@ function subVotingController($http, $scope, AuthFactory, debateFactory,$route, $
   };
 
   vm.reload = function(){
-    debateFactory.getSubjects().then(function(response){
+    //debateFactory.getSubjects().then(function(response){
+      //vm.subjects = response.data;
+    //});
+    debateFactory.getSub(vm.topic).then(function(response){
       vm.subjects = response.data;
     });
+
   };
 
   vm.UserName = function(){

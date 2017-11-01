@@ -13,6 +13,7 @@ function controlpanelcontroller(debateFactory,$scope){
     document.getElementById('users').style.display = 'none';
     document.getElementById('sujestion').style.display = 'none';
     document.getElementById('posts').style.display = 'none';
+    document.getElementById('topics').style.display = 'none';
 
     vm.controlVisible = function(){
       document.getElementById('Overview').style.display = 'inherit';
@@ -20,6 +21,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('users').style.display = 'none';
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'none';
+      document.getElementById('topics').style.display = 'none';
     };
 
     vm.usersVisible = function(){
@@ -28,6 +30,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('users').style.display = 'inherit';
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'none';
+      document.getElementById('topics').style.display = 'none';
     };
 
     vm.sujestionVisible = function(){
@@ -36,6 +39,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('users').style.display = 'none';
       document.getElementById('sujestion').style.display = 'inherit';
       document.getElementById('posts').style.display = 'none';
+      document.getElementById('topics').style.display = 'none';
     };
 
     vm.postsVisible = function(){
@@ -44,6 +48,16 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('users').style.display = 'none';
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'inherit';
+      document.getElementById('topics').style.display = 'none';
+    };
+
+    vm.topicVisible = function(){
+      document.getElementById('Overview').style.display = 'none';
+      document.getElementById('latestUsers').style.display = 'none';
+      document.getElementById('users').style.display = 'none';
+      document.getElementById('sujestion').style.display = 'none';
+      document.getElementById('posts').style.display = 'none';
+      document.getElementById('topics').style.display = 'inherit';
     };
 
     //---------------------USERS------------------------------------------------
@@ -76,6 +90,12 @@ function controlpanelcontroller(debateFactory,$scope){
           vm.conversations = response.data;
         });
       };
+
+      //GET TOPIC
+      debateFactory.getTopic().then(function(response){
+        vm.topics = response.data;
+      });
+
     };
 
     vm.reload();
@@ -278,4 +298,25 @@ function controlpanelcontroller(debateFactory,$scope){
       });
       vm.reload();
     };
+
+    //-------------------------------------TOPIC------------------------------------------------
+
+    vm.addTopic = function(){
+      var topics = {
+        topic     : document.getElementById("topicT").value,
+        user      : document.getElementById("userT").value,
+        createdOn : document.getElementById("createdOnT").value
+      };
+
+      debateFactory.addTopic(topics).then(function(response){
+        //
+      });
+
+      document.getElementById("topicT").value = "";
+      document.getElementById("userT").value = "";
+      document.getElementById("createdOnT").value = "";
+
+      vm.reload();
+    };
+
 };

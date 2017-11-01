@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var topicSchema = new mongoose.Schema({
+var topicMSchema = new mongoose.Schema({
   topic : {
     type      : String,
     required  : true
@@ -15,4 +15,4 @@ var topicSchema = new mongoose.Schema({
   }
 });
 
-mongoose.model('Topic', topicSchema);
+mongoose.model('TopicM', topicMSchema);

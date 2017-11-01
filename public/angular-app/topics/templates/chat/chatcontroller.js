@@ -2,7 +2,7 @@ angular.module('db8').controller('chatController', chatController);
 
 function chatController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
   var vm      = this;
-  vm.idDebate      = $routeParams.id;
+  vm.idDebate = $routeParams.id;
   var token   = jwtHelper.decodeToken($window.sessionStorage.token);
   username = token.username;
 

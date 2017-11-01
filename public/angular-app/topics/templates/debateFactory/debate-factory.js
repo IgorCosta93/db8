@@ -25,7 +25,10 @@ function debateFactory($http){
     getSubjectsA        : getSubjectsA,
     debateGetDebate     : debateGetDebate,
     deleteConversation  : deleteConversation,
-    updateConversation  : updateConversation
+    updateConversation  : updateConversation,
+    getTopic            : getTopic,
+    addTopic            : addTopic,
+    getSub              : getSub
     //updateC             : updateC
   };
 
@@ -116,6 +119,10 @@ function debateFactory($http){
     return $http.get('/api/topics').then(complete).catch(failed);
   }
 
+  function getSub(topic){
+    return $http.get('/api/topics/vote/'+topic).then(complete).catch(failed);
+  }
+
   function getSubjectsA(){
     return $http.get('/api/topics/availeble').then(complete).catch(failed);
   }
@@ -136,7 +143,17 @@ function debateFactory($http){
     return $http.delete('/api/topics/' + _id).then(complete).catch(failed);
   }
 
-    //----------------------------------------------------------------------------------------
+  //------TOPIC---------------------------------------------------------------------------
+
+  function getTopic(){
+    return $http.get('/api/topics/menu').then(complete).catch(failed);
+  }
+
+  function addTopic(topics){
+    return $http.post('/api/topics/menu', topics).then(complete).catch(failed);
+  }
+
+  //--------------------------------------------------------------------------------------
 
   function complete(response){
     return response;
