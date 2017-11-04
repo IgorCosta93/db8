@@ -2,6 +2,7 @@ angular.module('db8').controller('sujestionController', sujestionController);
 
 function sujestionController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
     var vm = this;
+    vm.topic = $routeParams.topic;
 
     vm.postSujestion = function(){
       var post = {

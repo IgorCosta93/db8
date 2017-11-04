@@ -58,7 +58,7 @@ function config($httpProvider, $routeProvider) {
         restricted : false
       }
     })
-    .when('/topics/sujestsubject',{
+    .when('/topics/sujestsubject/:topic',{
       templateUrl   : 'angular-app/topics/templates/SujestSubject/sujestsubject.html',
       controller    : sujestionController,
       controllerAs  : 'vm',
