@@ -109,7 +109,7 @@ router
   .get(ctrlTopic.getSubject);
 
 router
-  .route('/topics/availeble')
+  .route('/topics/availeble/:topic')
   .get(ctrlTopic.getAllTopicA);
 
 router

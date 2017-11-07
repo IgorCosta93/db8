@@ -123,8 +123,8 @@ function debateFactory($http){
     return $http.get('/api/topics/vote/'+topic).then(complete).catch(failed);
   }
 
-  function getSubjectsA(){
-    return $http.get('/api/topics/availeble').then(complete).catch(failed);
+  function getSubjectsA(topic){
+    return $http.get('/api/topics/availeble/'+topic).then(complete).catch(failed);
   }
 
   function getUserVote(id, user){

@@ -4,12 +4,12 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
   var vm      = this;
   vm.people   = "";
   vm.position = "";
-  vm.topics   = "Politic";
+  vm.topic = $routeParams.topic;
   vm.subject  = "";
   var user = "";
 
   vm.reload = function(){
-    debateFactory.getSubjectsA().then(function(response){
+    debateFactory.getSubjectsA(vm.topic).then(function(response){
       vm.subjects = response.data;
     });
   };

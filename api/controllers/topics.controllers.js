@@ -43,10 +43,15 @@ module.exports.getSubject = function(req,res){
 };
 
 module.exports.getAllTopicA = function(req,res){
+    var topicTittle = req.params.topic;
     topics
       .find({
-        active     : "SIM",
+        //active     : "SIM",
+        //votes      : {$gt: 50},
+        topic      : req.params.topic
       })
+      .sort({votes:-1})
+      .limit(10)
       .exec(function(err, topics){
         console.log(err);
         console.log(topics);

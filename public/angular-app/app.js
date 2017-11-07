@@ -36,7 +36,7 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/topics/availableSubjects', {
+    .when('/topics/availableSubjects/:topic', {
       templateUrl   : 'angular-app/topics/templates/AvailableSubjects/availablesubjects.html',
       controller    : availablesubjectsController,
       controllerAs  : 'vm',
