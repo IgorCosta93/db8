@@ -98,6 +98,7 @@ module.exports.getUserVote = function(req,res){
             };
           }
         }
+        //console.log("MESSAGE HERE "+response.message);
         res
           .status(response.status)
           .json(response.message);
@@ -107,11 +108,14 @@ module.exports.getUserVote = function(req,res){
 module.exports.addTopic = function(req,res){
     topics
       .create({
-        topic     : req.body.topic,
-        subject   : req.body.subject,
-        votes     : 0,
-        createdOn : req.body.createdOn,
-        active    : "NAO"
+        topic         : req.body.topic,
+        subject       : req.body.subject,
+        votes         : 0,
+        createdOn     : req.body.createdOn,
+        active        : "NAO",
+        notification  : {
+          user    : "user"
+        }
       }, function(err, topic){
           if(err){
             console.log("Error creating topic");
@@ -192,5 +196,71 @@ module.exports.deleteTopic = function(req, res){
         res
           .json(result);
       }
+    });
+};
+
+module.exports.notifyUser = function(req,res){
+  topics
+    .findById(req.body._id, (err, topicsNotify) =>{
+      if(err){
+        res
+          .status(500)
+          .send(err);
+      }else {
+        topicsNotify.notification.push({
+          user  : req.body.user
+        });
+        topicsNotify.save((err, topicsNotify) => {
+          if(err){
+            res
+              .status(500)
+              .send(err);
+            console.log(err);
+          }else {
+            res
+              .status(200)
+              .send(topicsNotify);
+              console.log(topicsNotify);
+          }
+        });
+      }
+    });
+};
+
+module.exports.getNotifyUser = function(req,res){
+  var IdTopic= req.params.notifyID;
+  var User = 'igorcosta';
+  //console.log(IdTopic);
+  topics
+    .find()
+    .select('notification')
+    .exec(function(err, topic){
+      var response = {
+        status  : 200,
+        message : {}
+      };
+      if (err){
+        console.log("Error finding Topic");
+        response.status   = 500;
+        response.message  = err;
+      }else if (!topic) {
+        console.log("Topic id not found in database ", id);
+        response.status   = 404;
+        response.message  = {"message" : "Topic ID not found " + id}
+      }else {
+        //Get User
+        response.message = topic.notification ? topic.notification : [];
+        //If the user doens`t exist Mongoose returns null
+        if (!response.message){
+          response.status   = 404;
+          response.message  = {
+            "message" : "User not found " + username
+          };
+        }
+      }
+      //console.log("MESSAGE HERE "+response.message);
+      res
+        .status(response.status)
+        .json(response.message);
     });
 };

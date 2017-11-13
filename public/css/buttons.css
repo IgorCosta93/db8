@@ -1,0 +1,26 @@
+button#btnDeniedN{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+button#btnDeniedN i{
+  font-size: 20px;
+  color: white;
+}
+button#btnAcceptN{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+button#btnAcceptN i{
+  font-size: 20px;
+  color: white;
+}

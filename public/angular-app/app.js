@@ -46,6 +46,8 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/profile', {
       templateUrl : 'angular-app/profile/profile.html',
+      controller    : profileController,
+      controllerAs  : 'vm',
       access      : {
         restricted: true
       }

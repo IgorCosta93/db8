@@ -1,5 +1,12 @@
 var mongoose = require('mongoose');
 
+var notificationSchema = new mongoose.Schema({
+  user : {
+    type : String,
+    required : true
+  }
+});
+
 var usersSchema = new mongoose.Schema({
   user : {
     type : String,
@@ -33,6 +40,7 @@ var topicsSchema = new mongoose.Schema({
     required : false
   },
   users : [usersSchema],
+  notification : [notificationSchema]
 });
 
 mongoose.model('Topics', topicsSchema);

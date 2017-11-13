@@ -66,10 +66,10 @@ router
 router
   .route('/topics/conversation/')
   .post(ctrlConversation.updateComent);
-/*
+
 router
-  .route('/topics/conversations/')
-  .post(ctrlConversation.updateComents);*/
+  .route('/topics/debateGetUserN')
+  .get(ctrlConversation._getUserNotification);
 
 //----------------------------------------------------
 
@@ -127,6 +127,14 @@ router
 router
   .route('/topics/:topicId')
   .delete(ctrlTopic.deleteTopic);
+
+router
+  .route('/notify')
+  .post(ctrlTopic.notifyUser);
+
+router
+  .route('/notify/:notifyID')
+  .get(ctrlTopic.getNotifyUser);
 
 //---------------TOPIC----------------------
 router

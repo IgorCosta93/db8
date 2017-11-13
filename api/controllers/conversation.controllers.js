@@ -1,6 +1,7 @@
 var mongoose      = require('mongoose');
 var conversation  = mongoose.model('User');
 var coment        = mongoose.model('Conversation');
+var topics        = mongoose.model('Topics');
 
 module.exports.conversationGetAll = function(req, res){
     //console.log('Request by: ' + req.user);
@@ -337,9 +338,41 @@ module.exports.getSearchPosition = function(req,res){
     });
 };
 
-module.exports.addConversation = function(req,res){
-    console.log("Post new coment.");
+var _addUserNotification = function(req,res,users,_id){
+  var usersN = users.split(",");
+  console.log('HERE ' + users + ' ' + _id);
+  /*for (i = 0; i < usersN.length; i++){
+    coment.findById(_id, (err, comentN) =>{
+      if(err){
+        res
+          .status(500)
+          .send(err);
+      }else {
+        comentN.notification.push({
+          user  : usersN[i]
+        });
+        comentN.save((err, comentN) => {
+          if(err){
+            res
+              .status(500)
+              .send(err);
+            console.log(err);
+          }else {
+            res
+              .status(200)
+              .send(comentN);
+              console.log(comentN);
+          }
+        });
+      }
+    });
+  };*/
+};
 
+module.exports.addConversation = function(req,res){
+    console.log("UsersN "+req.body.usersN);
+    var _id = 'TESTE';
+    var usersN = req.body.usersN;
     coment
       .create({
         topic     : req.body.topic,
@@ -354,6 +387,10 @@ module.exports.addConversation = function(req,res){
           position  : req.body.position
         },
         userListN : 1,
+        //notification  : {
+          //user    : _getUserNotification(req,res,)
+        //},
+        notification : req.body.usersN,
         createdOn : req.body.createdOn
       }, function(err, conversation){
         if (err) {
@@ -363,11 +400,22 @@ module.exports.addConversation = function(req,res){
             .json(err);
         } else {
           console.log("Coment Add.", conversation);
+          /*/console.log(conversation._id);
+          _id = conversation._id;
+          if (conversation) {
+            _addUserNotification(req,res,usersN,_id);
+          }
+
+          //console.log(_id);*/
           res
             .status(201)
             .json(conversation);
         }
       });
+      //console.log("----------------------------------------------");
+      //console.log(_id);
+      //console.log(_id);
+      //_addUserNotification(req,res,usersN,_id);
 };
 
 module.exports.addUserInDebate = function(req,res){
@@ -394,5 +442,40 @@ module.exports.addUserInDebate = function(req,res){
           }
         });
       }
+    });
+};
+
+module.exports._getUserNotification = function(req,res){
+  topics
+    .find()
+    .select('notification')
+    .exec(function(err, topic){
+      var response = {
+        status  : 200,
+        message : {}
+      };
+      if (err){
+        console.log("Error finding Topic");
+        response.status   = 500;
+        response.message  = err;
+      }else if (!topic) {
+        console.log("Topic id not found in database ", id);
+        response.status   = 404;
+        response.message  = {"message" : "Topic ID not found " + id}
+      }else {
+        //Get User
+        //response.message = topic.notification ? topic.notification : [];
+        //If the user doens`t exist Mongoose returns null
+        if (!response.message){
+          response.status   = 404;
+          response.message  = {
+            "message" : "User not found " + username
+          };
+        }
+      }
+      console.log("MESSAGE HERE "+response.message);
+      res
+        .status(response.status)
+        .json(response.message);
     });
 };

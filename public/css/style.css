@@ -291,8 +291,9 @@ button#btnVote{
 
 div#debate{
   padding-top: 80px;
-  width: 75vh;
-  height: 85vh;
+  padding-bottom: 50px;
+  width: 50%;
+  float: left;
 }
 
 div#debate i{
@@ -315,6 +316,38 @@ button#btndebate{
   margin-top: 5px;
   width: 110px;
 }
+
+/*REQUEST  */
+
+div#request{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  padding-right: : 40px;
+  width: 50%;
+  float: right;
+}
+
+div#request i{
+  color : green;
+  font-size: 25px;
+}
+
+div#request a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+input#request{
+  margin-bottom: 10px;
+}
+button#btndebate{
+  margin-top: 5px;
+  width: 110px;
+}
+
 
 /*-------------------*/
 

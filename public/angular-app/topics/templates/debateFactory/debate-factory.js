@@ -28,7 +28,10 @@ function debateFactory($http){
     updateConversation  : updateConversation,
     getTopic            : getTopic,
     addTopic            : addTopic,
-    getSub              : getSub
+    getSub              : getSub,
+    notifySubject       : notifySubject,
+    getUserNotification : getUserNotification,
+    debateGetUserN      : debateGetUserN
     //updateC             : updateC
   };
 
@@ -91,6 +94,10 @@ function debateFactory($http){
   function deleteDebate(idDebate,_id){
     return $http.delete('/api/topics/politics/' + idDebate + '/idComent/' + _id).then(complete).catch(failed);
   }
+
+  function debateGetUserN(){
+    return $http.get('/api/topics/debateGetUserN').then(complete).catch(failed);
+  }
 //----------------------------------------------------------------------
 
   function topicPost(post){
@@ -141,6 +148,14 @@ function debateFactory($http){
 
   function deleteTopic(_id){
     return $http.delete('/api/topics/' + _id).then(complete).catch(failed);
+  }
+
+  function notifySubject(subject){
+    return $http.post('/api/notify', subject).then(complete).catch(failed);
+  }
+
+  function getUserNotification(id){
+    return $http.get('/api/notify/'+id).then(complete).catch(failed);
   }
 
   //------TOPIC---------------------------------------------------------------------------

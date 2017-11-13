@@ -7,6 +7,24 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
   vm.topic = $routeParams.topic;
   vm.subject  = "";
   var user = "";
+  vm.userNotification = "";
+
+  vm.getUserN = function(subject,user){
+    vm.userN = '';
+    vm.subject = subject;
+    vm.userNotification = user;
+    for (i = 0; i < vm.userNotification.length; i++){
+      if (vm.userN == ''){
+        vm.userN= String(vm.userNotification[i]["user"]);
+        //alert(String(vm.userNotification[i]["user"]));
+      }else {
+        vm.userN= vm.userN + ',' +String(vm.userNotification[i]["user"]);
+        //alert(String(vm.userNotification[i]["user"]));
+      }
+    };
+    //alert("TESTE "+subject+' '+ vm.userN);
+    //console.log(vm.userNotification);
+  };
 
   vm.reload = function(){
     debateFactory.getSubjectsA(vm.topic).then(function(response){
@@ -40,7 +58,8 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
           user      : vm.loggedInUser,
           position  : vm.position,
           userLimit : vm.people,
-          createdOn : Date.now()
+          createdOn : Date.now(),
+          usersN    : vm.userN
         };
 
 

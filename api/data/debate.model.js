@@ -37,6 +37,13 @@ var comentsSchema = new mongoose.Schema({
   }
 });
 
+/*var notificationSchema = new mongoose.Schema({
+  user : {
+    type : String,
+    required : true
+  }
+});*/
+
 var conversationSchema = new mongoose.Schema({
   topic: {
     type : String,
@@ -57,6 +64,11 @@ var conversationSchema = new mongoose.Schema({
     required : false
   },
   positionL: [positionSchema],
+  //notification : [notificationSchema],
+  notification: {
+    type : String,
+    required: false
+  },
   createdOn : {
     type : Date,
     "default" : Date.now
