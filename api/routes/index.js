@@ -19,6 +19,10 @@ router
   .delete(ctrlConversation.deleteConversation);
 
 router
+  .route('/topics/politics/debate/notification')
+  .post(ctrlConversation.deleteUserN);
+
+router
   .route('/topics/politics/')
   .post(ctrlConversation.addComent);
 

@@ -175,6 +175,26 @@ module.exports.deleteConversation = function(req,res){
     });
 };
 
+module.exports.deleteUserN = function(req,res){
+  console.log("COMENT ID "+req.body._id);
+  var notifications;
+  var notificationA;
+    coment.findById(req.body._id, (err, conversation) =>{
+      if (err){
+        res.status(505).send(err);
+      }else {
+        conversation.createdOn  =conversation.createdOn  || conversation.createdOn;
+        conversation.save((err, conversation) =>{
+            if(err){
+              res.status(500).send(err)
+            }else {
+              res.status(200).send(conversation)
+            }
+        });
+      }
+    });
+};
+
 module.exports.deleteComent = function(req,res){
   idDebate = req.params.idDebate;
   idComent = req.params.idComent;
@@ -387,10 +407,10 @@ module.exports.addConversation = function(req,res){
           position  : req.body.position
         },
         userListN : 1,
-        //notification  : {
-          //user    : _getUserNotification(req,res,)
-        //},
-        notification : req.body.usersN,
+        notification  : {
+          user    : _getUserNotification(req,res,)
+        },
+        //notification : req.body.usersN,
         createdOn : req.body.createdOn
       }, function(err, conversation){
         if (err) {

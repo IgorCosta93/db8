@@ -7,15 +7,19 @@ function debatesController($http, $scope, AuthFactory, debateFactory,$route, $ro
   var decodedToken = jwtHelper.decodeToken(token);
   vm.loggedInUser = decodedToken.username;
 
-  debateFactory.debateGetDebates(vm.loggedInUser).then(function(response){
-    vm.debates = response.data;
-  });
+  vm.reload = function(){
+    debateFactory.debateGetDebates(vm.loggedInUser).then(function(response){
+      vm.debates = response.data;
+    });
 
-  debateFactory.debateGetDebate().then(function(response){
-    vm.debate = response.data;
-    /*var debateN = vm.debate.notification;
-    var debateNA = debateN.split(",");*/
-  });
+    debateFactory.debateGetDebate().then(function(response){
+      vm.debate = response.data;
+      /*var debateN = vm.debate.notification;
+      var debateNA = debateN.split(",");*/
+    });
+  };
+
+  vm.reload();
 
   vm.debateR = function(debate){
     if(debate != undefined){
@@ -27,16 +31,17 @@ function debatesController($http, $scope, AuthFactory, debateFactory,$route, $ro
             //console.log("TRUE");
             return true;
           };
-          /*if(debateN[i] == vm.loggedInUser){
-            console.log("TRUE");
-            return true;
-          }else {
-              console.log("FALSE")
-            return false;
-          };*/
         };
       };
     };
+  };
+
+  vm.removeNotification = function(_id){
+    debateFactory.deleteNotification(_id).then(function(response){
+      //vm.debates = response.data;
+    });
+
+    vm.reload();
   };
 
   /*debateFactory.debateGetUserN().then(function(response){

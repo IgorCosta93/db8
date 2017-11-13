@@ -8,6 +8,14 @@ function config($httpProvider, $routeProvider) {
       templateUrl : 'angular-app/main/main.html',
       controller    : MainController,
       controllerAs  : 'vm',
+      /*
+      restricted : "A"
+      kinds of restriction
+    	"A" - Restrict to the atribuit of the element Ex: <div>
+    	"E" - Restrict to the Element
+    	"C" - Restrict to the class of the element
+    	"M" - Restrict to the coment of the element
+      */
       access      : {
         restricted: false
       }

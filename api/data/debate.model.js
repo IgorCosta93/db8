@@ -37,12 +37,12 @@ var comentsSchema = new mongoose.Schema({
   }
 });
 
-/*var notificationSchema = new mongoose.Schema({
+var notificationSchema = new mongoose.Schema({
   user : {
     type : String,
-    required : true
+    required : false
   }
-});*/
+});
 
 var conversationSchema = new mongoose.Schema({
   topic: {
@@ -64,11 +64,11 @@ var conversationSchema = new mongoose.Schema({
     required : false
   },
   positionL: [positionSchema],
-  //notification : [notificationSchema],
-  notification: {
+  notification : [notificationSchema],
+  /*notification: {
     type : String,
     required: false
-  },
+  },*/
   createdOn : {
     type : Date,
     "default" : Date.now

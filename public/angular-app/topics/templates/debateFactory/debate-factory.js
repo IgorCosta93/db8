@@ -31,7 +31,8 @@ function debateFactory($http){
     getSub              : getSub,
     notifySubject       : notifySubject,
     getUserNotification : getUserNotification,
-    debateGetUserN      : debateGetUserN
+    debateGetUserN      : debateGetUserN,
+    deleteNotification  : deleteNotification
     //updateC             : updateC
   };
 
@@ -98,6 +99,11 @@ function debateFactory($http){
   function debateGetUserN(){
     return $http.get('/api/topics/debateGetUserN').then(complete).catch(failed);
   }
+
+  function deleteNotification(_id){
+    return $http.post('/api/topics/politics/debate/notification',  _id).then(complete).catch(failed);
+  }
+
 //----------------------------------------------------------------------
 
   function topicPost(post){
