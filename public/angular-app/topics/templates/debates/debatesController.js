@@ -22,13 +22,14 @@ function debatesController($http, $scope, AuthFactory, debateFactory,$route, $ro
   vm.reload();
 
   vm.debateR = function(debate){
+    //console.log(debate);
     if(debate != undefined){
-      var debateN = debate.split(",");
-      if (debateN.length > 0){
-        for (var i = 0; i < debateN.length; i++) {
-          //console.log(i+" "+debateN[i]);
-          if(debateN[i] == vm.loggedInUser){
-            //console.log("TRUE");
+      //var debateN = debate.split(",");
+      if (debate.length > 0){
+        for (i = 0; i < debate.length; i++){
+          if(String(debate[i]["user"]) == vm.loggedInUser){
+            //user = "TRUE"
+            //alert(vm.conversation[i]["user"]);
             return true;
           };
         };
