@@ -227,6 +227,34 @@ module.exports.notifyUser = function(req,res){
     });
 };
 
+module.exports.unNotifyUser = function(req,res){
+  topics
+    .findById(req.body._id, (err, topicsNotify) =>{
+      if(err){
+        res
+          .status(500)
+          .send(err);
+      }else {
+        topicsNotify.notification.pull({
+          _id  : req.body._idNotify
+        });
+        topicsNotify.save((err, topicsNotify) => {
+          if(err){
+            res
+              .status(500)
+              .send(err);
+            console.log(err);
+          }else {
+            res
+              .status(200)
+              .send(topicsNotify);
+              console.log(topicsNotify);
+          }
+        });
+      }
+    });
+};
+
 module.exports.getNotifyUser = function(req,res){
   var IdTopic= req.params.notifyID;
   var User = 'igorcosta';

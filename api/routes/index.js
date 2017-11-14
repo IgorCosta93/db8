@@ -141,6 +141,10 @@ router
   .post(ctrlTopic.notifyUser);
 
 router
+  .route('/unNotify')
+  .post(ctrlTopic.unNotifyUser);
+
+router
   .route('/notify/:notifyID')
   .get(ctrlTopic.getNotifyUser);
 

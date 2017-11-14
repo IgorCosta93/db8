@@ -30,6 +30,7 @@ function debateFactory($http){
     addTopic            : addTopic,
     getSub              : getSub,
     notifySubject       : notifySubject,
+    unNotifySubject     : unNotifySubject,
     getUserNotification : getUserNotification,
     debateGetUserN      : debateGetUserN,
     deleteNotification  : deleteNotification,
@@ -163,6 +164,10 @@ function debateFactory($http){
 
   function notifySubject(subject){
     return $http.post('/api/notify', subject).then(complete).catch(failed);
+  }
+
+  function unNotifySubject(subject){
+    return $http.post('/api/unNotify', subject).then(complete).catch(failed);
   }
 
   function getUserNotification(id){

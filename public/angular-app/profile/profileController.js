@@ -7,10 +7,14 @@ function profileController($http, $scope, AuthFactory, debateFactory,$route, $ro
     var decodedToken = jwtHelper.decodeToken(token);
     vm.loggedInUser = decodedToken.username;
 
-    //GET THE SUJESTIONS
-    debateFactory.getSubjects().then(function(response){
-      vm.subjects = response.data;
-    });
+    vm.reload = function(){
+      //GET THE SUJESTIONS
+      debateFactory.getSubjects().then(function(response){
+        vm.subjects = response.data;
+      });
+    };
+
+    vm.reload();
 
     vm.subscribe = function(subject){
       if(subject != undefined){
@@ -35,7 +39,31 @@ function profileController($http, $scope, AuthFactory, debateFactory,$route, $ro
       debateFactory.notifySubject(subject).then(function(response){
         //vm.adm = response.data.adm;
       });
-    }
+      vm.reload();
+      vm.reload();
+    };
+
+    vm.unNotify = function(subject){
+      //console.log(subject._id);
+      //console.log(subject.notification.length);
+      //console.log(String(subject.notification[0]["_id"]));
+      for (i = 0; i < subject.notification.length; i++){
+        if(String(subject.notification[i]["user"]) == vm.loggedInUser){
+          //console.log(String(subject.notification[i]["_id"]));
+          vm.idUserN = String(subject.notification[i]["_id"]);
+        };
+      };
+
+      subject = {
+        _id       : subject._id,
+        _idNotify : vm.idUserN
+      };
+      debateFactory.unNotifySubject(subject).then(function(response){
+        vm.adm = response.data.adm;
+      });
+      vm.reload();
+      vm.reload();
+    };
 
     vm.isLoggedIn = function() {
       if (AuthFactory.isLoggedIn) {

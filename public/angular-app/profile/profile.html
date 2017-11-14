@@ -27,7 +27,7 @@
                 <td>{{subject.topic}}</td>
                 <td>{{subject.subject}}</td>
                 <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
-                <td ng-show="vm.subscribe(subject.notification)"><button type="submit" class="btn btn-primary" ng-click="vm.notify(subject._id)" disabled="true">subscribed</button></td>
+                <td ng-show="vm.subscribe(subject.notification)"><button type="submit" class="btn btn-primary" ng-click="vm.unNotify(subject)">Unsubscribe</button></td>
                 <td ng-show="!vm.subscribe(subject.notification)"><button type="submit" class="btn btn-success" ng-click="vm.notify(subject._id)">Subscribed</button></td>
                 <!--<td ng-repeat="user in subject.notification" ng-init="user=user" ng-show="user.user == vm.loggedInUser"><button type="submit" class="btn btn-primary" ng-click="vm.notify(subject._id)" disabled="true">subscribed</button></td>
                 <td ng-repeat="user in subject.notification" ng-init="user=user" ng-show="user.user != vm.loggedInUser"><button type="submit" class="btn btn-success" ng-click="vm.notify(subject._id)">{{user.user}}</button></td>-->
