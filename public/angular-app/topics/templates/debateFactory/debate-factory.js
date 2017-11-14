@@ -74,7 +74,6 @@ function debateFactory($http){
   }
 
   function debateInsertUsers(conUsers){
-    console.log("FACTORY: "+conUsers);
     return $http.post('/api/topics/chat/users', conUsers).then(complete).catch(failed);
   }
 

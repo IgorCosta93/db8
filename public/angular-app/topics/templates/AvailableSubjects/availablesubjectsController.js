@@ -68,15 +68,20 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
           vm.idConver = vm.conRes._id
           //console.log("DIRECT RESPONSE :"+vm.conRes._id);
           //console.log("VAR RESPONSE "+ vm.idConver);
-          var conUsers = {
-            _id       : vm.conRes._id,
-            usersN    : vm.userN
+
+          vm.userNN = vm.userN.split(",");
+          for (var i = 0; i < vm.userNN.length; i++) {
+            var conUsers = {
+              _id       : vm.conRes._id,
+              usersN    : vm.userNN[i]
+            };
+
+            //ADD USERS NOTIFICATION
+            debateFactory.debateInsertUsers(conUsers).then(function(response){
+
+            });
           };
 
-          //ADD USERS NOTIFICATION
-          debateFactory.debateInsertUsers(conUsers).then(function(response){
-
-          });
         });
 
 

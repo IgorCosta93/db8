@@ -361,9 +361,9 @@ module.exports.getSearchPosition = function(req,res){
 module.exports.addUserNotification = function(req,res){
   //var usersN = users.split(",");
   console.log('HERE IS THE ID ' + req.body._id);
+  var userName = req.body.usersN;
+  //var users = userName.split(",");
 
-
-  var userName = "igorcosta";
   coment.findById(req.body._id, (err, comentsUser) => {
       if(err){
         res.status(500).send(err);
@@ -382,6 +382,25 @@ module.exports.addUserNotification = function(req,res){
         });
       }
     });
+
+  /*coment.findById(req.body._id, (err, comentsUser) => {
+      if(err){
+        res.status(500).send(err);
+      }else {
+        comentsUser.notification.push({
+          user      : userName
+        });
+        comentsUser.save((err, comentsUser) => {
+          if(err){
+            res.status(500).send(err)
+            console.log(err);
+          }else {
+            res.status(200).send(comentsUser)
+            console.log(comentsUser);
+          }
+        });
+      }
+    });*/
 };
 
 module.exports.addConversation = function(req,res){
