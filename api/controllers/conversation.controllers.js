@@ -176,20 +176,30 @@ module.exports.deleteConversation = function(req,res){
 };
 
 module.exports.deleteUserN = function(req,res){
-  console.log("COMENT ID "+req.body._id);
-  var notifications;
-  var notificationA;
-    coment.findById(req.body._id, (err, conversation) =>{
-      if (err){
-        res.status(505).send(err);
+  //console.log("COMENT ID "+req.body._id);
+  //console.log("COMENT ID USER NOT "+req.body._idNotify);
+  coment
+    .findById(req.body._id, (err, conversationN) =>{
+      if(err){
+        res
+          .status(500)
+          .send(err);
       }else {
-        conversation.createdOn  =conversation.createdOn  || conversation.createdOn;
-        conversation.save((err, conversation) =>{
-            if(err){
-              res.status(500).send(err)
-            }else {
-              res.status(200).send(conversation)
-            }
+        conversationN.notification.pull({
+          _id : req.body._idNotify
+        });
+        conversationN.save((err, conversationN)=>{
+          if(err){
+            res
+              .status(500)
+              .send(err);
+              console.log(err);
+          }else {
+            res
+              .status(200)
+              .send(conversationN);
+              console.log(conversationN);
+          }
         });
       }
     });
@@ -221,10 +231,10 @@ module.exports.deleteComent = function(req,res){
 };
 
 module.exports.getSearch = function(req,res){
-  console.log("People "+ req.body.topics);
+  /*console.log("People "+ req.body.topics);
   console.log("Subject "+ req.body.subject);
   console.log("People "+ req.body.people);
-  console.log("Position "+ req.body.position);
+  console.log("Position "+ req.body.position);*/
 
   coment
     .find({

@@ -37,9 +37,27 @@ function debatesController($http, $scope, AuthFactory, debateFactory,$route, $ro
     };
   };
 
-  vm.removeNotification = function(_id){
-    debateFactory.deleteNotification(_id).then(function(response){
+  vm.removeNotification = function(debates){
+    console.log(debates._id);
+    if(debates != undefined){
+      //var debateN = debate.split(",");
+      if (debates.notification.length > 0){
+        for (i = 0; i < debates.notification.length; i++){
+          if(String(debates.notification[i]["user"]) == vm.loggedInUser){
+            //console.log(String(debates.notification[i]["_id"]));
+            vm.user = String(debates.notification[i]["_id"]);
+          };
+        };
+      };
+    };
+    subject = {
+      _id       : debates._id,
+      _idNotify : vm.user
+    };
+
+    debateFactory.deleteNotification(subject).then(function(response){
       //vm.debates = response.data;
+      vm.reload();
     });
 
     vm.reload();
@@ -49,37 +67,6 @@ function debatesController($http, $scope, AuthFactory, debateFactory,$route, $ro
     vm.debatesGetUserN = response.data;
     vm.user = String(vm.debatesGetUserN[0]["user"]);
   });*/
-
-  //GET THE SUJESTIONS
-  debateFactory.getSubjects().then(function(response){
-    vm.subjects = response.data;
-
-    for (i = 0; i < vm.subjects.length; i++){
-      debateFactory.getUserNotification(String(vm.subjects[i]["_id"])).then(function(response){
-        vm.userNotification = response.data;
-        //console.log(vm.userNotification);
-
-        if (vm.userNotification.length == 0){
-          //vm.user[vm.idArray[b]] = false;
-          //alert("FALSE "+b);
-        };
-        if (vm.userNotification.length == 1){
-          //vm.user[vm.idArray[b]] = true;
-          //b = b+1;
-          //alert("TRUE "+b);
-        };
-
-        /*for (i = 0; i < vm.userNotification.length; i++) {
-            //console.log(String(vm.userNotification[i]["user"]));
-            if(String(vm.userNotification[i]["user"]) == vm.loggedInUser){
-              vm.user[b] = true;
-              alert(String(vm.userNotification[i]["user"]));
-            };
-            b = b+1;
-        };*/
-      });
-    };
-  });
 
 
   vm.isLoggedIn = function() {
