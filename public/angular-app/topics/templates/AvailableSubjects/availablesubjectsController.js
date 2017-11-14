@@ -58,14 +58,29 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
           user      : vm.loggedInUser,
           position  : vm.position,
           userLimit : vm.people,
-          createdOn : Date.now(),
-          usersN    : vm.userN
+          createdOn : Date.now()
+          //usersN    : vm.userN
         };
 
-
+        //CRIA CONVERSATION
         debateFactory.debateInsert(conversation).then(function(response){
-          //CRIAR ACTION
+          vm.conRes = response.data;
+          vm.idConver = vm.conRes._id
+          //console.log("DIRECT RESPONSE :"+vm.conRes._id);
+          //console.log("VAR RESPONSE "+ vm.idConver);
+          var conUsers = {
+            _id       : vm.conRes._id,
+            usersN    : vm.userN
+          };
+
+          //ADD USERS NOTIFICATION
+          debateFactory.debateInsertUsers(conUsers).then(function(response){
+
+          });
         });
+
+
+
       }else {
         //alert(String(vm.teste[0]["_id"]));
         vm._id = String(vm.teste[0]["_id"]);

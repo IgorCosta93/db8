@@ -358,35 +358,30 @@ module.exports.getSearchPosition = function(req,res){
     });
 };
 
-var _addUserNotification = function(req,res,users,_id){
-  var usersN = users.split(",");
-  console.log('HERE ' + users + ' ' + _id);
-  /*for (i = 0; i < usersN.length; i++){
-    coment.findById(_id, (err, comentN) =>{
+module.exports.addUserNotification = function(req,res){
+  //var usersN = users.split(",");
+  console.log('HERE IS THE ID ' + req.body._id);
+
+
+  var userName = "igorcosta";
+  coment.findById(req.body._id, (err, comentsUser) => {
       if(err){
-        res
-          .status(500)
-          .send(err);
+        res.status(500).send(err);
       }else {
-        comentN.notification.push({
-          user  : usersN[i]
+        comentsUser.notification.push({
+          user      : userName
         });
-        comentN.save((err, comentN) => {
+        comentsUser.save((err, comentsUser) => {
           if(err){
-            res
-              .status(500)
-              .send(err);
+            res.status(500).send(err)
             console.log(err);
           }else {
-            res
-              .status(200)
-              .send(comentN);
-              console.log(comentN);
+            res.status(200).send(comentsUser)
+            console.log(comentsUser);
           }
         });
       }
     });
-  };*/
 };
 
 module.exports.addConversation = function(req,res){
@@ -407,9 +402,9 @@ module.exports.addConversation = function(req,res){
           position  : req.body.position
         },
         userListN : 1,
-        notification  : {
-          user    : _getUserNotification(req,res,)
-        },
+        //notification  : {
+          //user    : _getUserNotification(req,res,)
+        //},
         //notification : req.body.usersN,
         createdOn : req.body.createdOn
       }, function(err, conversation){

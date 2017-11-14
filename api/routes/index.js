@@ -60,6 +60,10 @@ router
   .post(ctrlConversation.addConversation);
 
 router
+  .route('/topics/chat/users')
+  .post(ctrlConversation.addUserNotification);
+
+router
   .route('/topics/politics/:politicsId')
   .delete(ctrlConversation.deleteComent);
 

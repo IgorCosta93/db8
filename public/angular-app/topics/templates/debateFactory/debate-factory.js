@@ -32,7 +32,8 @@ function debateFactory($http){
     notifySubject       : notifySubject,
     getUserNotification : getUserNotification,
     debateGetUserN      : debateGetUserN,
-    deleteNotification  : deleteNotification
+    deleteNotification  : deleteNotification,
+    debateInsertUsers   : debateInsertUsers
     //updateC             : updateC
   };
 
@@ -70,6 +71,11 @@ function debateFactory($http){
 
   function debateInsert(conversation){
     return $http.post('/api/topics/chat', conversation).then(complete).catch(failed);
+  }
+
+  function debateInsertUsers(conUsers){
+    console.log("FACTORY: "+conUsers);
+    return $http.post('/api/topics/chat/users', conUsers).then(complete).catch(failed);
   }
 
   function debateAddinDebate(user){
