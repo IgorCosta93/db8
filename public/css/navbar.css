@@ -1,0 +1,32 @@
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  /*background-color: #5E4485;*/
+  background-color: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
+  color: #FFF;
+  padding: 0% 0;
+  font-size: 1.2en;
+  border: 0;
+}
+.navbar-brand {
+  float: left;
+  min-height: 0px;
+  /*padding: 0 15px 5px;*/
+}
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover{
+  color: #FFF;
+  /*background-color: #5E4485;*/
+}
+.navbar-inverse .navbar-nav li a{
+  /*color: #D5D5D5;*/
+}
+div#navbar button#login{
+  background-color: #5075c6;
+  border: none;
+}
+
+button#btnMessage {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 32px;
+}

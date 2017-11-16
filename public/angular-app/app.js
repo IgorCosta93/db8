@@ -5,7 +5,7 @@ function config($httpProvider, $routeProvider) {
 
   $routeProvider
     .when('/', {
-      templateUrl : 'angular-app/main/main.html',
+      templateUrl : 'angular-app/Views/main/main.html',
       controller    : MainController,
       controllerAs  : 'vm',
       /*
@@ -20,72 +20,64 @@ function config($httpProvider, $routeProvider) {
         restricted: false
       }
     })
-    .when('/register', {
-      templateUrl   : 'angular-app/register/register.html',
-      controller    : RegisterController,
-      controllerAs  : 'vm',
-      access: {
-        restricted: false
-      }
-    })
     .when('/topics', {
-      templateUrl   : 'angular-app/topics/topics.html',
+      templateUrl   : 'angular-app/Views/topics/topics.html',
       controller    : TopicsController,
       controllerAs  : 'vm',
       access: {
         restricted: false
       }
     })
-    .when('/topics/subjectoptions/:topic', {
-      templateUrl   : 'angular-app/topics/templates/subjectOptions/subjectoptions.html',
-      controller    : subjectoptionsController,
-      controllerAs  : 'vm',
-      access: {
-        restricted: false
-      }
-    })
-    .when('/topics/availableSubjects/:topic', {
-      templateUrl   : 'angular-app/topics/templates/AvailableSubjects/availablesubjects.html',
-      controller    : availablesubjectsController,
-      controllerAs  : 'vm',
-      access: {
-        restricted: false
-      }
-    })
+        .when('/topics/subjectoptions/:topic', {
+          templateUrl   : 'angular-app/Views/subjectOptions/subjectoptions.html',
+          controller    : subjectoptionsController,
+          controllerAs  : 'vm',
+          access: {
+            restricted: false
+          }
+        })
+        .when('/topics/availableSubjects/:topic', {
+          templateUrl   : 'angular-app/Views/AvailableSubjects/availablesubjects.html',
+          controller    : availablesubjectsController,
+          controllerAs  : 'vm',
+          access: {
+            restricted: false
+          }
+        })
+        .when('/topics/sujestsubject/:topic',{
+          templateUrl   : 'angular-app/Views/SujestSubject/sujestsubject.html',
+          controller    : sujestionController,
+          controllerAs  : 'vm',
+          access        : {
+            restricted : false
+          }
+        })
+        .when('/topics/subjectsinvoting/:topic', {
+          templateUrl   : 'angular-app/Views/subjectsInVoting/subjectsInVoting.html',
+          controller    : subVotingController,
+          controllerAs  : 'vm',
+          access        : {
+            restricted  : false
+          }
+        })
     .when('/profile', {
-      templateUrl : 'angular-app/profile/profile.html',
+      templateUrl : 'angular-app/Views/profile/profile.html',
       controller    : profileController,
       controllerAs  : 'vm',
       access      : {
         restricted: true
       }
     })
-    .when('/chat/:id',{
-      templateUrl   : 'angular-app/topics/templates/chat/chat.html',
-      controller    : chatController,
+    .when('/register', {
+      templateUrl   : 'angular-app/Views/register/register.html',
+      controller    : RegisterController,
       controllerAs  : 'vm',
-      access        : {
-        restricted : false
-      }
-    })
-    .when('/topics/sujestsubject/:topic',{
-      templateUrl   : 'angular-app/topics/templates/SujestSubject/sujestsubject.html',
-      controller    : sujestionController,
-      controllerAs  : 'vm',
-      access        : {
-        restricted : false
-      }
-    })
-    .when('/topics/subjectsinvoting/:topic', {
-      templateUrl   : 'angular-app/topics/templates/subjectsInVoting/subjectsInVoting.html',
-      controller    : subVotingController,
-      controllerAs  : 'vm',
-      access        : {
-        restricted  : false
+      access: {
+        restricted: false
       }
     })
     .when('/controlPanel', {
-      templateUrl   : 'angular-app/topics/templates/controlPanel/controlPanel.html',
+      templateUrl   : 'angular-app/Views/controlPanel/controlPanel.html',
       controller    : controlpanelcontroller,
       controllerAs  : 'vm',
       access        : {
@@ -93,11 +85,19 @@ function config($httpProvider, $routeProvider) {
       }
     })
     .when('/debates',{
-      templateUrl   : 'angular-app/topics/templates/debates/debates.html',
+      templateUrl   : 'angular-app/Views/debates/debates.html',
       controller    : debatesController,
       controllerAs  : 'vm',
       access        : {
         restricted  : false
+      }
+    })
+    .when('/chat/:id',{
+      templateUrl   : 'angular-app/Views/chat/chat.html',
+      controller    : chatController,
+      controllerAs  : 'vm',
+      access        : {
+        restricted : false
       }
     })
     .otherwise({

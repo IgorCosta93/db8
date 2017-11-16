@@ -17,52 +17,6 @@ header{
 .height-80 {
     height: 75vh;
 }
-
-div#navbar button#login{
-  background-color: #5075c6;
-  border: none;
-}
-
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
-  /*background-color: #5E4485;*/
-  background-color: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
-  color: #FFF;
-  padding: 0% 0;
-  font-size: 1.2en;
-  border: 0;
-}
-.navbar-brand {
-  float: left;
-  min-height: 0px;
-  /*padding: 0 15px 5px;*/
-}
-.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover{
-  color: #FFF;
-  /*background-color: #5E4485;*/
-}
-.navbar-inverse .navbar-nav li a{
-  /*color: #D5D5D5;*/
-}
-.carousel{
-
-}
-.carousel-inner {
-
-}
-.carousel-caption{
-  top: 50%;
-  transform: translateY(-50%);
-  text-transform: uppercase;
-}
-.btn{
-  /*font-size: 18px;
-  color: #FFF;
-  padding: 0px 15px;
-  background-color: #5E4485;
-  border: 2px solid #FFF;*/
-}
 .container{
   min-height: 100%;
 }
@@ -97,62 +51,26 @@ div#container{
   padding-top: 40px;
   height: 85vh;
 }
-
-/*----------SubjectOptions*/
-
-div#options{
-  padding-top: 60px;
-  height: 70vh;
-}
-
-div#options .row{
-  margin-top: 8%;
-}
-
-img#options{
-  border-radius: 500px;
-}
-
-div#options i{
-  font-size: 100px;
-  text-decoration: none;
-  color: #3c3d41;
-}
-
-/*------------------------------------*/
-
-div#myCarousel{
-  height: 100%;
-  width: 100%;
-  /*margin-bottom: -40px;*/
-}
-
 .submit-btn{
   background-color: #b1dbff;
   margin: 10px 0 10px 0;
 }
-
 .post{
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
-
 .odd {
   background-color: #f2f9ff;
 }
-
 .even {
   background-color: #eceff3;
 }
-
 .form-auth {
   max-width: 500px;
   padding: 5px;
   margin: 0 auto;
 }
-
-/* MAIN ----------------------------*/
 
 .hero{
   position: absolute;
@@ -175,36 +93,6 @@ header h1{
   text-align: center;
   font-weight: 400;
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-button#carousel{
-  margin-left: 35%;
-  font-size: 18px;
-  padding: 8px 20px;
-  border-radius: 12px
-
-  /*
-  margin-top: 10px;
-  color: #FFF;
-  background-color: #003300;
-  border: 2px solid #FFF;
-  ;*/
-}
-
-button#carousel:hover{
-  background-color: #006600;
-}
-
-div#main{
-  max-width: 500px;
-  background: rgba(255,255,255,0.2);
-  padding: 2rem;
-  color: white;
-}
-
-div#main p{
-  color: white;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
-  text-align: center;
 }
 
 /* SECTION */
@@ -243,228 +131,12 @@ div#main p{
   margin-left: 50px;
 }
 
-/*-----SUJESTION PAGE-----------------*/
-
-div#sujestBox{
-  width: 650px;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FFF;
-  box-shadow: 1px 1px 1px black;
-  height: 60vh;
-}
-
-form#sujestion{
-  width: 450px;
-  margin-top: 90px;
-  margin-left: auto;
-  margin-left: auto;
-  margin-left: -5%;
-}
-
-/*------------------------------------*/
-
-/*SUJESTION PAGE VOTE*/
-
-div#vote{
-  padding-top: 80px;
-  height: 85vh;
-}
-
-div#vote i{
-  color : green;
-  font-size: 25px;
-}
-
-input#topic{
-  margin-bottom: 10px;
-}
-button#btnVote{
-  margin-top: 5px;
-  width: 110px;
-}
-
-/*-------------------*/
-
-/*DEBATES PAGE */
-
-div#debate{
-  padding-top: 80px;
-  padding-bottom: 50px;
-  width: 50%;
-  float: left;
-}
-
-div#debate i{
-  color : green;
-  font-size: 25px;
-}
-
-div#debate a.fill-div {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: black;
-  text-decoration: none;
-}
-
-input#debate{
-  margin-bottom: 10px;
-}
-button#btndebate{
-  margin-top: 5px;
-  width: 110px;
-}
-
-/*REQUEST  */
-
-div#request{
-  padding-top: 80px;
-  padding-bottom: 50px;
-  padding-right: : 40px;
-  width: 50%;
-  float: right;
-}
-
-div#request i{
-  color : green;
-  font-size: 25px;
-}
-
-div#request a.fill-div {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: black;
-  text-decoration: none;
-}
-
-input#request{
-  margin-bottom: 10px;
-}
-button#btndebate{
-  margin-top: 5px;
-  width: 110px;
-}
-
-
-/*-------------------*/
-
-/* CHAT */
-form#coments{
-  width: 500px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-input#btnDeleteComent{
-  width: 30px;
-  height: 20px;
-}
-
-.messageLogin {
-  height: 100%;
-  min-height: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.messageLogin div {
-  padding: 40px;
-  border: 1px solid rgba(0, 0, 0, .3)
-}
-/*--------------------------*/
-
-/*NAVIGATION BAR*/
-button#btnMessage {
-    margin-top: 10px;
-    margin-left: 5px;
-    height: 32px;
-}
-/**/
-
-/* REGISTER */
-
-div#register{
-  padding-top: 60px;
-  width: 100%;
-  font-family: tahoma;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/register.jpg);
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-div#registerBox{
-  width: 600px;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FFF;
-  padding-top: 10px;
-  padding-bottom:20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  box-shadow: 5px 5px 5px black;
-}
-/*-----------------------*/
-
-/*AVAILEBLE SUBJECTS*/
-
-div#availeble{
-  padding-top: 60px;
-  width: 100%;
-  font-family: tahoma;
-  height: 85vh;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin-left: 10%;
-}
-
-div#availeble i {
-  font-size: 100px;
-  margin-bottom: 15%;
-}
-
-div#availeble a {
-  margin-bottom: 5%;
-}
-
-div#availeble .btn{
-  background-color: white;
-  border: 0px solid;
-  padding: 25px 30px;
-  color: #449d44;
-  text-decoration: none;
-  border-radius: 12px;
-
-  box-shadow: 1px 1px 1px black;
-  margin-right: 40px;
-}
-
-div#availeble  .btn-full:hover{
-  background-color: #449d44;
-  color:white;
-  transition: all 0.5s ease-in;
-}
-/*--------------------*/
-
 /*--------DIV post---------*/
 
 a#posts{
   text-decoration: none;
   color: black;
 }
-
-/*--------------------*/
 
 .fa{
   /*padding: 10px;
@@ -475,78 +147,3 @@ a#posts{
   /*color: #D5D5D5;
   text-decoration: none;*/
 }
-
-
-/*IPAD http://stephen.io/mediaqueries/*/
-
-@media screen and (max-width: 767px)
-and (max-width: : 1024px)
-and (orientation : landscape) {
-  .hero{
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  header{
-    font-family: tahoma;
-    font-size: 10px;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/wood2.jpg);
-    height: 100vh;
-    background-position: center;
-    background-attachment: fixed;
-  }
-  header h1{
-    color: white;
-    text-align: center;
-    font-weight: 300;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-  }
-  button#carousel{
-    margin-left: 30%;
-    font-size: 12px;
-    padding: 8px 20px;
-    border-radius: 12px
-  }
-
-  button#carousel:hover{
-    background-color: #006600;
-  }
-
-  div#main{
-    max-width: 300px;
-    background: rgba(255,255,255,0.2);
-    padding: 2rem;
-    color: white;
-  }
-
-  div#main p{
-    color: white;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-    text-align: center;
-  }
-
-  div#registerBox{
-    width: 90%;
-  }
-}
-
-@media (max-width: 900px){
-  .fa{
-    font-size: 20px;
-    padding: 10px;
-  }
-
-}
-
-@media (max-width: 600px){
-  .carousel-caption{
-    display: none;
-  }
-  #icon{
-    max-width: 150px;
-  }
-  h2{
-    font-size: 1.7en;
-  }

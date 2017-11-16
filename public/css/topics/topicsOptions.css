@@ -1,0 +1,18 @@
+div#options{
+  padding-top: 60px;
+  height: 70vh;
+}
+
+div#options .row{
+  margin-top: 8%;
+}
+
+img#options{
+  border-radius: 500px;
+}
+
+div#options i{
+  font-size: 100px;
+  text-decoration: none;
+  color: #3c3d41;
+}

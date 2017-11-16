@@ -1,0 +1,23 @@
+div#register{
+  padding-top: 60px;
+  width: 100%;
+  font-family: tahoma;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/register.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+div#registerBox{
+  width: 600px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  padding-top: 10px;
+  padding-bottom:20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 5px 5px 5px black;
+}

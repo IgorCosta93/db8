@@ -1,0 +1,73 @@
+/*IPAD http://stephen.io/mediaqueries/*/
+
+@media screen and (max-width: 767px)
+and (max-width: : 1024px)
+and (orientation : landscape) {
+  .hero{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  header{
+    font-family: tahoma;
+    font-size: 10px;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/wood2.jpg);
+    height: 100vh;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  header h1{
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  button#carousel{
+    margin-left: 30%;
+    font-size: 12px;
+    padding: 8px 20px;
+    border-radius: 12px
+  }
+
+  button#carousel:hover{
+    background-color: #006600;
+  }
+
+  div#main{
+    max-width: 300px;
+    background: rgba(255,255,255,0.2);
+    padding: 2rem;
+    color: white;
+  }
+
+  div#main p{
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+
+  div#registerBox{
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px){
+  .fa{
+    font-size: 20px;
+    padding: 10px;
+  }
+
+}
+
+@media (max-width: 600px){
+  .carousel-caption{
+    display: none;
+  }
+  #icon{
+    max-width: 150px;
+  }
+  h2{
+    font-size: 1.7en;
+  }
