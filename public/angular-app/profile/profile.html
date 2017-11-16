@@ -23,7 +23,7 @@
                 <th></th>
 
               </tr>
-              <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'createdOn':true ">
+              <tr class="post" ng-repeat="subject in vm.subjects | filter:searchSujestion | orderBy:'topic':true ">
                 <td>{{subject.topic}}</td>
                 <td>{{subject.subject}}</td>
                 <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>

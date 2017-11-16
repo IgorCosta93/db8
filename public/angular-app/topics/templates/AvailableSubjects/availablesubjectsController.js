@@ -53,7 +53,7 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
 
       if (response.data.length <= 0){
         var conversation = {
-          topic     : vm.topics,
+          topic     : vm.topic,
           subject   : vm.subject,
           user      : vm.loggedInUser,
           position  : vm.position,

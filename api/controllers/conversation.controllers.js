@@ -392,29 +392,10 @@ module.exports.addUserNotification = function(req,res){
         });
       }
     });
-
-  /*coment.findById(req.body._id, (err, comentsUser) => {
-      if(err){
-        res.status(500).send(err);
-      }else {
-        comentsUser.notification.push({
-          user      : userName
-        });
-        comentsUser.save((err, comentsUser) => {
-          if(err){
-            res.status(500).send(err)
-            console.log(err);
-          }else {
-            res.status(200).send(comentsUser)
-            console.log(comentsUser);
-          }
-        });
-      }
-    });*/
 };
 
 module.exports.addConversation = function(req,res){
-    console.log("UsersN "+req.body.usersN);
+    //console.log("UsersN "+req.body.usersN);
     var _id = 'TESTE';
     var usersN = req.body.usersN;
     coment
@@ -431,10 +412,6 @@ module.exports.addConversation = function(req,res){
           position  : req.body.position
         },
         userListN : 1,
-        //notification  : {
-          //user    : _getUserNotification(req,res,)
-        //},
-        //notification : req.body.usersN,
         createdOn : req.body.createdOn
       }, function(err, conversation){
         if (err) {
@@ -444,26 +421,15 @@ module.exports.addConversation = function(req,res){
             .json(err);
         } else {
           console.log("Coment Add.", conversation);
-          /*/console.log(conversation._id);
-          _id = conversation._id;
-          if (conversation) {
-            _addUserNotification(req,res,usersN,_id);
-          }
-
-          //console.log(_id);*/
           res
             .status(201)
             .json(conversation);
         }
       });
-      //console.log("----------------------------------------------");
-      //console.log(_id);
-      //console.log(_id);
-      //_addUserNotification(req,res,usersN,_id);
 };
 
 module.exports.addUserInDebate = function(req,res){
-  console.log("POSITION : " + req.body.position);
+  //console.log("POSITION : " + req.body.position);
   coment.findById(req.body._id, (err, coments) => {
       if(err){
         res.status(500).send(err);
