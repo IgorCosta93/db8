@@ -40,7 +40,11 @@ var topicsSchema = new mongoose.Schema({
     required : false
   },
   users : [usersSchema],
-  notification : [notificationSchema]
+  notification : [notificationSchema],
+  image: {
+    type : String,
+    required : false
+  }
 });
 
 mongoose.model('Topics', topicsSchema);

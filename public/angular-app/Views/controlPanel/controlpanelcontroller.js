@@ -14,6 +14,7 @@ function controlpanelcontroller(debateFactory,$scope){
     document.getElementById('sujestion').style.display = 'none';
     document.getElementById('posts').style.display = 'none';
     document.getElementById('topics').style.display = 'none';
+    document.getElementById('news').style.display = 'none';
 
     vm.controlVisible = function(){
       document.getElementById('Overview').style.display = 'inherit';
@@ -22,6 +23,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'none';
       document.getElementById('topics').style.display = 'none';
+      document.getElementById('news').style.display = 'none';
     };
 
     vm.usersVisible = function(){
@@ -31,6 +33,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'none';
       document.getElementById('topics').style.display = 'none';
+      document.getElementById('news').style.display = 'none';
     };
 
     vm.sujestionVisible = function(){
@@ -40,6 +43,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('sujestion').style.display = 'inherit';
       document.getElementById('posts').style.display = 'none';
       document.getElementById('topics').style.display = 'none';
+      document.getElementById('news').style.display = 'none';
     };
 
     vm.postsVisible = function(){
@@ -49,6 +53,7 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'inherit';
       document.getElementById('topics').style.display = 'none';
+      document.getElementById('news').style.display = 'none';
     };
 
     vm.topicVisible = function(){
@@ -58,6 +63,17 @@ function controlpanelcontroller(debateFactory,$scope){
       document.getElementById('sujestion').style.display = 'none';
       document.getElementById('posts').style.display = 'none';
       document.getElementById('topics').style.display = 'inherit';
+      document.getElementById('news').style.display = 'none';
+    };
+
+    vm.newsVisible = function(){
+      document.getElementById('Overview').style.display = 'none';
+      document.getElementById('latestUsers').style.display = 'none';
+      document.getElementById('users').style.display = 'none';
+      document.getElementById('sujestion').style.display = 'none';
+      document.getElementById('posts').style.display = 'none';
+      document.getElementById('topics').style.display = 'none';
+      document.getElementById('news').style.display = 'inherit';
     };
 
     //---------------------USERS------------------------------------------------
@@ -318,5 +334,59 @@ function controlpanelcontroller(debateFactory,$scope){
 
       vm.reload();
     };
+
+    //-------------------------------------TOPIC------------------------------------------------
+
+    vm.addNews = function(){
+
+      if(document.getElementById("topicN").value == ""){
+        //vm.error = 'Please write a Topic'
+        alert(vm.error = 'Please write a Topic');
+      }else if (!document.getElementById("sujestionN").value) {
+        //vm.error = 'Please write a subject'
+        alert(vm.error = 'Please write a subject');
+      }else if (!document.getElementById("inputFileToLoad").value) {
+        //vm.error = 'Please select a Image'
+        alert(vm.error = 'Please select a Image');
+      }else {
+
+        var post = {
+          topic     : document.getElementById("topicN").value,
+          subject   : document.getElementById("sujestionN").value,
+          image     : vm.base64value,
+          createdOn : Date.now()
+        };
+
+        debateFactory.addNews(post).then(function(response){
+          vm.topic = response.data;
+        });
+        vm.message = 'Successful add sujestion.';
+        vm.error = '';
+      };
+
+      document.getElementById("topicN").value = "";
+      document.getElementById("sujestionN").value = "";
+      document.getElementById("inputFileToLoad").value = "";
+
+      vm.reload();
+    };
+
+    //CONVERT IMAGE TO BASE64
+    $(document).ready(function() {
+        $("#inputFileToLoad").change(function() {
+            var filesSelected = document.getElementById("inputFileToLoad").files;
+            if (filesSelected.length > 0) {
+                var fileToLoad = filesSelected[0];
+                var fileReader = new FileReader();
+                fileReader.onload = function(fileLoadedEvent) {
+                    var base64value = fileLoadedEvent.target.result;
+                    //console.log(base64value);
+                    vm.base64value = base64value;
+                    $("#response").val(base64value);
+                };
+                fileReader.readAsDataURL(fileToLoad);
+            }
+        });
+    });
 
 };

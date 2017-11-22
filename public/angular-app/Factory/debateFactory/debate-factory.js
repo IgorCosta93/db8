@@ -2,18 +2,24 @@ angular.module('db8').factory('debateFactory', debateFactory);
 
 function debateFactory($http){
   return {
-    debateList          : debateList,
-    debatePost          : debatePost,
+    //USERS COLLECTION
     getUsers            : getUsers,
     getUser             : getUser,
-    topicPost           : topicPost,
     updateUser          : updateUser,
     deleteUser          : deleteUser,
+
+    //CATEGORIES COLLECTION
+    getTopic            : getTopic,
+    addTopic            : addTopic,
+    addNews             : addNews,
+
+    debateList          : debateList,
+    debatePost          : debatePost,
+    topicPost           : topicPost,
     getSubjects         : getSubjects,
     updateTopic         : updateTopic,
     updateSujestion     : updateSujestion,
     deleteTopic         : deleteTopic,
-    //updateDebate        : updateDebate,
     deleteDebate        : deleteDebate,
     getUserVote         : getUserVote,
     debateSearch        : debateSearch,
@@ -26,8 +32,6 @@ function debateFactory($http){
     debateGetDebate     : debateGetDebate,
     deleteConversation  : deleteConversation,
     updateConversation  : updateConversation,
-    getTopic            : getTopic,
-    addTopic            : addTopic,
     getSub              : getSub,
     notifySubject       : notifySubject,
     unNotifySubject     : unNotifySubject,
@@ -35,87 +39,10 @@ function debateFactory($http){
     debateGetUserN      : debateGetUserN,
     deleteNotification  : deleteNotification,
     debateInsertUsers   : debateInsertUsers
-    //updateC             : updateC
+
   };
 
-//------------CONVERSATIONS---------------------------------------------
-
-  function debateList(id) {
-    return $http.get('/api/topics/politics/'+id).then(complete).catch(failed);
-  }
-
-  function debateSearch(debate){
-    //console.log("SUBJECT HERE: "+subject);
-    //return $http.post('/api/topics/'+ people + '/position/' + position + '/topic/' + topic + '/subject/' + subject, subject).then(complete).catch(failed);
-    return $http.post('/api/topics/search/', debate).then(complete).catch(failed);
-  }
-
-  function debateSearchUser(id){
-    return $http.get('/api/topics/user/' + id).then(complete).catch(failed);
-  }
-
-  function debateGetDebate(){
-    return $http.get('/api/topics/debates/').then(complete).catch(failed);
-  }
-
-  function debateGetDebates(user){
-    return $http.get('/api/topics/debates/'+user).then(complete).catch(failed);
-  }
-
-  function debateSearchP(id){
-    return $http.get('/api/topics/position/' + id).then(complete).catch(failed);
-  }
-
-  function debatePost(post){// NEED TO BE DELETE AFTER FINISH THE OTHER
-    return $http.post('/api/topics/politics/', post).then(complete).catch(failed);
-  }
-
-  function debateInsert(conversation){
-    return $http.post('/api/topics/chat', conversation).then(complete).catch(failed);
-  }
-
-  function debateInsertUsers(conUsers){
-    return $http.post('/api/topics/chat/users', conUsers).then(complete).catch(failed);
-  }
-
-  function debateAddinDebate(user){
-    return $http.post('/api/topics/user/', user).then(complete).catch(failed);
-  }
-
-  //function updateDebate(conversation){
-    //return $http.post('/api/topics/politics/updateDebate', conversation).then(complete).catch(failed);
-  //}
-
-  function updateConversation(conversation){
-    return $http.post('/api/topics/conversation/', conversation).then(complete).catch(failed);
-  }
-
-  /*function updateC(conversations){
-    return $http.post('/api/topics/conversations/', conversations).then(complete).catch(failed);
-  }*/
-
-  function deleteConversation(idDebate){
-    return $http.delete('/api/topics/politics/debate/' + idDebate).then(complete).catch(failed);
-  }
-
-  function deleteDebate(idDebate,_id){
-    return $http.delete('/api/topics/politics/' + idDebate + '/idComent/' + _id).then(complete).catch(failed);
-  }
-
-  function debateGetUserN(){
-    return $http.get('/api/topics/debateGetUserN').then(complete).catch(failed);
-  }
-
-  function deleteNotification(subject){
-    return $http.post('/api/topics/politics/debate/notification',  subject).then(complete).catch(failed);
-  }
-
-//----------------------------------------------------------------------
-
-  function topicPost(post){
-    return $http.post('/api/topics', post).then(complete).catch(failed);
-  }
-
+  //-----------------------USERS---------------------------------------
   function getUsers(){
     return $http.get('/api/users').then(complete).catch(failed);
   }
@@ -130,6 +57,16 @@ function debateFactory($http){
 
   function deleteUser(_id){
     return $http.delete('/api/user/' + _id).then(complete).catch(failed);
+  }
+
+  //--------------------------TOPIC--------------------------------------
+
+  function getTopic(){
+    return $http.get('/api/topics/menu').then(complete).catch(failed);
+  }
+
+  function addTopic(topics){
+    return $http.post('/api/topics/menu', topics).then(complete).catch(failed);
   }
 
   //------SUJESTIONS---------------------------------------------------------------------------
@@ -148,6 +85,14 @@ function debateFactory($http){
 
   function getUserVote(id, user){
     return $http.get('/api/topics/' + id + '/user/' + user).then(complete).catch(failed);
+  }
+
+  function topicPost(post){
+    return $http.post('/api/topics', post).then(complete).catch(failed);
+  }
+
+  function addNews(post){
+    return $http.post('/api/topics/news', post).then(complete).catch(failed);
   }
 
   function updateTopic(topic){
@@ -174,17 +119,69 @@ function debateFactory($http){
     return $http.get('/api/notify/'+id).then(complete).catch(failed);
   }
 
-  //------TOPIC---------------------------------------------------------------------------
+  //------------CONVERSATIONS---------------------------------------------
 
-  function getTopic(){
-    return $http.get('/api/topics/menu').then(complete).catch(failed);
+  function debateGetDebate(){
+    return $http.get('/api/topics/debates/').then(complete).catch(failed);
   }
 
-  function addTopic(topics){
-    return $http.post('/api/topics/menu', topics).then(complete).catch(failed);
+  function debateList(id) {
+    return $http.get('/api/topics/politics/'+id).then(complete).catch(failed);
   }
 
-  //--------------------------------------------------------------------------------------
+  function debateSearch(debate){
+    return $http.post('/api/topics/search/', debate).then(complete).catch(failed);
+  }
+
+  function debateSearchUser(id){
+    return $http.get('/api/topics/user/' + id).then(complete).catch(failed);
+  }
+
+  function debateGetDebates(user){
+    return $http.get('/api/topics/debates/'+user).then(complete).catch(failed);
+  }
+
+  function debateSearchP(id){
+    return $http.get('/api/topics/position/' + id).then(complete).catch(failed);
+  }
+
+  function debatePost(post){// NEED TO BE DELETE AFTER FINISH THE OTHER
+    return $http.post('/api/topics/politics/', post).then(complete).catch(failed);
+  }
+
+  function debateInsert(conversation){
+    return $http.post('/api/topics/chat', conversation).then(complete).catch(failed);
+  }
+
+  function debateInsertUsers(conUsers){
+    return $http.post('/api/topics/chat/users', conUsers).then(complete).catch(failed);
+  }
+
+  function debateAddinDebate(user){
+    return $http.post('/api/topics/user/', user).then(complete).catch(failed);
+  }
+
+  function updateConversation(conversation){
+    return $http.post('/api/topics/conversation/', conversation).then(complete).catch(failed);
+  }
+
+  function deleteConversation(idDebate){
+    return $http.delete('/api/topics/politics/debate/' + idDebate).then(complete).catch(failed);
+  }
+
+  function deleteDebate(idDebate,_id){
+    return $http.delete('/api/topics/politics/' + idDebate + '/idComent/' + _id).then(complete).catch(failed);
+  }
+
+  function debateGetUserN(){
+    return $http.get('/api/topics/debateGetUserN').then(complete).catch(failed);
+  }
+
+  function deleteNotification(subject){
+    return $http.post('/api/topics/politics/debate/notification',  subject).then(complete).catch(failed);
+  }
+
+  //--------------------------------------------------------------------------------------------------
 
   function complete(response){
     return response;

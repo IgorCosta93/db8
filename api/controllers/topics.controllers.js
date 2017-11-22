@@ -1,3 +1,4 @@
+
 var mongoose  = require('mongoose');
 var topics    = mongoose.model('Topics');
 
@@ -113,6 +114,31 @@ module.exports.addTopic = function(req,res){
         votes         : 0,
         createdOn     : req.body.createdOn,
         active        : "NAO",
+        notification  : {
+          user    : "user"
+        }
+      }, function(err, topic){
+          if(err){
+            console.log("Error creating topic");
+            res
+              .status(400)
+              .json(err);
+          }else {
+            console.log("Topic Add.", topic);
+            res
+              .status(201)
+              .json(topic);
+          }
+      });
+};
+
+module.exports.addNews = function(req,res){
+    topics
+      .create({
+        topic         : req.body.topic,
+        subject       : req.body.subject,
+        image         : req.body.image,
+        createdOn     : req.body.createdOn,
         notification  : {
           user    : "user"
         }

@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-var ctrlConversation  = require('../controllers/conversation.controllers.js');
 var ctrlUsers         = require('../controllers/users.controllers.js');
+var ctrlCategories    = require('../controllers/topic.controllers.js');
 var ctrlTopic         = require('../controllers/topics.controllers.js');
-var ctrlTopics        = require('../controllers/topic.controllers.js');
+var ctrlConversation  = require('../controllers/conversation.controllers.js');
+
+//---------------TOPIC----------------------
+router
+  .route('/topics/menu')
+  .get(ctrlCategories.getAll)
+  .post(ctrlCategories.addTopic);
 
 //-------------------CONVERSATIONS----------------------------
 
@@ -31,7 +37,6 @@ router
   .delete(ctrlConversation.deleteComent);
 
 router
-  //.route('/topics/:people/position/:position/topic/:topic/subject/:subject')
   .route('/topics/search/')
   .post(ctrlConversation.getSearch);
 
@@ -66,10 +71,6 @@ router
 router
   .route('/topics/politics/:politicsId')
   .delete(ctrlConversation.deleteComent);
-
-/*router
-  .route('/topics/politics/update')
-  .post(ctrlConversation.updateComent);*/
 
 router
   .route('/topics/conversation/')
@@ -113,6 +114,11 @@ router
   .post(ctrlTopic.addTopic);
 
 router
+  .route('/topics/news')
+  //.get(ctrlTopic.getAllSubject)
+  .post(ctrlTopic.addNews);
+
+router
   .route('/topics/vote/:topic')
   .get(ctrlTopic.getSubject);
 
@@ -147,11 +153,5 @@ router
 router
   .route('/notify/:notifyID')
   .get(ctrlTopic.getNotifyUser);
-
-//---------------TOPIC----------------------
-router
-  .route('/topics/menu')
-  .get(ctrlTopics.getAll)
-  .post(ctrlTopics.addTopic);
 
 module.exports = router;
