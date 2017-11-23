@@ -8,6 +8,9 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
   vm.subject  = "";
   var user = "";
   vm.userNotification = "";
+  var token = $window.sessionStorage.token;
+  var decodedToken = jwtHelper.decodeToken(token);
+  vm.loggedInUser = decodedToken.username;
 
   vm.getUserN = function(subject,user){
     vm.userN = '';
@@ -33,6 +36,55 @@ function availablesubjectsController($http, $scope, AuthFactory, debateFactory,$
   };
 
   vm.reload();
+
+  vm.notify = function(subjectID){
+    subject = {
+      _id   : subjectID,
+      user  : vm.loggedInUser
+    };
+    debateFactory.notifySubject(subject).then(function(response){
+      //vm.adm = response.data.adm;
+    });
+    vm.reload();
+    vm.reload();
+  };
+
+  vm.unNotify = function(subject){
+    //console.log(subject._id);
+    //console.log(subject.notification.length);
+    //console.log(String(subject.notification[0]["_id"]));
+    for (i = 0; i < subject.notification.length; i++){
+      if(String(subject.notification[i]["user"]) == vm.loggedInUser){
+        //console.log(String(subject.notification[i]["_id"]));
+        vm.idUserN = String(subject.notification[i]["_id"]);
+      };
+    };
+
+    subject = {
+      _id       : subject._id,
+      _idNotify : vm.idUserN
+    };
+    debateFactory.unNotifySubject(subject).then(function(response){
+      vm.adm = response.data.adm;
+    });
+    vm.reload();
+    vm.reload();
+  };
+
+  vm.subscribe = function(subject){
+    if(subject != undefined){
+      //var debateN = debate.split(",");
+      if (subject.length > 0){
+        for (i = 0; i < subject.length; i++){
+          if(String(subject[i]["user"]) == vm.loggedInUser){
+            user = "TRUE"
+            //alert(String(subject[i]["user"]));
+            return true;
+          };
+        };
+      };
+    };
+  };
 
   $('#myModal2').on('hidden.bs.modal', function () {
 

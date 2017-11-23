@@ -22,9 +22,23 @@
                  {{subject.subject}}
                </p>
                <footer class="article-info">
-                 <span><a href="#" title="Start a Debate"><i id="main" class="fa fa-comments-o" aria-hidden="true"></i></a></span>
-                 <span id="main"><a href="#" title="Subscribe"><i id="main" class="fa fa-rss" aria-hidden="true"></i></a></span>
-                 <span>{{vm.subjectMusic.length}} Debates Right Now</span>
+
+                 <span>
+                   <a href="" title="Start a Debate" ng-click="vm.getUserN(subject.subject,subject.notification)">
+                     <i id="main" class="fa fa-comments-o" aria-hidden="true" data-toggle="modal" data-target="#myModal" readonly="true"></i>
+                   </a>
+                 </span>
+
+                 <span id="main" ng-show="vm.subscribe(subject.notification)">
+                   <a href="" title="Unsubscribe"><i id="mainU" class="fa fa-rss" aria-hidden="true" ng-click="vm.unNotify(subject)"></i></a>
+                 </span>
+
+                 <span id="main" ng-show="!vm.subscribe(subject.notification)">
+                   <a href="" title="Subscribe"><i id="main" class="fa fa-rss" aria-hidden="true" ng-click="vm.notify(subject._id)"></i></a>
+                 </span>
+
+                 <span>{{vm.subjectMusic.notification}} Debates Right Now</span>
+
                </footer>
              </div>
             </div>
@@ -40,4 +54,47 @@
   <br>
   <br>
   <br>
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>How is your position in relation of this subject.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=2" data-toggle="modal" data-target="#myModal2">Two</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=4" data-toggle="modal" data-target="#myModal2">Four</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>Which how many people would you like to talk?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.position=1">Favor</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position=2">Against</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position=3">Neutral</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
