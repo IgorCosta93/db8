@@ -24,3 +24,14 @@ button#btnAcceptN i{
   font-size: 20px;
   color: white;
 }
+
+/*----------MAIN SCREEN---------*/
+
+span#main{
+  margin-right: 8px;
+}
+
+i#main{
+  font-size: 15px;
+  color: gray;
+}

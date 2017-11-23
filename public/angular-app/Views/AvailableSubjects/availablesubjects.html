@@ -1,131 +1,43 @@
-<!--<div id="container" class="container">
-
-  <div class="col-md-offset-2 col-md-8">
-    <div class="clearfix">
-      <form id="options" ng-Submit="vm.getTopic()">
-        <p class="center">
-          <button id="btnOptions" type="submit" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Bolsonaro</button>
-          <button id="btnOptions" type="button" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Lava Jato</button>
-          <button id="btnOptions" type="button" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Lula</button>
-          <br><br><br><br>
-          <button id="btnOptions" type="button" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Eleições 2018</button>
-          <button id="btnOptions" type="button" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Previdencia Social</button>
-          <button id="btnOptions" type="button" class="btn btn-primary btn-lg " onclick="window.location.href='#!/chat'">Impostos</button>
-        </p>
-      </form>
-    </div>
-  </div>
-</div>
-
 <div id="container" class="container">
+  <div class="clearfix">
+    <br>
+    <br>
 
-  <div class="col-md-offset-2 col-md-8">
-    <div class="clearfix">
-      <div id="availeble">
-        <a href="#!/chat" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Bolsonaro
-        </a>
+    <div class="container"><section class="row">
 
-        <a href="#" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Lava Jato
-        </a>
+       <article class="col-sm-12 col-md-10">
+         <!--ROW LEFT-->
+         <div class="row">
 
-        <a href="#" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Eleições 2018
-        </a>
+          <div class="col-sm-4" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+            <div class="articles">
+             <figure class="article-image is-16by9">
+               <img src="{{subject.image}}" alt="">
+             </figure>
+             <div class="article-body">
+               <h2 class="article-title">
+                 {{subject.topic}}
+               </h2>
+               <p class="article-content">
+                 {{subject.subject}}
+               </p>
+               <footer class="article-info">
+                 <span><a href="#" title="Start a Debate"><i id="main" class="fa fa-comments-o" aria-hidden="true"></i></a></span>
+                 <span id="main"><a href="#" title="Subscribe"><i id="main" class="fa fa-rss" aria-hidden="true"></i></a></span>
+                 <span>{{vm.subjectMusic.length}} Debates Right Now</span>
+               </footer>
+             </div>
+            </div>
+          </div>
 
-        <a href="#" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Previdencia
-        </a>
+         </div>
+       </article>
 
-        <a href="#" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Impostos
-        </a>
+    </section></div>
 
-        <a href="#" class="btn btn-full">
-          <i class="fa fa-user-circle" aria-hidden="true"></i><br>
-          Lula
-        </a>
-      </div>
-    </div>
   </div>
-</div>-->
-
-
-<div id="container" class="container">
-
-  <div class="col-md-offset-2 col-md-8">
-    <div class="clearfix">
-      <div id="availeble" >
-        <a href="" class="btn btn-full" ng-repeat="subject in vm.subjects" ng-click="vm.getUserN(subject.subject,subject.notification)">
-          <i class="fa fa-user-circle" aria-hidden="true" data-toggle="modal" data-target="#myModal" readonly="true"></i><br>
-          {{subject.subject}}
-          <!--<p id="userN" ng-repeat="subjectN in subject.notification" ng-modal="vm.userNotification='subjectN.user'">{{subjectN.user}}</p>-->
-        </a>
-      </div>
-    </div>
-    <p ng-repeat="conver in vm.conversation">{{conver}}</p>
-  </div>
-  <!--
-  <div class="col-md-offset-2 col-md-8">
-    <div class="clearfix">
-      <div id="availeble" >
-        <a href="" class="btn btn-full" ng-repeat="subject in vm.subjects" ng-click="vm.showUserN(subject.subject,subject.notification)">
-          <i class="fa fa-user-circle" aria-hidden="true" readonly="true"></i><br>
-          {{subject.subject}}
-          <p id="userN" ng-repeat="subjectN in subject.notification" ng-modal="vm.userNotification='subjectN.user'">{{subjectN.user}}</p>
-        </a>
-        <button type="button" name="button" ng-click="vm.showUserN()">TESTE</button>
-      </div>
-    </div>
-    <p ng-repeat="conver in vm.conversation">{{conver}}</p>
-  </div>-->
-
-  <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Confirmação</h4>
-        </div>
-        <div class="modal-body">
-          <p>How is your position in relation of this subject.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=2" data-toggle="modal" data-target="#myModal2">Two</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.people=4" data-toggle="modal" data-target="#myModal2">Four</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Confirmação</h4>
-        </div>
-        <div class="modal-body">
-          <p>Which how many people would you like to talk?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="vm.position=1">Favor</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position=2">Against</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="vm.position=3">Neutral</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <br>
+  <br>
+  <br>
+  <br>
 </div>

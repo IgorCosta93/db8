@@ -31,7 +31,7 @@ module.exports.getAllSubject = function(req,res){
       .find()
       .exec(function(err, topics){
         console.log(err);
-        console.log(topics);
+        //console.log(topics);
         if(err){
           console.log("Error finding Topics");
           res
@@ -53,7 +53,7 @@ module.exports.getSubject = function(req,res){
       })
       .exec(function(err, topics){
         console.log(err);
-        console.log(topics);
+        //console.log(topics);
         if(err){
           console.log("Error finding Topics");
           res
@@ -79,7 +79,7 @@ module.exports.getAllTopicA = function(req,res){
       .limit(10)
       .exec(function(err, topics){
         console.log(err);
-        console.log(topics);
+        //console.log(topics);
         if(err){
           console.log("Error finding Topics");
           res
