@@ -72,8 +72,38 @@ $(document).ready(function() {
           Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes. Se você pretende usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há algo embaraçoso escrito escondido no meio do texto.
         </p>
       </div>-->
+
       <div class="col-md-3">
-        <div class="column" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+        <div class="column" ng-repeat="subject in vm.subjectPolitic | orderBy:'createdOn':true">
+
+          <div class="article">
+            <figure class="article-image is-16by9">
+              <img src="{{subject.image}}" alt="">
+            </figure>
+            <div class="article-body">
+              <h2 class="article-title">
+                {{subject.topic}}
+              </h2>
+              <p class="article-content">
+                {{subject.subject}}
+              </p>
+              <footer class="article-info">
+                <span>By Joe Smith</span>
+                <span>{{vm.subjectPolitic.length}} Debates Right Now</span>
+              </footer>
+              <footer class="article-info">
+                <span>By Joe Smith</span>
+                <span>{{vm.subjectPolitic.length}} Debates Right Now</span>
+              </footer>
+            </div>
+          </div>
+
+        <!-- END -->
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="column" ng-repeat="subject in vm.subjectSoccer | orderBy:'createdOn':true">
 
           <div class="article">
             <figure class="article-image is-16by9">
@@ -96,86 +126,57 @@ $(document).ready(function() {
         <!-- END -->
         </div>
       </div>
+
       <div class="col-md-3">
-        <!--<i class="fa fa-imdb"></i>
-        <h4>TALK ABOUT MOVIES</h4>
-        <p class="arranging">
-          Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes. Se você pretende usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há algo embaraçoso escrito escondido no meio do texto.
-        </p>-->
-        <div class="column">
-          <a class="article" href="#">
+        <div class="column" ng-repeat="subject in vm.subjectMusic | orderBy:'createdOn':true">
+
+          <div class="article">
             <figure class="article-image is-16by9">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/image-03-lo.jpg" alt="">
+              <img src="{{subject.image}}" alt="">
             </figure>
             <div class="article-body">
               <h2 class="article-title">
-                Hello World
+                {{subject.topic}}
               </h2>
               <p class="article-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                {{subject.subject}}
               </p>
               <footer class="article-info">
                 <span>By Joe Smith</span>
                 <span>42 comments</span>
               </footer>
             </div>
-          </a>
-        </div>
+          </div>
+
         <!-- END -->
+        </div>
       </div>
+
       <div class="col-md-3">
-        <!--<i class="fa fa-envelope"></i>
-        <h4>SEND MESSAGES</h4>
-        <p class="arranging">
-          Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes. Se você pretende usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há algo embaraçoso escrito escondido no meio do texto.
-        </p>-->
-        <div class="column">
-          <a class="article" href="#">
+        <div class="column" ng-repeat="subject in vm.subjectScience | orderBy:'createdOn':true">
+
+          <div class="article">
             <figure class="article-image is-16by9">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/image-03-lo.jpg" alt="">
+              <img src="{{subject.image}}" alt="">
             </figure>
             <div class="article-body">
               <h2 class="article-title">
-                Hello World
+                {{subject.topic}}
               </h2>
               <p class="article-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                {{subject.subject}}
               </p>
               <footer class="article-info">
                 <span>By Joe Smith</span>
                 <span>42 comments</span>
               </footer>
             </div>
-          </a>
-        </div>
+          </div>
+
         <!-- END -->
+        </div>
       </div>
-      <div class="col-md-3">
-        <!--<i class="fa fa-cog"></i>
-        <h4>CONFIGURATIONS</h4>
-        <p class="arranging">
-          Existem muitas variações disponíveis de passagens de Lorem Ipsum, mas a maioria sofreu algum tipo de alteração, seja por inserção de passagens com humor, ou palavras aleatórias que não parecem nem um pouco convincentes. Se você pretende usar uma passagem de Lorem Ipsum, precisa ter certeza de que não há algo embaraçoso escrito escondido no meio do texto.
-        </p>-->
-        <div class="column">
-          <a class="article" href="#">
-            <figure class="article-image is-16by9">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/image-03-lo.jpg" alt="">
-            </figure>
-            <div class="article-body">
-              <h2 class="article-title">
-                Hello World
-              </h2>
-              <p class="article-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <footer class="article-info">
-                <span>By Joe Smith</span>
-                <span>42 comments</span>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <!-- END -->
+
       </div>
     </div>
   </div>

@@ -11,7 +11,10 @@ function debateFactory($http){
     //CATEGORIES COLLECTION
     getTopic            : getTopic,
     addTopic            : addTopic,
+
+    //NEWS
     addNews             : addNews,
+    getSubjectsTopics   : getSubjectsTopics,
 
     debateList          : debateList,
     debatePost          : debatePost,
@@ -67,6 +70,12 @@ function debateFactory($http){
 
   function addTopic(topics){
     return $http.post('/api/topics/menu', topics).then(complete).catch(failed);
+  }
+
+  //------NEWS---------------------------------------------------------------------------
+
+  function getSubjectsTopics(topic){
+    return $http.get('/api/topics/topics/'+topic).then(complete).catch(failed);
   }
 
   //------SUJESTIONS---------------------------------------------------------------------------

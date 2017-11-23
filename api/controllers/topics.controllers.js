@@ -2,6 +2,30 @@
 var mongoose  = require('mongoose');
 var topics    = mongoose.model('Topics');
 
+//----------------------NEWS--------------------
+module.exports.getSubjectTopic = function(req,res){
+    topics
+      .find({
+        topic : req.params.topic
+      })
+      .exec(function(err, topics){
+        console.log(err);
+        //console.log(topics);
+        if(err){
+          console.log("Error finding Topics");
+          res
+            .status(500)
+            .json(err);
+        }else {
+          console.log("Found the topics", topics.length);
+          res
+            .json(topics);
+        }
+      });
+};
+
+//------------------------------------------------
+
 module.exports.getAllSubject = function(req,res){
     topics
       .find()

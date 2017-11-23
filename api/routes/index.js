@@ -6,6 +6,11 @@ var ctrlCategories    = require('../controllers/topic.controllers.js');
 var ctrlTopic         = require('../controllers/topics.controllers.js');
 var ctrlConversation  = require('../controllers/conversation.controllers.js');
 
+//NEWS
+router
+  .route('/topics/topics/:topic')
+  .get(ctrlTopic.getSubjectTopic);
+
 //---------------TOPIC----------------------
 router
   .route('/topics/menu')
