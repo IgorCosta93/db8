@@ -86,7 +86,7 @@ module.exports.getAllTopicA = function(req,res){
             .status(500)
             .json(err);
         }else {
-          console.log("Found the topics", topics.length);
+          //console.log("Found the topics", topics.length);
           res
             .json(topics);
         }
