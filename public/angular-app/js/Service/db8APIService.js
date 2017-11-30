@@ -1,5 +1,6 @@
 angular.module("db8").service("db8APIService", function(debateFactory){
   var idUserN = "";
+  var user = "";
 
   //------------------------SUBSCRIBE-----------------------------------------
 
@@ -95,8 +96,6 @@ angular.module("db8").service("db8APIService", function(debateFactory){
           };
 
         });
-
-
 
       }else {
         //alert(String(vm.teste[0]["_id"]));

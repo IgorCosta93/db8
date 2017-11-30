@@ -17,7 +17,7 @@ module.exports.getSubjectTopic = function(req,res){
             .status(500)
             .json(err);
         }else {
-          console.log("Found the topics", topics.length);
+          //console.log("Found the topics", topics.length);
           res
             .json(topics);
         }
@@ -38,7 +38,7 @@ module.exports.getAllSubject = function(req,res){
             .status(500)
             .json(err);
         }else {
-          console.log("Found the topics", topics.length);
+          //console.log("Found the topics", topics.length);
           res
             .json(topics);
         }
@@ -60,7 +60,7 @@ module.exports.getSubject = function(req,res){
             .status(500)
             .json(err);
         }else {
-          console.log("Found the topics", topics.length);
+          //console.log("Found the topics", topics.length);
           res
             .json(topics);
         }
@@ -198,7 +198,7 @@ module.exports.updateTopic = function(req,res){
           console.log(err);
         }else {
           res.status(200).send(topics)
-          console.log(topics);
+          //console.log(topics);
         }
       });
     }
@@ -222,7 +222,7 @@ module.exports.updateTopicSujestion = function(req,res){
           console.log(err);
         }else {
           res.status(200).send(topics)
-          console.log(topics);
+          //console.log(topics);
         }
       });
     }
@@ -270,7 +270,7 @@ module.exports.notifyUser = function(req,res){
             res
               .status(200)
               .send(topicsNotify);
-              console.log(topicsNotify);
+              //console.log(topicsNotify);
           }
         });
       }
@@ -298,7 +298,7 @@ module.exports.unNotifyUser = function(req,res){
             res
               .status(200)
               .send(topicsNotify);
-              console.log(topicsNotify);
+              //console.log(topicsNotify);
           }
         });
       }
