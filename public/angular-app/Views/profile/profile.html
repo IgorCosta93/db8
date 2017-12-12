@@ -1,9 +1,11 @@
 <div id="container" class="container">
   <h1>This is a profile</h1>
 
-  <!-- SUJESTIONS -->
-  <div id="sujestion" class="">
-    <!-- Website Overview -->
+
+
+  <!-- SUJESTIONS
+  <div id="sujestion" class="">-->
+    <!-- Website Overview
     <div class="panel panel-default">
       <div class="panel-heading main-color-bg">
         <h3 class="panel-title">Subjects</h3>
@@ -29,14 +31,12 @@
                 <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
                 <td ng-show="vm.subscribe(subject.notification)"><button type="submit" class="btn btn-primary" ng-click="vm.unNotify(subject)">Unsubscribe</button></td>
                 <td ng-show="!vm.subscribe(subject.notification)"><button type="submit" class="btn btn-success" ng-click="vm.notify(subject._id)">Subscribed</button></td>
-                <!--<td ng-repeat="user in subject.notification" ng-init="user=user" ng-show="user.user == vm.loggedInUser"><button type="submit" class="btn btn-primary" ng-click="vm.notify(subject._id)" disabled="true">subscribed</button></td>
-                <td ng-repeat="user in subject.notification" ng-init="user=user" ng-show="user.user != vm.loggedInUser"><button type="submit" class="btn btn-success" ng-click="vm.notify(subject._id)">{{user.user}}</button></td>-->
               </tr>
             </table>
       </div>
       </div>
 
-  </div>
+  </div> -->
 
 </div>
 <br>

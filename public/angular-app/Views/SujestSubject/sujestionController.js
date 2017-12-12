@@ -3,6 +3,7 @@ angular.module('db8').controller('sujestionController', sujestionController);
 function sujestionController($http, $scope, AuthFactory, debateFactory,$route, $routeParams, $window,jwtHelper){
     var vm = this;
     vm.topic = $routeParams.topic;
+    vm.igor = "Igor";
 
     vm.postSujestion = function(){
       var post = {
@@ -21,6 +22,7 @@ function sujestionController($http, $scope, AuthFactory, debateFactory,$route, $
         });
         vm.message = 'Successful add sujestion.';
         vm.error = '';
+        document.getElementById('topics').value = '';
       }
     };
 
@@ -31,5 +33,4 @@ function sujestionController($http, $scope, AuthFactory, debateFactory,$route, $
         return false;
       }
     };
-
-}
+};

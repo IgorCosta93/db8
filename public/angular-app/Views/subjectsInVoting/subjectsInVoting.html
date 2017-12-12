@@ -22,8 +22,8 @@
   <div id="message" ng-if="vm.message" class="alert alert-success" role="alert" ng-hide="vm.hideLoader">
     <p>{{ vm.message }}</p>
   </div>
-  <div id="sujestion" class="">
-    <!-- Website Overview -->
+  <!--<div id="sujestion" class="">
+
     <div class="panel panel-default">
       <div class="panel-heading main-color-bg">
         <h3 class="panel-title">Sujestions</h3>
@@ -39,7 +39,7 @@
               <tr>
                 <th>Topic</th>
                 <th>Sujestion</th>
-                <!--<th>Votes</th>-->
+                <!--<th>Votes</th>
                 <th>Created</th>
                 <th></th>
                 <th></th>
@@ -51,14 +51,50 @@
                 <td>{{subject.createdOn | date:'dd/MM/yyyy HH:mm'}}</td>
                 <!--<td ng-repeat="user in subject.users" ng-show="false">{{user.user}}</td>
                 <!--<td><button type="button" class="btn btn-success" ng-click="vm.verifyVote(subject._id)">TESTE</button></td>
-                <td><button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button></td>-->
+                <td><button type="button" class="btn btn-primary" ng-click="vm.vote(subject)">SIM</button></td>
                 <td><button type="button" class="btn btn-primary" ng-click="vm.verifyVote(subject._id)">SIM</button></td>
                 <td><button type="button" class="btn btn-danger" ng-click="vm.voteN(subject._id)">NÃO</button></td>
                 <td ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
               </tr>
             </table>
       </div>
-      </div>
+    </div>-->
 
+
+    <div class="container"><section class="row">
+      <a id = "btnVoltar" href="javascript:window.history.go(-1)" class=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      <h3>Vote in the Subjects to Apper has Conversations</h3><br>
+
+       <article class="col-sm-12 col-md-10">
+         <!--ROW LEFT-->
+         <div class="row">
+
+          <div class="col-sm-4" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+            <div class="articles">
+             <figure class="article-image is-16by9">
+               <img src="{{subject.image}}" alt="">
+             </figure>
+             <div class="article-body">
+               <h2 class="article-title">
+                 {{subject.topic}}
+               </h2>
+               <p class="article-content">
+                 {{subject.subject}}
+               </p>
+               <footer class="article-info" ng-repeat="user in subject.users" ng-show="user.user != vm.loggedInUser">
+                 <button type="button" class="btn btn-primary" ng-click="vm.verifyVote(subject._id)">SIM</button>
+                 <button type="button" class="btn btn-danger" ng-click="vm.voteN(subject._id)">NÃO</button>
+               </footer>
+               <footer class="article-info" ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser">
+                 <p ng-repeat="user in subject.users" ng-show="user.user == vm.loggedInUser"><b>You have alredy vote</b></p>
+               </footer>
+             </div>
+            </div>
+          </div>
+
+         </div>
+       </article>
+
+    </section></div>
   </div>
 </div>

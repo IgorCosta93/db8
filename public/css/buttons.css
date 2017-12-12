@@ -21,6 +21,7 @@ button#btnAcceptN{
   border-radius: 15px;
 }
 button#btnAcceptN i{
+
   font-size: 20px;
   color: white;
 }
@@ -39,4 +40,17 @@ i#main{
 i#mainU{
   font-size: 15px;
   color: black;
+}
+
+/*----SUJESTIONS-------*/
+.btn-half{
+  background-color: #449D44;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+/*---IN VOTING--------*/
+a#btnVoltar{
+  
 }

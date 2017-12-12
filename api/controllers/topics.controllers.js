@@ -138,6 +138,9 @@ module.exports.addTopic = function(req,res){
         votes         : 0,
         createdOn     : req.body.createdOn,
         active        : "NAO",
+        users  : {
+          user    : "user"
+        },
         notification  : {
           user    : "user"
         }
@@ -163,6 +166,9 @@ module.exports.addNews = function(req,res){
         subject       : req.body.subject,
         image         : req.body.image,
         createdOn     : req.body.createdOn,
+        users  : {
+          user    : "user"
+        },
         notification  : {
           user    : "user"
         }

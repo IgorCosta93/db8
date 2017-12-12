@@ -2,7 +2,20 @@ angular.module('db8').controller('profileController', profileController);
 
 function profileController($http, $scope, AuthFactory, debateFactory,$route, $routeParams,$window,jwtHelper){
     var vm = this;
-    vm.user = [];
+
+    vm.verificar = function(){
+      $http.get('192.168.0.100', function(res){
+        if(res.statusCode == 200)
+          console.log("This site is up and running");
+        else {
+          console.log("This site might be down "+ res.statusCode);
+        }
+      });
+      console.log("TESTE");
+    };
+    vm.verificar();
+
+    /*vm.user = [];
     var token = $window.sessionStorage.token;
     var decodedToken = jwtHelper.decodeToken(token);
     vm.loggedInUser = decodedToken.username;
@@ -71,6 +84,6 @@ function profileController($http, $scope, AuthFactory, debateFactory,$route, $ro
       } else {
         return false;
       }
-    };
+    };*/
 
 }
