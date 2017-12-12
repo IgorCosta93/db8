@@ -4,24 +4,3 @@ form#coments{
   margin-left: auto;
   margin-right: auto;
 }
-
-input#btnDeleteComent{
-  width: 30px;
-  height: 20px;
-}
-
-.messageLogin {
-  height: 100%;
-  min-height: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.messageLogin div {
-  padding: 40px;
-  border: 1px solid rgba(0, 0, 0, .3)
-}

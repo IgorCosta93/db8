@@ -47,10 +47,6 @@ img#logoFooter{
   height: 120px;
 }
 
-div#container{
-  padding-top: 40px;
-  height: 85vh;
-}
 .submit-btn{
   background-color: #b1dbff;
   margin: 10px 0 10px 0;
@@ -133,11 +129,6 @@ header h1{
 
 /*--------DIV post---------*/
 
-a#posts{
-  text-decoration: none;
-  color: black;
-}
-
 .fa{
   /*padding: 10px;
   font-size: 20px;
@@ -146,4 +137,179 @@ a#posts{
 .fa:hover{
   /*color: #D5D5D5;
   text-decoration: none;*/
+}
+
+/*-----------------------TAG A---------------------*/
+
+a#posts{
+  text-decoration: none;
+  color: black;
+}
+
+a#article {
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+a#topic {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+/*-----------------------TAG BUTTON---------------------*/
+
+button#btnDeniedN{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+button#btnDeniedN i{
+  font-size: 20px;
+  color: white;
+}
+
+button#btnAcceptN{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+button#btnAcceptN i{
+
+  font-size: 20px;
+  color: white;
+}
+
+/* DEBATE */
+
+button#btndebate{
+  margin-top: 5px;
+  width: 110px;
+}
+
+button#btndebate{
+  margin-top: 5px;
+  width: 110px;
+}
+
+/*-----------------------TAG DIV---------------------*/
+
+div#container{
+  padding-top: 40px;
+  height: 85vh;
+}
+
+/*DEBATES*/
+
+div#debate{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  width: 50%;
+  float: left;
+}
+
+div#debate i{
+  color : green;
+  font-size: 25px;
+}
+
+div#debate a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+/*REQUEST  */
+
+div#request{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  padding-right: : 40px;
+  width: 50%;
+  float: right;
+}
+
+div#request i{
+  color : green;
+  font-size: 25px;
+}
+
+div#request a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+/* MAIN */
+
+div#main{
+  max-width: 500px;
+  background: rgba(255,255,255,0.2);
+  padding: 2rem;
+  color: white;
+}
+
+div#main p{
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* REGISTER */
+
+div#register{
+  padding-top: 60px;
+  width: 100%;
+  font-family: tahoma;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(../_imagens/register.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+div#registerBox{
+  width: 600px;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  padding-top: 10px;
+  padding-bottom:20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 5px 5px 5px black;
+}
+
+/*-----------------------TAG INPUT---------------------*/
+
+/* CHAT*/
+
+input#btnDeleteComent{
+  width: 30px;
+  height: 20px;
+}
+
+/* DEBATE */
+
+input#debate{
+  margin-bottom: 10px;
+}
+
+input#request{
+  margin-bottom: 10px;
 }
