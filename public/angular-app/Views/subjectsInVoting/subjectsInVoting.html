@@ -63,13 +63,13 @@
 
     <div class="container"><section class="row">
       <a id = "btnVoltar" href="javascript:window.history.go(-1)" class=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-      <h3>Vote in the Subjects to Apper has Conversations</h3><br>
+      <h3 id="vote">Vote in the Subjects to Apper has Conversations</h3><br>
 
-       <article class="col-sm-12 col-md-10">
+        <article class="col-md-20">
          <!--ROW LEFT-->
          <div class="row">
 
-          <div class="col-sm-4" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
+          <div id = "Subjects" class="col-md-2" ng-repeat="subject in vm.subjects | orderBy:'createdOn':true">
             <div class="articles">
              <figure class="article-image is-16by9">
                <img src="{{subject.image}}" alt="">

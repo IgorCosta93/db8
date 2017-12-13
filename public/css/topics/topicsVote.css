@@ -1,6 +1,6 @@
 div#vote{
-  padding-top: 80px;
-  height: 85vh;
+  padding-top: 60px;
+  height: 100%;
 }
 
 div#vote i{
@@ -14,4 +14,8 @@ input#topic{
 button#btnVote{
   margin-top: 5px;
   width: 110px;
+}
+
+h3#vote{
+  margin-top: 1px;
 }

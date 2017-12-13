@@ -1,4 +1,132 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+/* SCREEN */
+
+/* This set the value of % that the div ocupade in the screen  */
+.height-80 {
+    height: 75vh;
+}
+.container{
+  min-height: 100%;
+}
+
+.submit-btn{
+  background-color: #b1dbff;
+  margin: 10px 0 10px 0;
+}
+.post{
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.odd {
+  background-color: #f2f9ff;
+}
+.even {
+  background-color: #eceff3;
+}
+.form-auth {
+  max-width: 500px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.hero{
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* SECTION */
+.copy{
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-indent: 30px;
+}
+.feactures h3:after{
+  width: 100px;
+  height: 2px;
+  background-color: #e67e22;
+  display: block;
+  content: "";
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.feactures{
+  margin-bottom: 60px;
+}
+.feactures h3{
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+.arranging{
+  text-align: justify;
+}
+.feactures i{
+  font-size: 40px;
+  color: #3d5f81;
+  margin-left: 45%;
+}
+.feactures h4{
+  margin-left: 50px;
+}
+
+/*--------DIV post---------*/
+
+.fa{
+  /*padding: 10px;
+  font-size: 20px;
+  color: #FFF;*/
+}
+.fa:hover{
+  /*color: #D5D5D5;
+  text-decoration: none;*/
+}
+
+/* Custom */
+.main-color-bg{
+  background-color: #003300 !important;
+  /*border-color: #c0392b !important;*/
+  color:#ffffff !important;
+}
+
+/* Header */
+#header{
+  background:#333333;
+  color:#ffffff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#header .create{
+  padding-top: 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb{
+  background:#cccccc;
+  color:#333333;
+}
+
+.breadcrumb a{
+  color:#333333;
+}
+
+/* Progress Bars */
+.progress-bar{
+  background:#333333;
+  color:#ffffff;
+}
+
+.dash-box{
+  text-align:center;
+}
+
+
 /*----SUJESTIONS-------*/
 .btn-half{
   background-color: #449D44;
