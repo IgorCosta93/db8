@@ -93,6 +93,47 @@ button#btndebate{
   width: 110px;
 }
 
+/*MAIN*/
+
+button#carousel{
+  margin-left: 35%;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 12px
+}
+button#carousel:hover{
+  background-color: #006600;
+}
+
+/*TOPICS*/
+
+button#btnOptions{
+  width: 200px;
+  margin-right: 20px;
+}
+
+button#btnControl{
+  width: 70px;
+  text-align: center;
+}
+
+button#topic {
+    background-color: #449D44;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+button#topic:hover, a:hover {
+    opacity: 0.7;
+}
+
 /*-----------------------TAG DIV---------------------*/
 
 div#container{
@@ -196,6 +237,24 @@ div#Subjects{
   margin-right: 80px;
 }
 
+/*------------------------TAG FORM---------------------*/
+
+form#coments{
+  width: 500px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*TOPICS*/
+
+form#options{
+  width: 700px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*-----------------------TAG HEADER--------------------*/
 
 header{
@@ -228,6 +287,18 @@ header h1{
   text-align: center;
   font-weight: 400;
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/*-----------------------TAG I-------------------------*/
+
+i#main{
+  font-size: 15px;
+  color: gray;
+}
+
+i#mainU{
+  font-size: 15px;
+  color: black;
 }
 
 /*-----------------------TAG IMG-----------------------*/
@@ -271,4 +342,10 @@ input#request{
 
 section#main{
   margin-top: 6%;
+}
+
+/*-------------------------TAG SPAN--------------------*/
+
+span#main{
+  margin-right: 8px;
 }
