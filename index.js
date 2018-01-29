@@ -1,6 +1,9 @@
 require('./api/data/db.js');
 var express = require('express');
+var compression = require('compression');
 var app = express();
+app.use(compression());
+
 var path = require('path');
 var bodyParser = require('body-parser');
 
