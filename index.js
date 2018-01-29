@@ -2,6 +2,7 @@ require('./api/data/db.js');
 var express = require('express');
 var compression = require('compression');
 var app = express();
+var minify = require('html-minifier').minify;
 app.use(compression());
 
 var path = require('path');
@@ -11,7 +12,12 @@ var routes = require('./api/routes');
 
 app.set('port', (process.env.PORT || 3000));
 
+//var result = minify(express.static(__dirname + '/public'), {
+  //removeAttributeQuotes: true
+//});
+
 app.use(express.static(__dirname + '/public'));
+//app.use(result);
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
 
