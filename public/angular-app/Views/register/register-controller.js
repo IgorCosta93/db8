@@ -1,6 +1,6 @@
 angular.module('db8').controller('RegisterController', RegisterController);
 
-function RegisterController($http,$scope){
+function RegisterController($http,$scope,$location){
   var vm = this;
 
   vm.register = function() {
@@ -20,6 +20,9 @@ function RegisterController($http,$scope){
             console.log(result);
             vm.message = 'Successful registration, please login.';
             vm.error = '';
+            setTimeout(() => {
+              $location.path('/'); ; // Redirect to login view
+            }, 1000);
           }).catch(function(error){
             console.log(error);
           });
